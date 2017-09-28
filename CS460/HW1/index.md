@@ -25,4 +25,7 @@ git pull origin master
 
 ### Step2: HTML, CSS, and Bootstrap
 
+The Website I created can be viewed [here](https://skoliver89.github.io/CS460/HW1/hw1.html).
+
+
 
