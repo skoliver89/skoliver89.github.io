@@ -31,10 +31,10 @@ First, I created a README file that spells out the topic and page setup of my we
 Also, I was sure to include the resources I used to create the pages.
 At this point I created a general html template using bootstrap and my css stylesheet.
 
-```bash
+```html
 <html lang="en">
   <head>
-    <title>Squeaks\' Overwatch Fansite</title>
+    <title>Squeaks' Overwatch Fansite</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
