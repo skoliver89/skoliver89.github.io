@@ -119,3 +119,5 @@ I then setup the container under the navbar that would hold the content for the 
 ### Step 4: GitHub Pages and Journal Entry
 
 This step was simple. All I did was go into the remote repo's settings and make sure that github pages was active and selected a theme. As for the journal entries, I added index.md files to the main repo folder and the HW1 folder. The main index file contains an intro the the portfolio and links to the assignments. Within the HW1 index file I created the content you are reading now! I then, as before, added, commited, and pushed the index files and github pages took care of the rest.
+
+[back to homepage](https://skoliver89.github.io)
