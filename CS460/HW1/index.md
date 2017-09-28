@@ -112,11 +112,38 @@ I then setup the container under the navbar that would hold the content for the 
       </div>
     </div>
 ```
-Now that we have a basic template setup it is time to start adding some content to the main/home page. Lets title it: "About The Player: Squeaks". It might also be valuable to add and image and some lists to display some interesting info about me, the player.
+Now that we have a basic template setup it is time to start adding some content to the main/home page. Lets title it: "About The Player: Squeaks". It might also be valuable to add and image and some lists to display some interesting info about me, the player. We can also start working on our css file.
+
+For the css file I change some padding, min-height, max-width, and background colors and images.
+```css
+html, body {
+    height: 100%;
+    }
+body {
+    padding-top: 60px;
+    background-image: url("assets/HW1-SiteBG.jpg");
+    background-color: #0D0D0D;
+}
+#main-container {
+    max-width: 90%;
+    min-height: 100%;
+    background-image: url("assets/HW1-containerBG.jpg");
+    background-color: #f2f2f2;
+}
+#header-row {
+    padding-bottom: 8px;
+}
+```
+I decided to keep the text as default value for now to keep it simple.
 
 Next, lets add our next page called "My Stats" and populate it with some generic gameplay stats for me.
 
 For the next two pages we will add in some pictures, stats, and general notes on my top two favorite characters. I decided to removed the third favorite, Reaper, to simplify the assinment a little.
+
+Here we can see an example of some page content from the homepage.
+```html
+<!-- Page Content -->
+```
 
 Finally, now that the other pages are created we need to replace the # marks in the hrefs to be links to the apropriate pages.
 
