@@ -27,5 +27,7 @@ git pull origin master
 
 The Website I created can be viewed [here](https://skoliver89.github.io/CS460/HW1/hw1.html).
 
+### Step3: Cloning
 
 
+### Step4: GitHub Pages and Journal Entry
