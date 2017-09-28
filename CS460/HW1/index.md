@@ -112,6 +112,11 @@ I then setup the container under the navbar that would hold the content for the 
       </div>
     </div>
 ```
+Now that we have a basic template setup it is time to start adding some content to the main/home page. Lets title it: "About The Player: Squeaks". It might also be valuable to add and image and some lists to display some interesting info about me, the player.
+
+Next, lets add our next page called "My Stats" and populate it with some generic gameplay stats for me.
+
+For the next two pages we will add in some pictures, stats, and general notes on my top two favorite characters. I decided to removed the third favorite, Reaper, to simplify the assinment a little.
 
 ### Step 3: Cloning
 
