@@ -146,6 +146,28 @@ Here we can see an example of some page content from the homepage.
 ```
 
 Finally, now that the other pages are created we need to replace the # marks in the hrefs to be links to the apropriate pages.
+The previous navbar code:
+```html
+<li class="nav-item">
+              <a class="nav-link" href="#">My Stats</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" 
+              id="navbarDropdownMenuLink" data-toggle="dropdown" 
+              aria-haspopup="true" aria-expanded="false">
+                My Favorite Heroes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">D.Va</a>
+                <a class="dropdown-item" href="#">Lucio</a>
+                <a class="dropdown-item" href="#">Reaper</a>
+              </div>
+            </li>
+```
+Turns into:
+```html
+<!-- changed code here -->
+```
 
 ### Step 3: Cloning
 
