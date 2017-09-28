@@ -30,7 +30,6 @@ The Website I created can be viewed [here](https://skoliver89.github.io/CS460/HW
 First, I created a README file that spells out the topic and page setup of my website. 
 Also, I was sure to include the resources I used to create the pages.
 At this point I created a general html template using bootstrap and my css stylesheet.
-
 ```html
 <html lang="en">
   <head>
@@ -61,6 +60,42 @@ At this point I created a general html template using bootstrap and my css style
     crossorigin="anonymous"></script>
   </body>
 </html>
+```
+Next, I added in the Navigation Bar using Unordered Lists within a bootstrap navbar class. Also, this navbar contains a dropdown menu and the ability to collapse if the screen/window is small.
+```html
+<!-- Nav Bar -->
+    <nav class="navbar fixed-top navbar-fixed navbar-expand-lg navbar-dark" style="background-color: #0d0d0d;">
+      <a class="navbar-brand" href="index.html">Overwatch</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)
+                </span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Stats</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" 
+              id="navbarDropdownMenuLink" data-toggle="dropdown" 
+              aria-haspopup="true" aria-expanded="false">
+                My Favorite Heroes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">D.Va</a>
+                <a class="dropdown-item" href="#">Lucio</a>
+                <a class="dropdown-item" href="#">Reaper</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 ```
 
 ### Step 3: Cloning
