@@ -23,11 +23,11 @@ git remote add origin https://github.com/skoliver89/skoliver89.github.io
 git pull origin master
 ```
 
-### Step2: HTML, CSS, and Bootstrap
+### Step 2: HTML, CSS, and Bootstrap
 
 The Website I created can be viewed [here](https://skoliver89.github.io/CS460/HW1/hw1.html).
 
-### Step3: Cloning
+### Step 3: Cloning
 
 
-### Step4: GitHub Pages and Journal Entry
+### Step 4: GitHub Pages and Journal Entry
