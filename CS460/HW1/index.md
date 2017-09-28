@@ -118,6 +118,8 @@ Next, lets add our next page called "My Stats" and populate it with some generic
 
 For the next two pages we will add in some pictures, stats, and general notes on my top two favorite characters. I decided to removed the third favorite, Reaper, to simplify the assinment a little.
 
+Finally, now that the other pages are created we need to replace the # marks in the hrefs to be links to the apropriate pages.
+
 ### Step 3: Cloning
 
 
