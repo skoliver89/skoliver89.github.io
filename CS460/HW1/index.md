@@ -149,20 +149,20 @@ Finally, now that the other pages are created we need to replace the # marks in 
 The previous navbar code:
 ```html
 <li class="nav-item">
-              <a class="nav-link" href="#">My Stats</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" 
-              id="navbarDropdownMenuLink" data-toggle="dropdown" 
-              aria-haspopup="true" aria-expanded="false">
-                My Favorite Heroes
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">D.Va</a>
-                <a class="dropdown-item" href="#">Lucio</a>
-                <a class="dropdown-item" href="#">Reaper</a>
-              </div>
-            </li>
+    <a class="nav-link" href="#">My Stats</a>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="http://example.com" 
+    id="navbarDropdownMenuLink" data-toggle="dropdown" 
+    aria-haspopup="true" aria-expanded="false">
+        My Favorite Heroes
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="#">D.Va</a>
+        <a class="dropdown-item" href="#">Lucio</a>
+        <a class="dropdown-item" href="#">Reaper</a>
+    </div>
+</li>
 ```
 Turns into:
 ```html
