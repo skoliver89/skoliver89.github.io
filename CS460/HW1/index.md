@@ -173,6 +173,10 @@ image and a description list in the for of a short mock interview.
       </div>
     </div>
 ```
+This is what a 2+ column layout looks like:
+```html
+<!-- Page Content -->
+```
 Here is an ordered list example:
 ```html
 <!-- Page Content -->
@@ -201,9 +205,22 @@ The previous navbar code:
     </div>
 </li>
 ```
-Turns into:
+Turns into (for the homepage):
 ```html
-<!-- changed code here -->
+<li class="nav-item">
+    <a class="nav-link" href="stats.html">My Stats</a>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="http://example.com" 
+    id="navbarDropdownMenuLink" data-toggle="dropdown" 
+    aria-haspopup="true" aria-expanded="false">
+        My Favorite Heroes
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="dva.html">D.Va</a>
+        <a class="dropdown-item" href="lucio.html">Lucio</a>
+    </div>
+</li>
 ```
 
 ### Step 3: Cloning
