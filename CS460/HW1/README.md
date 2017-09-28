@@ -1,15 +1,15 @@
 This README will contain helpful documentation for HW1 of the 2017-18 WOU
 Senior Project class.
 
-REFERENCE LINKS
-Guide to using bootstrap: 
-https://getbootstrap.com/docs/4.0/getting-started/introduction/
+REFERENCE LINKS<br />
+Guide to using bootstrap: <br />
+https://getbootstrap.com/docs/4.0/getting-started/introduction/<br />
 
-W3 Schools CSS Reference:
-https://www.w3schools.com/cssref/default.asp
+W3 Schools CSS Reference:<br />
+https://www.w3schools.com/cssref/default.asp<br />
 
-PLAN OF ATTACK
-    Topic: Overwatch fansite
+PLAN OF ATTACK<br />
+    Topic: Overwatch fansite<br />
 
     Pages:
         1. Home - About Me
