@@ -2,7 +2,7 @@
 title: Stephen Oliver
 layout: default
 ---
-## Homework 1 - Journal
+## CS460 Homework 1 - Journal
 
 Homework 1 contains tasks to familiarize one's self with HTML, CSS, and Git. Also, we were instructed
 to use the Bootstrap framework to improve the style of our pages.
@@ -96,6 +96,21 @@ Next, I added in the Navigation Bar using Unordered Lists within a bootstrap nav
         </div>
       </div>
     </nav>
+```
+I then setup the container under the navbar that would hold the content for the homepage. I decided to make the homepage a simplier, one column, style.
+```html
+<!-- Page Content -->
+    <div class="container-fluid" id="main-container">
+      <div class="row" id="header-row">
+          <h1>Page Title</h1>
+      </div>   
+      <div class="row" id="content-home">
+          <p>Content stuff goes here</p>
+      </div>
+      <div class="row" id="content-home">
+          <p>Content stuff goes here</p>
+      </div>
+    </div>
 ```
 
 ### Step 3: Cloning
