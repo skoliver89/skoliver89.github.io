@@ -29,7 +29,7 @@ The Website I created can be viewed [here](https://skoliver89.github.io/CS460/HW
 
 First, I created a README file that spells out the topic and page setup of my website. 
 Also, I was sure to include the resources I used to create the pages.
-At this point I created a general html template using bootstrap and my css stylesheet.
+At this point I created a general html template using bootstrap and my css stylesheet. This basic template was found on the bootstrap site and I modified it for my project.
 ```html
 <html lang="en">
   <head>
@@ -61,7 +61,7 @@ At this point I created a general html template using bootstrap and my css style
   </body>
 </html>
 ```
-Next, I added in the Navigation Bar using Unordered Lists within a bootstrap navbar class. Also, this navbar contains a dropdown menu and the ability to collapse if the screen/window is small.
+Next, I added in the Navigation Bar using Unordered Lists within a bootstrap navbar class. Also, this navbar contains a dropdown menu and the ability to collapse if the screen/window is small. I also found the code for this navbar on the bootstrap site and modified it to fit with my project better.
 ```html
 <!-- Nav Bar -->
     <nav class="navbar fixed-top navbar-fixed navbar-expand-lg navbar-dark" style="background-color: #0d0d0d;">
