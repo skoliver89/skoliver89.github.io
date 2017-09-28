@@ -7,9 +7,9 @@ layout: default
 This GitHub pages domain is where I will be keeping my portfolio for the CS46X series of classes at Western
 Oregon University.
 
-### About Me (or About this Example)
+### About Me
 
-I am a Senior in Western Oregon University's Computer Science Program. It is a requirement to graduate to take the CS46X series of classes, also known as Senior Project-Software Engineering I/II/III.
+I am a Senior in Western Oregon University's Computer Science Program. It is a requirement to graduate to take the CS46X series of classes, also known as Software Engineering I/II/III. These courses are a requirement for my senior project at WOU.
 
 "Students at Western Oregon University create a Portfolio of their work during their Senior year.  This is done as a part of the Senior Project, a year-long Software Engineering course ([CS 460](http://www.wou.edu/~morses/classes/cs46x/index.html), 461 and 462)." -Professor Scot Morse
 
