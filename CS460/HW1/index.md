@@ -140,7 +140,44 @@ Next, lets add our next page called "My Stats" and populate it with some generic
 
 For the next two pages we will add in some pictures, stats, and general notes on my top two favorite characters. I decided to removed the third favorite, Reaper, to simplify the assinment a little.
 
-Here we can see an example of some page content from the homepage.
+Here we can see an example of some page content from the homepage. I have used a bootstrap
+image and a description list in the for of a short mock interview.
+```html
+<!-- Page Content -->
+    <div class="container-fluid" id="main-container">
+      <div class="row" id="header-row">
+          <h1>Home - About Me</h1>
+      </div>   
+      <div class="row" id="image-home">
+        <img src="assets\Me.jpg" class="img-fluid" alt="image broken!"> 
+      </div>
+      <div class="row" id="content-home">
+        <dl>
+          <dt>How old are you?</dt>
+          <dd>Currently, I am 28 years old.</dd>
+          <dt>When did you start gaming?</dt>
+          <dd>I started gaming when I was about 6 years old playing a coloring
+          book game on my parents' PC. Things started to get serious once I started
+          playing Mario games on the NES and SNES.
+          </dd>
+          <dt>How did you get into competive games, like Overwatch?</dt>
+          <dd>I first started playing competive games when my Dad let me play
+          Wolfenstein ET, but I didn't play much and only really got into the
+          game type once Overwatch released to beta.
+          </dd>
+          <dt>What is your favorite thing about Overwatch?</dt>
+          <dd>I have to say that my all time favorite thing about the game [Overwatch]
+          is that it is a ton of fun to play with friends and try out new team compositions.
+          </dd>
+        </dl>
+      </div>
+    </div>
+```
+Here is an ordered list example:
+```html
+<!-- Page Content -->
+```
+And an unordered list:
 ```html
 <!-- Page Content -->
 ```
