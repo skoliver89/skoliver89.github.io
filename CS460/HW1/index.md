@@ -224,7 +224,15 @@ Turns into (for the homepage):
 ```
 
 ### Step 3: Cloning
-
+We were instructed to clone our remote repositories to a different drive. I decided to clone my remote repo to my laptop. I will be working on some of my work from locations away from my desk so I will need this repo anyway, two birds with on stone!
+First, I navigated to the My Documents folder and launched git bash.
+The following bash is an example of how I cloned my code to my laptop.
+```bash
+mkdir SeniorProject
+cd SeniorProject
+git clone https://github.com/skoliver89/skoliver89.github.io
+```
+The SeniorProject directory now contains a clone of the skolier89.github.io repository. As an important note, one must be sure to pull the remote repo when switching to a different machine and to push any changes that are need to be saved prior to leaving the old machine.
 
 ### Step 4: GitHub Pages and Journal Entry
 
