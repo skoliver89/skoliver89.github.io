@@ -1,5 +1,5 @@
 html, body {
-    height: 100%;
+    height: auto;
     }
 body {
     padding-top: 60px;
@@ -8,10 +8,13 @@ body {
 }
 #main-container {
     max-width: 90%;
-    min-height: 100%;
+    min-height: auto;
     background-image: url("assets/HW1-containerBG.jpg");
     background-color: #f2f2f2;
 }
 #header-row {
     padding-bottom: 8px;
+}
+#img-row {
+    padding-bottom: 10px;
 }
