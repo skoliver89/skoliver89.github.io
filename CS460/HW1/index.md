@@ -112,12 +112,32 @@ I then setup the container under the navbar that would hold the content for the 
       </div>
     </div>
 ```
+This is what a 2+ column layout looks like:
+```html
+<!-- Page Content -->
+<div class="container-fluid" id="main-container">
+    <div class="row">
+        <div class="col">
+        <!-- Column 1 of Row 1 -->
+        </div>
+        <div class ="col">
+        <!-- Column 2 of Row 1 -->
+        </div>
+        <div class="col">
+        <!-- Column 3 of Row 1 -->
+        </div>
+    </div>
+    <div class="row">
+    <!-- This Row Has Only one column!! -->
+    </div>
+</div>
+```
 Now that we have a basic template setup it is time to start adding some content to the main/home page. Lets title it: "About The Player: Squeaks". It might also be valuable to add and image and some lists to display some interesting info about me, the player. We can also start working on our css file.
 
 For the css file I change some padding, min-height, max-width, and background colors and images.
 ```css
 html, body {
-    height: 100%;
+    height: auto;
     }
 body {
     padding-top: 60px;
@@ -126,12 +146,15 @@ body {
 }
 #main-container {
     max-width: 90%;
-    min-height: 100%;
+    min-height: auto;
     background-image: url("assets/HW1-containerBG.jpg");
     background-color: #f2f2f2;
 }
 #header-row {
     padding-bottom: 8px;
+}
+#img-row {
+    padding-bottom: 10px;
 }
 ```
 I decided to keep the text as default value for now to keep it simple.
@@ -173,17 +196,25 @@ image and a description list in the for of a short mock interview.
       </div>
     </div>
 ```
-This is what a 2+ column layout looks like:
-```html
-<!-- Page Content -->
-```
 Here is an ordered list example:
 ```html
 <!-- Page Content -->
+<ol>
+    <li>Sonic Amplifier</li>
+    <li>Crossfade</li>
+    <li>Amp It Up</li>
+    <li>Sound Barrier</li>
+</ol>
 ```
 And an unordered list:
 ```html
 <!-- Page Content -->
+<ul>
+    <li>Image courtesy of: <a href="https://playoverwatch.com">playoverwatch.com</a></li>
+    <li>Abilities and Facts are from: <a href="https://playoverwatch.com">playoverwatch.com</a></li>
+    <li>Player-Character Stats are from: <a href="https://overprogress.com">overprogress.com</a></li>
+    <li>Don't forget to wall-ride!!</li>
+</ul>
 ```
 
 Finally, now that the other pages are created we need to replace the # marks in the hrefs to be links to the apropriate pages.
