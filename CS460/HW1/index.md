@@ -216,6 +216,40 @@ And an unordered list:
     <li>Don't forget to wall-ride!!</li>
 </ul>
 ```
+We were also instructed to include information in a table format. I decided to display my player stats and player-character stats in table format. The following code snippet is an example of how I used tables to represent this data:
+```html
+<!-- A Table of Stats -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stat</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Play Time</th>
+            <td>7 Hours</td>
+        </tr>
+        <tr>
+            <th scope="row">Games Won</th>
+            <td>37</td>
+        </tr>
+        <tr>
+            <th scope="row">Eliminations per Life</th>
+            <td>1.19</td>
+        </tr>
+        <tr>
+            <th scope="row">Gold Medals</th>
+            <td>104</td>
+        </tr>
+        <tr>
+            <th scope="row">Healing Done</th>
+            <td>365,309</td>
+        </tr>
+    </tbody>
+</table>
+```
 
 Finally, now that the other pages are created we need to replace the # marks in the hrefs to be links to the apropriate pages.
 The previous navbar code:
