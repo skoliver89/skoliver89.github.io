@@ -8,7 +8,7 @@ Homework 2 is designed to famlilizrize the student with HTML forms, javascipt, a
 
 Instructions for HW2 can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW2.html).
 
-The Website I created can be viewed [here](https://skoliver89.github.io/CS460/HW2/index.html).
+The Website I created can be viewed [here](https://skoliver89.github.io/CS460/HW2/hw2.html).
 ## Step 1: Create a new feature branch, an empty HTML file, and an empty CSS file
 
 ## Step 2: Brainstorm an idea and create a wireframe for design
