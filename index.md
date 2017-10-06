@@ -10,7 +10,7 @@ Oregon University. I will also be providing a detailed journal which will illust
 ### About Me
 
 I am a Senior in Western Oregon University's Computer Science Program. It is a requirement to graduate to take the CS46X series of classes, also known as Software Engineering I/II/III. During these courses I will be learning about development methodologies as well as HTML/CSS/BootStrap, Javascript/jQuerry, C#, ASP.NET MVC5, and more. I will also be participating in a group to develop a web-based application and an individual project on either Andriod or iOS.
-To view the full course content please visit the CS460 course site as provided by Dr. Scot Morse [here](http://www.wou.edu/~morses/classes/cs46x/index.html).
+To view the full course content please visit the CS46X course site as provided by Dr. Scot Morse [here](http://www.wou.edu/~morses/classes/cs46x/index.html).
 
 ### Software Engineering I (CS 460): Homework
 
