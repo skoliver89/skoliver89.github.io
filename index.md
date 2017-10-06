@@ -16,5 +16,5 @@ I am a Senior in Western Oregon University's Computer Science Program. It is a r
 ### Software Engineering I (CS 460): Homework
 
 1. [Homework 1](CS460/HW1/index.md): HTML, CSS, Git and Bootstrap
-2. [Homework 2](CS460/HW2/index.md): HTML, Javascript, and jQuery 
+2. [Homework 2](CS460/HW2/index.md): HTML, Javascript, and jQuery  <br />
    (Work in Progress)
