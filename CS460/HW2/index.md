@@ -38,7 +38,12 @@ git push origin newFeature
 
 ## Step 2: Brainstorm an idea and create a wireframe for design
 
+In order to keep the page simple as instructed I decided to design a property tax calculator. This is an extremely simple caculation, but I believe it will play well in the role of teaching me how to implement some javaScript into my pages. After some thought on the idea, I decided to add a little complexity by having the user select a state of residence from a drop-down menu. The home value would still be a simple text-field with some added type checking so that the user can't break the equation. The user will hit the "Calculate" button upon entering the data. If there is a black field I will need to present the user with a message informing them of their error. Also, tax rate data for the selected state will be read and selected from a file storing rates for all states in the U.S. The javaScript will the populate an image, if it has one, of the selected state's flag below the button. The answer to the calculation will populate below the flag. Finally, to add a nice finishing touch the page will display a youTube video (embedded) describing how property taxes are calcaculated at the bottom of the page.
 
+To better Visualize my idea, I created a layout wireframe with a program called Pencil. 
+![My Page's Wireframe](assets/wireframe.png)
+
+Later, I noticed that the rates I will be using are the median rate so I need to add a note in the page footer to warn the user of this.
 
 ## Step 3: Create the page
 
