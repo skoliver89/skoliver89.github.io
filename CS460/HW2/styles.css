@@ -3,8 +3,37 @@ body {
 }
 #pageTitle {
     text-align: center;
-    color: rgba(255, 255, 255, 0.78);
+    color: white;
+    padding-bottom: 10px;
 }
 footer  p {
     color: rgba(255, 162, 0, 0.61);
+}
+div.container form {
+    border-radius: 15px;
+    background: grey;
+    padding: 20px; 
+    color: whitesmoke;
+}
+div.row {
+    justify-content: center;
+}
+#answer {
+    border-radius: 15px;
+    background: rgba(0, 128, 0, 0.6);
+    color: whitesmoke;
+}
+#flag {
+    max-height: 100px; 
+    max-width: 100px;
+    display: none;
+}
+#amntLabel{
+    display: none;
+}
+#amount {
+    display: none;
+}
+footer p{
+    text-align: center;
 }
