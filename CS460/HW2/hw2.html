@@ -14,8 +14,7 @@
     </head>
     <body>
         <h1 id="pageTitle">Property Tax Calculator</h1>
-        <div class="container">
-            <form>
+        <div class="container" id="calcTax">
                 <div class="form-group row">
                     <label for="value" class="col-sm-4 col-form-label">
                         Current Home Value
@@ -38,26 +37,21 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-2">
-                        <button class="btn btn-primary" type="button" onclick="clicked()">
+                        <button class="btn btn-primary" type="submit">
                             Calculate
                         </button>
                     </div>
                 </div>
-            </form>
-            <form id="answer">
-            <div class="form-group row">
-                <div class="col-sm-2">
-                    <img id="flag" src="assets/CAflag.png">
+                <div class="form-group row">
+                    <iframe  id="video" src="https://www.youtube-nocookie.com/embed/xgGbLotF_QQ" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="col-sm-3">
-                    <h5 id="amntLabel">Amount in Property Tax:</h5>
-                    <p id="amount">amount here</p>
+                <div class="container" id="answer">
+                    <div class="row"">
+                        <img src="assets/CAflag.png" class="img-fluid" id="flag">
+                    </div>
+                    <div class="row" id="data">          
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xgGbLotF_QQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </form>
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
