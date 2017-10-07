@@ -45,9 +45,12 @@ To better Visualize my idea, I created a layout wireframe with a program called 
 
 Later, I noticed that the rates I will be using are the median rate so I need to add a note in the page footer to warn the user of this.
 
+NOTE: I found the median rates [here](http://www.tax-rates.org/taxtables/property-tax-by-state)
+
 ## Step 3: Create the page
 
 
+NOTE: To simplify for a proof of concept this version of the page will only work for the states: Washington, Oregon, and California.
 
 ## Step 4: Merge to master
 
