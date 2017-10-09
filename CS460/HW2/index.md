@@ -261,6 +261,11 @@ REMINDER - To simplify for a proof of concept this version of the page will only
 
 ## Step 4: Merge to master
 
-
+The last step is to merge the changes in my "newFeature" branch to the master branch. We were not instructed to remove the "newFeature" branch for this assignment so I elected to keep it around. I then pushed the merge to my remote repository.
+```bash
+git checkout master
+git merge newFeature
+git push origin master
+```
 
 [back to portfolio](https://skoliver89.github.io/)
