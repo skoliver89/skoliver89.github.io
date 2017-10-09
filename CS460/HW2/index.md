@@ -230,7 +230,7 @@ function readState(state){
 ```
 Note: For this proof of concept I decided to only include three states (i.e. CA, OR, and WA) so a switch-case was enoiugh to efficiently find the correct tax rate. However, if I was to include more or all of the states I would use some server-side process to pick the rate out of a file or database. Server-side processing is beyound the scope of this assignment so I kept it simple.
 
-The "calcTax" function simply does the, admittedly easy, expression to find your amount of tax and return the number value.
+The "calcTax" function simply does the, admittedly easy, expression to find your amount of tax and return the number value. 
 ```js
 function calcTax(value, rate){
     var tax = value * rate;
