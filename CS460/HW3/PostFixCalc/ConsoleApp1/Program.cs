@@ -55,7 +55,11 @@ namespace PostFixCalc
 
             return true;
         }
-
+        /// <summary>
+        /// Entry point for running the postfix calculations on the input
+        /// </summary>
+        /// <param name="input">The (user)input string</param>
+        /// <returns>calculation output as a string</returns>
         static string EvaluatePostFixInput(string input)
         {
             string output = "";
@@ -107,6 +111,11 @@ namespace PostFixCalc
             }
         }
 
+        /// <summary>
+        /// check to see if a string is an operator
+        /// </summary>
+        /// <param name="s">a string to check</param>
+        /// <returns>true if the string is an operator</returns>
         static bool IsOperator(string s)
         {
             Regex rgx = new Regex(@"^[+*/-]$");
@@ -117,6 +126,11 @@ namespace PostFixCalc
             return false; //is not and operator
         }
 
+        /// <summary>
+        /// check to see if a string is of a vaild number (positive or negative int or double)
+        /// </summary>
+        /// <param name="s">String to check</param>
+        /// <returns>true if the string is of a valid number</returns>
         static bool IsNumber(string s)
         {
             Regex rgx = new Regex(@"^[-|+]?(?:\d*\.)?\d+$");
@@ -126,7 +140,12 @@ namespace PostFixCalc
             }
             return false; //is not a number
         }
-
+        
+        /// <summary>
+        /// Pop and calculate
+        /// </summary>
+        /// <param name="op">the operator to run</param>
+        /// <returns>the value (answer) from the calculation to push back to the stack</returns>
         static double DoOperation(string op)
         {
             double answer = 0;
