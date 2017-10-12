@@ -31,7 +31,7 @@ namespace PostFixCalc
             T topItem = top.data;
             if (isEmpty())
             {
-                return topItem;
+                throw new Exception("Stack Empty!");
             }
             top = top.next;
             return topItem;
@@ -39,6 +39,10 @@ namespace PostFixCalc
 
         public T peek()
         {
+            if (isEmpty())
+            {
+                throw new Exception("Stack Empty!");
+            }
             return top.data;
         }
 
