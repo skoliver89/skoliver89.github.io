@@ -22,37 +22,46 @@ namespace PostFixCalc
             bool playAgain = true;
             while(playAgain)
             {
-                playAgain = doCalculation();
+                playAgain = DoCalculation();
             }
             Console.WriteLine("Bye.");            
         }
 
-        static bool doCalculation()
+        static bool DoCalculation()
         {
             Console.WriteLine("Please enter q to quit\n");
             Console.Write("> "); //Prompt the User
 
             //Get space deliminated user input and add to an array of strings
-            string[] input = Console.ReadLine().Split(' ');
-
+            string input = Console.ReadLine();
+            string output = "Empty output";
             //See if the user wishes to quit
-            if(input[0].StartsWith("q") || input[0].StartsWith("Q"))
+            if(input.StartsWith("q") || input.StartsWith("Q"))
             {
                 return false;
             }
-
             //Go go gadget calculator!
             try
             {
-
+                output = EvaluatePostFixInput(input);
             }
-            catch
+            catch(Exception e)
             {
+                //TODO: Exception handling.
+                output = e.ToString();
+            }
+            Console.WriteLine("\n\t>>> " + input + " = " + output);
+            return true;
+        }
 
+        static string EvaluatePostFixInput(string input)
+        {
+            if (input == null || input.Length == 0)
+            {
+                throw new ArgumentException();         
             }
 
-
-            return true;
+            return input;
         }
     }
 }
