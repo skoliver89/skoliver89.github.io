@@ -30,5 +30,16 @@ namespace PostFixCalc
             this.data = data;
             this.next = next;
         }
+        public T Data
+        {
+            set { data = value; }
+            get { return data; }
+        }
+        
+        public Node<T> Next
+        {
+            set { next = value; }
+            get { return next; }
+        }
     }
 }
