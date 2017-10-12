@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace PostFixCalc
 {
     class Program
-    {
-        //Create a new empty stack
+    {   //Create a new empty stack
         private static LinkedStack<double> myStack = new LinkedStack<double>();
 
         /// <summary>
@@ -21,11 +20,11 @@ namespace PostFixCalc
             //Tell the user what is expected
             Console.WriteLine("\nPostfix Calculator. Recognizes these operators: + - * /");
             bool playAgain = true;
-            while(playAgain)
+            while (playAgain)
             {
                 playAgain = DoCalculation();
             }
-            Console.WriteLine("Bye.");            
+            Console.WriteLine("Bye.");
         }
 
         static bool DoCalculation()
@@ -37,7 +36,7 @@ namespace PostFixCalc
             string input = Console.ReadLine();
             string output = "Empty output";
             //See if the user wishes to quit
-            if(input.StartsWith("q") || input.StartsWith("Q"))
+            if (input.StartsWith("q") || input.StartsWith("Q"))
             {
                 return false;
             }
@@ -48,12 +47,12 @@ namespace PostFixCalc
                 //Write the outputline to the console
                 Console.WriteLine("\n\t>>> " + input + " = " + output);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 //TODO: Exception handling.
                 Console.WriteLine(e.Message);
             }
-            
+
             return true;
         }
 
@@ -63,7 +62,7 @@ namespace PostFixCalc
             //Handle null or empty input strings by throwing an argument exception
             if (input == null || input.Length == 0)
             {
-                throw new ArgumentException("Null or the empty string are not valid postfix expressions.");         
+                throw new ArgumentException("Null or the empty string are not valid postfix expressions.");
             }
             //clear the stack prior to doing a new calculation
             myStack.clear();
@@ -74,11 +73,11 @@ namespace PostFixCalc
              * until the element is an operator, then to a calculation
              * and push the answer into the stack 
              */
-             foreach (string element in arr)
+            foreach (string element in arr)
             {
                 if (IsOperator(element))
                 {
-                    myStack.push(DoOperation(element));   
+                    myStack.push(DoOperation(element));
                 }
                 else if (IsNumber(element))
                 {
@@ -125,7 +124,7 @@ namespace PostFixCalc
         {
             double answer = 0;
 
-            switch(op)
+            switch (op)
             {
                 case "+":
                     answer = myStack.pop() + myStack.pop();
@@ -139,10 +138,11 @@ namespace PostFixCalc
                 case "/":
                     answer = myStack.pop() / myStack.pop();
                     break;
-            } 
-            
-            return answer;
-        }
+            }
 
+            return answer;
+
+
+        }
     }
 }
