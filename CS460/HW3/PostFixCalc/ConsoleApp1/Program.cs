@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PostFixCalc
@@ -9,7 +10,7 @@ namespace PostFixCalc
     class Program
     {
         //Create a new empty stack
-        private LinkedStack<double> stack = new LinkedStack<double>();
+        private static LinkedStack<double> myStack = new LinkedStack<double>();
 
         /// <summary>
         /// The main method for the PostFix Calculator
@@ -44,24 +45,104 @@ namespace PostFixCalc
             try
             {
                 output = EvaluatePostFixInput(input);
+                //Write the outputline to the console
+                Console.WriteLine("\n\t>>> " + input + " = " + output);
             }
             catch(Exception e)
             {
                 //TODO: Exception handling.
-                output = e.ToString();
+                Console.WriteLine(e.Message);
             }
-            Console.WriteLine("\n\t>>> " + input + " = " + output);
+            
             return true;
         }
 
         static string EvaluatePostFixInput(string input)
         {
+            string output = "";
+            //Handle null or empty input strings by throwing an argument exception
             if (input == null || input.Length == 0)
             {
-                throw new ArgumentException();         
+                throw new ArgumentException("Null or the empty string are not valid postfix expressions.");         
             }
-
-            return input;
+            //clear the stack prior to doing a new calculation
+            myStack.clear();
+            //put the input string elements into a temp array on whitespace
+            Regex rgx = new Regex(@"\s+");
+            string[] arr = rgx.Split(input);
+            /* iterate through the array, pushing numbers into the stack
+             * until the element is an operator, then to a calculation
+             * and push the answer into the stack 
+             */
+             foreach (string element in arr)
+            {
+                if (IsOperator(element))
+                {
+                    myStack.push(DoOperation(element));   
+                }
+                else if (IsNumber(element))
+                {
+                    //push to stack
+                    myStack.push(Convert.ToDouble(element));
+                }
+                else
+                {
+                    throw new ArgumentException(element + " is not a valid number or operand.");
+                }
+            }
+            output = myStack.pop().ToString();
+            if (myStack.isEmpty())
+            {
+                return output;
+            }
+            else
+            {
+                throw new Exception("Invalid number to operand ratio: " + input);
+            }
         }
+
+        static bool IsOperator(string s)
+        {
+            Regex rgx = new Regex(@"^[+*/-]$");
+            if (rgx.IsMatch(s)) //test if the element is a math operator (* + - /)
+            {
+                return true; //is an operator
+            }
+            return false; //is not and operator
+        }
+
+        static bool IsNumber(string s)
+        {
+            Regex rgx = new Regex(@"^[-|+]?(?:\d*\.)?\d+$");
+            if (rgx.IsMatch(s))
+            {
+                return true; //is a number
+            }
+            return false; //is not a number
+        }
+
+        static double DoOperation(string op)
+        {
+            double answer = 0;
+
+            switch(op)
+            {
+                case "+":
+                    answer = myStack.pop() + myStack.pop();
+                    break;
+                case "-":
+                    answer = myStack.pop() - myStack.pop();
+                    break;
+                case "*":
+                    answer = myStack.pop() * myStack.pop();
+                    break;
+                case "/":
+                    answer = myStack.pop() / myStack.pop();
+                    break;
+            } 
+            
+            return answer;
+        }
+
     }
 }
