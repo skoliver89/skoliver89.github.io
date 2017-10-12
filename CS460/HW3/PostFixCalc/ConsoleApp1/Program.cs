@@ -77,9 +77,7 @@ namespace PostFixCalc
             {
                 if (IsOperator(element))
                 {
-<<<<<<< HEAD
                     myStack.push(DoOperation(element));
-=======
                     try
                     {
                         myStack.push(DoOperation(element));
@@ -88,7 +86,6 @@ namespace PostFixCalc
                     {
                         throw new DivideByZeroException("Divide by Zero Error!" + e.Source);
                     }
->>>>>>> HW3
                 }
                 else if (IsNumber(element))
                 {
