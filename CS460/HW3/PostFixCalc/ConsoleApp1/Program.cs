@@ -141,8 +141,6 @@ namespace PostFixCalc
             }
 
             return answer;
-
-
         }
     }
 }
