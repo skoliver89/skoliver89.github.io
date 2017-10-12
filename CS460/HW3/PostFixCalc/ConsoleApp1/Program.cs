@@ -81,7 +81,6 @@ namespace PostFixCalc
             {
                 if (IsOperator(element))
                 {
-                    myStack.push(DoOperation(element));
                     try
                     {
                         myStack.push(DoOperation(element));
