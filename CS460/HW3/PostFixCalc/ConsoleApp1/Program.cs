@@ -77,7 +77,18 @@ namespace PostFixCalc
             {
                 if (IsOperator(element))
                 {
+<<<<<<< HEAD
                     myStack.push(DoOperation(element));
+=======
+                    try
+                    {
+                        myStack.push(DoOperation(element));
+                    }
+                    catch(DivideByZeroException e)
+                    {
+                        throw new DivideByZeroException("Divide by Zero Error!" + e.Source);
+                    }
+>>>>>>> HW3
                 }
                 else if (IsNumber(element))
                 {
@@ -123,20 +134,21 @@ namespace PostFixCalc
         static double DoOperation(string op)
         {
             double answer = 0;
-
+            double b = myStack.pop();
+            double a = myStack.pop();
             switch (op)
             {
                 case "+":
-                    answer = myStack.pop() + myStack.pop();
+                    answer = a + b;
                     break;
                 case "-":
-                    answer = myStack.pop() - myStack.pop();
+                    answer = a - b;
                     break;
                 case "*":
-                    answer = myStack.pop() * myStack.pop();
+                    answer = a * b;
                     break;
                 case "/":
-                    answer = myStack.pop() / myStack.pop();
+                    answer = a / b;
                     break;
             }
 
