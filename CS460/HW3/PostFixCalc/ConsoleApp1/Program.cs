@@ -27,6 +27,10 @@ namespace PostFixCalc
             Console.WriteLine("Bye.");
         }
 
+        /// <summary>
+        /// The entry point for starting the postfix calculation
+        /// </summary>
+        /// <returns>returns true is the user doesn't enter q to quit</returns>
         static bool DoCalculation()
         {
             Console.WriteLine("Please enter q to quit\n");
