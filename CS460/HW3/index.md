@@ -17,8 +17,8 @@ Upon inspecting the Java code and documentation I discovered that the Java code 
 
 ## Step 2: Translate the Interface
 
-Original Name: StackADT.java
-Translated Name: IStack.cs
+Original Name: StackADT.java <br />
+Translated Name: IStack.cs <br />
 
 This fies is the interface for the methods used in the Linked Stack. The full name of the interface is IStackADT\<T\> using the namespace PostFixCalc. This interface defines the Linked Stack's method signatures and contains the xml comments for each of the aforementioned methods. The T attached to the interface name indicates that the Linked Stack uses generic typing.
 Here is a code snippet of what IStack looks like:
@@ -43,9 +43,9 @@ namespace PostFixCalc
 Note: to view the full code see the HW3 directory in the linked repository at the top of the page.
 
 ## Step 3: Translate the Node and Linked Stack classes
-# A - Node
-Original Name: Node.java
-Translated Name: Node.cs
+### A - Node
+Original Name: Node.java <br />
+Translated Name: Node.cs <br />
 
 The Node source code was fairly easy to translate from Java to C#. The only differences was turing the comments into XML comments, the properites that C# is able to make use of, and that I did not need to write a default (empty) constructor.
 Commenting in XML, as seen in the interface source code above, is estremely easy to accomplish in Visual Studio, just hit the "/" key three times and the editor auto-formats the comment block for you.
@@ -78,9 +78,9 @@ As previously stated, C# is able to utilize properties. These properties allow f
 ```
 This property is a read/write property, as is the property for the next variable. To make a property read-only simply ommit the set line.
 
-# B - Linked Stack
-Original Name: LinkedStack.java
-Translated Name: LinkedStack.cs
+### B - Linked Stack
+Original Name: LinkedStack.java <br />
+Translated Name: LinkedStack.cs <br />
 
 
 
