@@ -51,30 +51,30 @@ The Node source code was fairly easy to translate from Java to C#. The only diff
 Commenting in XML, as seen in the interface source code above, is estremely easy to accomplish in Visual Studio, just hit the "/" key three times and the editor auto-formats the comment block for you.
 The following code snipet shows an XML comment for the Node class and its constructor.
 ```c#
-        /// <summary>
-        /// Constructor for a new Node object
-        /// </summary>
-        /// <param name="data">The Payload</param>
-        /// <param name="next">Reference to the next node</param>
-        public Node(T data, Node<T> next)
-        {
-            this.data = data;
-            this.next = next;
-        }
+/// <summary>
+/// Constructor for a new Node object
+/// </summary>
+/// <param name="data">The Payload</param>
+/// <param name="next">Reference to the next node</param>
+public Node(T data, Node<T> next)
+{
+    this.data = data;
+    this.next = next;
+}
 ```
 All that is accomplished in this simple constructor is setting the variables of the node.
 As previously stated, C# is able to utilize properties. These properties allow for easy "getting" and "setting" of values held in a class. The following code snippet demonstrates how to write a property for the Node's data variable.
 ```c#
-        /// <summary>
-        /// Constructor for a new Node object
-        /// </summary>
-        /// <param name="data">The Payload</param>
-        /// <param name="next">Reference to the next node</param>
-        public Node(T data, Node<T> next)
-        {
-            this.data = data;
-            this.next = next;
-        }
+/// <summary>
+/// Constructor for a new Node object
+/// </summary>
+/// <param name="data">The Payload</param>
+/// <param name="next">Reference to the next node</param>
+public Node(T data, Node<T> next)
+{
+    this.data = data;
+    this.next = next;
+}
 ```
 This property is a read/write property, as is the property for the next variable. To make a property read-only simply ommit the set line.
 
@@ -87,52 +87,53 @@ The Linked Stack was also fairly easy to translate into C#. The only issues that
 The push method takes in a value to be stored and creates a new node to carry that value. The new node links itself to the current top node by reference and then makes itself the top node. Finally, the method returns the value that was pushed to the stack.
 Here is what the code looks like:
 ```c#
-        public T push(T newItem)
-        {
-            Node<T> newNode = new Node<T>(newItem, top);
-            top = newNode;
+public T push(T newItem)
+{
+    Node<T> newNode = new Node<T>(newItem, top);
+    top = newNode;
 
-            return newItem;
-        }
+    return newItem;
+}
 ```
 
 The pop method retrieves the data payload of the top node and then removes that node from the stack, making the node bellow it the new top node. The method then returns the value that was popped off of the stack. If pop is used on an empty stack the method will throw an exception with the message, "Stack Empty!"
 ```c#
-        public T pop()
-        {
-            T topItem = top.data;
-            if (isEmpty())
-            {
-                throw new Exception("Stack Empty!");
-            }
-            top = top.next;
-            return topItem;
-        }
+public T pop()
+{
+    T topItem = top.data;
+    if (isEmpty())
+    {
+        throw new Exception("Stack Empty!");
+    }
+    top = top.next;
+    return topItem;
+}
 ```
 
 The peek method is similar to the pop method except it does not remove and replace the top node. It handles an empty stack in the same way as pop.
 ```c#
-        public T peek()
-        {
-            if (isEmpty())
-            {
-                throw new Exception("Stack Empty!");
-            }
-            return top.data;
-        }
+public T peek()
+{
+    if (isEmpty())
+    {
+        throw new Exception("Stack Empty!");
+    }
+    return top.data;
+}
 ```
+Note: I decided to throw and exception if the stack was empty in pop and peek instead of returning a null like in the original Java since I am using generics in place of the object encapsulation. My reasoning behind this is that with generics I cannot return a null since it is possible to initialize a generic as a numberic type, C# does not support null as a value for numerics, and I would have to use the default value in the place of null. The default of a numberic is the value 0 (zero) which is a vaild value, hence throwing the exception.
 
 The last two methods, isEmpty and clear, are both carbon copies of the Java code. They are extremely simple; isEmpty returns a boolean true if the stack is empty and clear resets the stack to an empty state by setting the value of the top variable to null.
 ```c#
-        public bool isEmpty()
-        {
-            return top == null;
-        }
+public bool isEmpty()
+{
+    return top == null;
+}
 
-        public void clear()
-        {
-            top = null;
-        }
+public void clear()
+{
+    top = null;
+}
 ```
 
 ## Step 4: Translate the Postfix Calcualtor class
