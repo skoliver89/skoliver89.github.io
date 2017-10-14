@@ -2,7 +2,7 @@
 title: Stephen Oliver
 layout: default
 ---
-## CS460 Homework 1 - Journal
+## CS460 Homework 2 - Journal
 
 Homework 2 is designed to famlilizrize the student with HTML forms, javascipt, and jQuerry. We are to create an html form that takes in data, uses javascript to do some calculation on the data, and present the answer back to the user. Also, we are supposed to style the page with CSS and Bootstrap. To plan out the design or our page, we are instructed to create a "wireframe mockup". Further, during the development of our page we are to work in a feature branch of our repo and merge back with the master branch upon completion.
 
