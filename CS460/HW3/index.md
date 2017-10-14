@@ -138,5 +138,201 @@ public void clear()
 
 ## Step 4: Translate the Postfix Calcualtor class
 
+Original Name: Calculator.java <br />
+Translated Name: Program.cs <br />
+
+The translated postfix calculator is written , again, fairly similar to the java version. However, I did a couple methods for checking the type of characters entered using REGEX rather than waiting for an argument exeption to be thrown. Also, there are some minor differences in libraries between the two languages. Further, instead of wasting resources instantiating an object of itself in the main method, I wrote this class' methods statically. Just like in the java version, my translated calculator creates the stack as a private global variable; however, because I wrote the C# version statically the stack is also static.
+
+The main method is a simple entry point for the application, it prints out some instruction to the user, starts the method chain loop, and stays "Bye" after the user quits.
+```c#
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace PostFixCalc
+{
+    class Program
+    {   //Create a new empty stack
+        private static LinkedStack<double> myStack = new LinkedStack<double>();
+
+        /// <summary>
+        /// The main method for the PostFix Calculator
+        /// </summary>
+        /// <param name="args">Comand Line Args (unused)</param>
+        static void Main(string[] args)
+        {
+            //Tell the user what is expected
+            Console.WriteLine("\nPostfix Calculator. Recognizes these operators: + - * /");
+            bool playAgain = true;
+            while (playAgain)
+            {
+                playAgain = DoCalculation();
+            }
+            Console.WriteLine("Bye.");
+        }
+//...
+```
+
+The DoCalculation method, called by the main method, starts by promting the user to enter 'q' to quit and then wait for a line of input. This is were if the use enters 'q' it will return false and exit the application. if the user does not enter 'q' the application enters a try/catch block were we attempt start processing the input string for calculation. after the EvaluatePostFixInput method finishes the answer is printed out to the console and the method returns true, promted the main method to run the DoCalculation method again. The catch block looks for a null reference exception, which indicates that the user did not enter enough numbers to evaluate the expression. 
+```c#
+/// <summary>
+/// The entry point for starting the postfix calculation
+/// </summary>
+/// <returns>returns true is the user doesn't enter q to quit</returns>
+static bool DoCalculation()
+{
+    Console.WriteLine("Please enter q to quit\n");
+    Console.Write("> "); //Prompt the User
+
+     //Get space deliminated user input and add to an array of strings
+    string input = Console.ReadLine();
+    string output = "Empty output";
+    //See if the user wishes to quit
+    if (input.StartsWith("q") || input.StartsWith("Q"))
+    {
+        return false;
+    }
+    //Go go gadget calculator!
+    try
+    {
+        output = EvaluatePostFixInput(input);
+        //Write the outputline to the console
+        Console.WriteLine("\n\t>>> " + input + " = " + output);
+    }
+    catch (NullReferenceException e)
+    {
+        Console.WriteLine("Not enough numbers or to few operands to evaluate expression.");
+    }
+
+    return true;
+}
+```
+
+User input is space delimited; however, in the EvaluatePostFixInput method, where we parse the user input, I made it consider any amount of whitespace as a delimiter in an attempt to work past some typeos. The input is split into an array by a REGEX string. Then, the application moves element by element through the array and determines, with my custom methods, if the element is a number, operator, or neither. If the element is an operator the DoCalculation method is called on the element which returns a double that is then push onto the stack for later consumption. If element is a number then that number is pushed onto the stack. However, if the element is neither a number or an operator an argumrnt exception is thrown with a message to inform the user that the element is invalid. After the entire array is processed, the top element is poped from the stack and a check is run to determine if the stack is now empty. If the stack is empty then the answer from the calculation is correct; however, if the stack is not empty there was either not enough operands or too few numbers to evaluate the expression.
+```c#
+/// <summary>
+/// Entry point for running the postfix calculations on the input
+/// </summary>
+/// <param name="input">The (user)input string</param>
+/// <returns>calculation output as a string</returns>
+static string EvaluatePostFixInput(string input)
+{
+    string output = "";
+    //Handle null or empty input strings by throwing an argument exception
+    if (input == null || input.Length == 0)
+    {
+        throw new ArgumentException("Null or the empty string are not valid postfix expressions.");
+    }
+    //clear the stack prior to doing a new calculation
+    myStack.clear();
+    //put the input string elements into a temp array on whitespace
+    Regex rgx = new Regex(@"\s+");
+    string[] arr = rgx.Split(input);
+    /* iterate through the array, pushing numbers into the stack
+    * until the element is an operator, then to a calculation
+    * and push the answer into the stack 
+    */
+    foreach (string element in arr)
+    {
+        if (IsOperator(element))
+        {
+            try
+            {
+                myStack.push(DoOperation(element));
+            }
+            catch(DivideByZeroException e)
+            {
+                throw new DivideByZeroException("Divide by Zero Error!" + e.Source);
+            }
+        }
+        else if (IsNumber(element))
+        {
+            //push to stack
+            myStack.push(Convert.ToDouble(element));
+        }
+        else
+        {
+            throw new ArgumentException(element + " is not a valid number or operand.");
+        }
+    }
+    output = myStack.pop().ToString();
+    if (myStack.isEmpty())
+    {
+        return output;
+    }
+    else
+    {
+        throw new Exception("Not enough operands or to few numbers to evaluate the expression.");
+    }
+}
+```
+
+The IsNumber and the IsOperator methods determine whether a provided string is a number or if a string is an operator respectively. The methods accomplish this with REGEX pattern matching. The whole string must pass the pattern match exactly once for either of the methods to return true.
+```c#
+/// <summary>
+/// check to see if a string is an operator
+/// </summary>
+/// <param name="s">a string to check</param>
+/// <returns>true if the string is an operator</returns>
+static bool IsOperator(string s)
+{
+    Regex rgx = new Regex(@"^[+*/-]$");
+    if (rgx.IsMatch(s)) //test if the element is a math operator (* + - /)
+    {
+        return true; //is an operator
+    }
+    return false; //is not and operator
+}
+
+/// <summary>
+/// check to see if a string is of a vaild number (positive or negative int or double)
+/// </summary>
+/// <param name="s">String to check</param>
+/// <returns>true if the string is of a valid number</returns>
+static bool IsNumber(string s)
+{
+    Regex rgx = new Regex(@"^[-|+]?(?:\d*\.)?\d+$");
+    if (rgx.IsMatch(s))
+    {
+        return true; //is a number
+    }
+    return false; //is not a number
+}
+```
+
+The last method, DoOperation, takes an operator string and pops two nodes from the stack in to local variables a and b. It then determines which operator was passed to it with a switch-case block, runs to appropriate equation, and return the answer. Remember, we need to run an AOB stle equation here were b is the top-most node and a is the second node poped.
+```c#
+/// <summary>
+/// Pop and calculate
+/// </summary>
+/// <param name="op">the operator to run</param>
+/// <returns>the value (answer) from the calculation to push back to the stack</returns>
+static double DoOperation(string op)
+{
+    double answer = 0;
+    double b = myStack.pop();
+    double a = myStack.pop();
+    switch (op)
+    {
+        case "+":
+            answer = a + b;
+            break;
+        case "-":
+            answer = a - b;
+            break;
+        case "*":
+            answer = a * b;
+            break;
+        case "/":
+            answer = a / b;
+            break;
+    }
+
+    return answer;
+}
+```
 
 ## ---DEMO---
