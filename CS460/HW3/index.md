@@ -11,3 +11,17 @@ Instructions for this assignment can be found [here](http://www.wou.edu/~morses/
 
 There is no web interface for this assigment so a demo of the program will be contained within this journal entry. As always, the source code for this project can be found in the github repository connected to the above button.
 
+## Step 1: Inspect the original Java source code and lab document
+
+Upon inspecting the Java code and documentation I discovered that the Java code is a solution for a post fix calculator. This source code includes an Interface/ADT (Abstract Data Type) file, a generic definiton of linked nodes and a linked stack using object encapsulation. The jusification for the encapsulation instead of generic data types is that java, at that time, did not support generic typing. Considering that I will be translating the application to C# I decided, with the help of a fellow classmate, that I would go ahead and setup the Interface, Node, and Linked Stack using generic data typing rather than object encapsulation. This decision was reached in order to improve efficiency of the overall application and to make the node and stack classes more easily ussable in other projects. Further inspection into the calculator code I discovered pretty robust error detection and handling on top of a command line interface. Aside from a few cosmetic changes I kept the interface and error handling as close to the original as possible.
+
+## Step 2: Translate the Interface
+
+
+
+## Step 3: Translate the Node and Linked Stack classes
+
+
+
+## Step 4: Translate the Postfix Calcualtor class
+
