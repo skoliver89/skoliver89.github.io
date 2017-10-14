@@ -17,7 +17,30 @@ Upon inspecting the Java code and documentation I discovered that the Java code 
 
 ## Step 2: Translate the Interface
 
+Original Name: StackADT.java
+Translated Name: IStack.cs
 
+This fies is the interface for the methods used in the Linked Stack. The full name of the interface is IStackADT\<T\> using the namespace PostFixCalc. This interface defines the Linked Stack's method signatures and contains the xml comments for each of the aforementioned methods. The T attached to the interface name indicates that the Linked Stack uses generic typing.
+Here is a code snippet of what IStack looks like:
+```c
+//...
+namespace PostFixCalc
+{
+    /// <summary>
+    /// C# Interface defining a stack
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    interface IStackADT<T>
+    {
+        /// <summary>
+        /// Method to push a genericly typed new item to the stack
+        /// </summary>
+        /// <param name="newItem">A generic new item to push</param>
+        /// <returns>A reference to the new item</returns>
+        T push(T newItem);
+//...
+```
+Note: to view the full code see the HW3 directory in the linked repository at the top of the page.
 
 ## Step 3: Translate the Node and Linked Stack classes
 
