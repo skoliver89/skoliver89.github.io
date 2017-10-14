@@ -43,8 +43,48 @@ namespace PostFixCalc
 Note: to view the full code see the HW3 directory in the linked repository at the top of the page.
 
 ## Step 3: Translate the Node and Linked Stack classes
+# A - Node
+Original Name: Node.java
+Translated Name: Node.cs
+
+The Node source code was fairly easy to translate from Java to C#. The only differences was turing the comments into XML comments, the properites that C# is able to make use of, and that I did not need to write a default (empty) constructor.
+Commenting in XML, as seen in the interface source code above, is estremely easy to accomplish in Visual Studio, just hit the "/" key three times and the editor auto-formats the comment block for you.
+The following code snipet shows an XML comment for the Node class and its constructor.
+```c
+        /// <summary>
+        /// Constructor for a new Node object
+        /// </summary>
+        /// <param name="data">The Payload</param>
+        /// <param name="next">Reference to the next node</param>
+        public Node(T data, Node<T> next)
+        {
+            this.data = data;
+            this.next = next;
+        }
+```
+All that is accomplished in this simple constructor is setting the variables of the node.
+As previously stated, C# is able to utilize properties. These properties allow for easy "getting" and "setting" of values held in a class. The following code snippet demonstrates how to write a property for the Node's data variable.
+```c
+        /// <summary>
+        /// Constructor for a new Node object
+        /// </summary>
+        /// <param name="data">The Payload</param>
+        /// <param name="next">Reference to the next node</param>
+        public Node(T data, Node<T> next)
+        {
+            this.data = data;
+            this.next = next;
+        }
+```
+This property is a read/write property, as is the property for the next variable. To make a property read-only simply ommit the set line.
+
+# B - Linked Stack
+Original Name: LinkedStack.java
+Translated Name: LinkedStack.cs
 
 
 
 ## Step 4: Translate the Postfix Calcualtor class
 
+
+## ---DEMO---

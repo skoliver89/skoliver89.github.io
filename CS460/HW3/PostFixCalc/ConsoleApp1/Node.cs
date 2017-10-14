@@ -30,12 +30,19 @@ namespace PostFixCalc
             this.data = data;
             this.next = next;
         }
+
+        /// <summary>
+        /// Property for setting and getting (R/W) the data variable value
+        /// </summary>
         public T Data
         {
             set { data = value; }
             get { return data; }
         }
         
+        /// <summary>
+        /// Property for setting and getting (R/W) the next variable value
+        /// </summary>
         public Node<T> Next
         {
             set { next = value; }
