@@ -51,10 +51,9 @@ namespace PostFixCalc
                 //Write the outputline to the console
                 Console.WriteLine("\n\t>>> " + input + " = " + output);
             }
-            catch (Exception e)
+            catch (NullReferenceException e)
             {
-                //TODO: Exception handling.
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Not enough numbers or to few operands to evaluate expression.");
             }
 
             return true;
@@ -111,7 +110,7 @@ namespace PostFixCalc
             }
             else
             {
-                throw new Exception("Invalid number to operand ratio: " + input);
+                throw new Exception("Not enough operands or to few numbers to evaluate the expression.");
             }
         }
 
