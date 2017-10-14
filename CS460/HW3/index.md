@@ -22,7 +22,7 @@ Translated Name: IStack.cs <br />
 
 This fies is the interface for the methods used in the Linked Stack. The full name of the interface is IStackADT\<T\> using the namespace PostFixCalc. This interface defines the Linked Stack's method signatures and contains the xml comments for each of the aforementioned methods. The T attached to the interface name indicates that the Linked Stack uses generic typing.
 Here is a code snippet of what IStack looks like:
-```c
+```c#
 //...
 namespace PostFixCalc
 {
@@ -50,7 +50,7 @@ Translated Name: Node.cs <br />
 The Node source code was fairly easy to translate from Java to C#. The only differences was turing the comments into XML comments, the properites that C# is able to make use of, and that I did not need to write a default (empty) constructor.
 Commenting in XML, as seen in the interface source code above, is estremely easy to accomplish in Visual Studio, just hit the "/" key three times and the editor auto-formats the comment block for you.
 The following code snipet shows an XML comment for the Node class and its constructor.
-```c
+```c#
         /// <summary>
         /// Constructor for a new Node object
         /// </summary>
@@ -64,7 +64,7 @@ The following code snipet shows an XML comment for the Node class and its constr
 ```
 All that is accomplished in this simple constructor is setting the variables of the node.
 As previously stated, C# is able to utilize properties. These properties allow for easy "getting" and "setting" of values held in a class. The following code snippet demonstrates how to write a property for the Node's data variable.
-```c
+```c#
         /// <summary>
         /// Constructor for a new Node object
         /// </summary>
@@ -82,7 +82,58 @@ This property is a read/write property, as is the property for the next variable
 Original Name: LinkedStack.java <br />
 Translated Name: LinkedStack.cs <br />
 
+The Linked Stack was also fairly easy to translate into C#. The only issues that I encountered was handling the behavior in the pop and peek methods for if the stack is empty. The class is pretty basic; it implements the push, pop, peek, isEmpty, and clear methods. The constructor simply initiates the stack as being empty (i.e. the top node is equal to null). The class is of the same namespace as the previous files, PostFixCalc, and implements/extends the IStackADT\<T\> interface.
 
+The push method takes in a value to be stored and creates a new node to carry that value. The new node links itself to the current top node by reference and then makes itself the top node. Finally, the method returns the value that was pushed to the stack.
+Here is what the code looks like:
+```c#
+        public T push(T newItem)
+        {
+            Node<T> newNode = new Node<T>(newItem, top);
+            top = newNode;
+
+            return newItem;
+        }
+```
+
+The pop method retrieves the data payload of the top node and then removes that node from the stack, making the node bellow it the new top node. The method then returns the value that was popped off of the stack. If pop is used on an empty stack the method will throw an exception with the message, "Stack Empty!"
+```c#
+        public T pop()
+        {
+            T topItem = top.data;
+            if (isEmpty())
+            {
+                throw new Exception("Stack Empty!");
+            }
+            top = top.next;
+            return topItem;
+        }
+```
+
+The peek method is similar to the pop method except it does not remove and replace the top node. It handles an empty stack in the same way as pop.
+```c#
+        public T peek()
+        {
+            if (isEmpty())
+            {
+                throw new Exception("Stack Empty!");
+            }
+            return top.data;
+        }
+```
+
+The last two methods, isEmpty and clear, are both carbon copies of the Java code. They are extremely simple; isEmpty returns a boolean true if the stack is empty and clear resets the stack to an empty state by setting the value of the top variable to null.
+```c#
+        public bool isEmpty()
+        {
+            return top == null;
+        }
+
+        public void clear()
+        {
+            top = null;
+        }
+```
 
 ## Step 4: Translate the Postfix Calcualtor class
 
