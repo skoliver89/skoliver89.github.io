@@ -202,11 +202,14 @@ static bool DoCalculation()
         //Write the outputline to the console
         Console.WriteLine("\n\t>>> " + input + " = " + output);
     }
-    catch (NullReferenceException e)
+    catch (NullReferenceException)
     {
         Console.WriteLine("Not enough numbers or to few operands to evaluate expression.");
     }
-
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
     return true;
 }
 ```
@@ -336,3 +339,21 @@ static double DoOperation(string op)
 ```
 
 ## ---DEMO---
+
+Expression: 15 7 1 1 + − ÷ 3 × 2 1 1 + + −
+Expected Answer: 5
+source: [Wikipedia: Reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
+
+### Initial start up
+
+
+### A Correctly fomatted postfix expression
+
+
+### An expression with to many numbers/Not enough operators (Error)
+
+
+### An expression with to many operators/Not enough numbers (Error)
+
+
+### An expression containing an invalid element (Error)
