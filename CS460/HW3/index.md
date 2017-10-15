@@ -345,19 +345,19 @@ Expected Answer: 5 <br />
 source: [Wikipedia: Reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) <br />
 
 ### Initial start up
-![Calculator First Start](assets/CalculatorStart.JPG)
+![Calculator First Start](Assets/CalculatorStart.JPG)
 
 ### A Correctly fomatted postfix expression
-![Calculator Good Entry](assets/CalculatorEntry.JPG)
+![Calculator Good Entry](Assets/CalculatorEntry.JPG)
 
 ### Answer Display, No errors
-![Calculator Good Answer](assets/CalculatorAnswer.JPG)
+![Calculator Good Answer](Assets/CalculatorAnswer.JPG)
 
 ### An expression with to many numbers/Not enough operators (Error)
-![Calculator Error 1](assets/CalculatorError1.JPG)
+![Calculator Error 1](Assets/CalculatorError1.JPG)
 
 ### An expression with to many operators/Not enough numbers (Error)
-![Calculator Error 2](assets/CalculatorError2.JPG)
+![Calculator Error 2](Assets/CalculatorError2.JPG)
 
 ### An expression containing an invalid element (Error)
-![Calculator Error 3](assets/CalculatorError3.JPG)
+![Calculator Error 3](Assets/CalculatorError3.JPG)
