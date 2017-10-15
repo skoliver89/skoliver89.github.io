@@ -51,9 +51,13 @@ namespace PostFixCalc
                 //Write the outputline to the console
                 Console.WriteLine("\n\t>>> " + input + " = " + output);
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
                 Console.WriteLine("Not enough numbers or to few operands to evaluate expression.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             return true;
