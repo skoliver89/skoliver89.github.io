@@ -361,3 +361,7 @@ source: [Wikipedia: Reverse Polish notation](https://en.wikipedia.org/wiki/Rever
 
 ### An expression containing an invalid element (Error)
 ![Calculator Error 3](Assets/CalculatorError3.JPG)
+
+To quit enter 'q' or 'Q'. There is no image availiable for this step as the commandline window in Visual Studio imediately quits; however, if the window was to stay open it would print out "Bye."
+
+[back to portfolio](https://www.skoliver89.github.io)
