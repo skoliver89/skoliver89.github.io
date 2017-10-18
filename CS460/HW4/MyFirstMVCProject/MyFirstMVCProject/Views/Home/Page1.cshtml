@@ -4,18 +4,23 @@
 }
 
 <!-- Page title header -->
-<h2>Page 1</h2>
-
+<h2>Page 1 - F/C/K Convertion</h2>
+<br />
+<!-- Form instructions-->
+<p>Input a number for temperature and select a unit of measurement.</p>
+<p>The temperature can have up to two decimal places.</p>
+<br />
 <!-- Create the form to get data to the controler -->
-
 <form method="get">
     <label for="temperature">Temperature</label>
-    <input type="number" name="temperature" value="0" />
-    <br />
-    <label for="C">C</label>
-    <input type="radio" name="system" id="C" value="C" />
+    <input type="number" name="temperature" step="0.01" value="0" />
     <label for="F">F</label>
-    <input type="radio" name="system" id="F" value="F" />
+    <input type="radio" name="units" id="F" value="F" checked="checked" />
+    <label for="C">C</label>
+    <input type="radio" name="units" id="C" value="C" />
+    <label for="K">K</label>
+    <input type="radio" name="units" id="K" value="K" />
+    <br />
     <br />
     <input type="submit" value="Submit" />
 </form>
