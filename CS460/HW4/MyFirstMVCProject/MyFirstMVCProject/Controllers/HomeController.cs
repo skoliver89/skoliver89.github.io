@@ -39,7 +39,8 @@ namespace MyFirstMVCProject.Controllers
                 //constant for F to N
                 double y = 11.00 / 60.00;
                 //Convert to F, C, and/or K depending on what unit is supplied
-                switch(units)
+                //Formulas found here: https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature
+                switch (units)
                 {
                     case "F":
                         ViewBag.a = ((t - 32.00) * x).ToString();
@@ -51,9 +52,21 @@ namespace MyFirstMVCProject.Controllers
                         break;
                     case "C":
 
+                        ViewBag.aU = "F"; //send the unit label for Fahrenheit
+                        ViewBag.bU = "K"; //send the unit label for Kelvin
+                        ViewBag.cU = "N"; //send the unit label for Newtons
                         break;
                     case "K":
 
+                        ViewBag.aU = "F"; //send the unit label for Fahrenheit
+                        ViewBag.bU = "C"; //send the unit label for Celsius
+                        ViewBag.cU = "N"; //send the unit label for Newtons
+                        break;
+                    case "N":
+
+                        ViewBag.aU = "F"; //send the unit label for Fahrenheit
+                        ViewBag.bU = "C"; //send the unit label for Celsius
+                        ViewBag.cU = "K"; //send the unit label for Kelvin
                         break;
                 }
             }
