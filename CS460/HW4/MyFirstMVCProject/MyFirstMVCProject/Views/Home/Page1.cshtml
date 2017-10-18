@@ -4,16 +4,17 @@
 }
 
 <!-- Page title header -->
-<h2>Page 1 - F/C/K Conversion</h2>
+<h2>Page 1 - The F/C/K/N Temperature Converter</h2>
 <br />
 <!-- Form instructions-->
 <p>Input a number for temperature and select a unit of measurement.</p>
 <p>The temperature can have up to two decimal places.</p>
+<hr />
 <br />
 <!-- Create the form to get data to the controler -->
 <form method="get">
     <label for="temperature">Temperature</label>
-    <input type="number" name="temperature" step="0.01" value="0" />
+    <input type="number" name="temperature" step="0.01" value="" />
     <label for="F">F</label>
     <input type="radio" name="units" id="F" value="F" checked="checked" />
     <label for="C">C</label>
@@ -22,5 +23,17 @@
     <input type="radio" name="units" id="K" value="K" />
     <br />
     <br />
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit"/>
 </form>
+@if (ViewBag.temperature != "" && ViewBag.temperature != null)
+{
+    <hr />
+    <br />
+    <ul>
+        <li>Provided Temperature: @ViewBag.temperature@ViewBag.units</li>
+        <li>Converted to @ViewBag.aU: @ViewBag.a@ViewBag.aU</li>
+        <li>Converted to @ViewBag.bU: @ViewBag.b@ViewBag.bU</li>
+        <li>Converted to @ViewBag.cU: @ViewBag.c@ViewBag.cU</li>
+    </ul>
+}
+
