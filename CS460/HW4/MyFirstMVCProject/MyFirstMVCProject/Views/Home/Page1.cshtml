@@ -1,0 +1,21 @@
+﻿<!-- Razor script to set the page title -->
+@{
+    ViewBag.Title = "Page 1 - Temperature Conversion";
+}
+
+<!-- Page title header -->
+<h2>Page 1</h2>
+
+<!-- Create the form to get data to the controler -->
+
+<form method="get">
+    <label for="temperature">Temperature</label>
+    <input type="number" name="temperature" value="0" />
+    <br />
+    <label for="C">C</label>
+    <input type="radio" name="system" id="C" value="C" />
+    <label for="F">F</label>
+    <input type="radio" name="system" id="F" value="F" />
+    <br />
+    <input type="submit" value="Submit" />
+</form>

@@ -8,8 +8,18 @@ namespace MyFirstMVCProject.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        //Action Methods
+
+        // GET ~/Home/Index
+        // GET ~/Home/
+        // GET ~/
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET ~/Home/Page1
+        public ActionResult Page1()
         {
             return View();
         }
