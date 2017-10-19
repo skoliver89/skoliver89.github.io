@@ -13,19 +13,29 @@
 <br />
 <!-- Create the form to get data to the controler -->
 <form method="get">
-    <label for="temperature">Temperature</label>
-    <input type="number" name="temperature" step="0.01" value="" />
-    <label for="F">F</label>
-    <input type="radio" name="units" id="F" value="F" checked="checked" />
-    <label for="C">C</label>
-    <input type="radio" name="units" id="C" value="C" />
-    <label for="K">K</label>
-    <input type="radio" name="units" id="K" value="K" />
-    <label for="N">N</label>
-    <input type="radio" name="units" id="N" value="N" />
+    <div class="form-group">
+        <label for="temperature">Temperature</label>
+        <input type="number" name="temperature" step="0.01" value="" class="form-control" />
+    </div>
+    <div class="radio-inline">
+        <label for="F">F</label>
+        <input type="radio" name="units" id="F" value="F" checked="checked" />
+    </div>
+    <div class="radio-inline">
+        <label for="C">C</label>
+        <input type="radio" name="units" id="C" value="C" />
+    </div>
+    <div class="radio-inline">
+        <label for="K">K</label>
+        <input type="radio" name="units" id="K" value="K" />
+    </div>
+    <div class="radio-inline">
+        <label for="N">N</label>
+        <input type="radio" name="units" id="N" value="N" />
+    </div>
     <br />
     <br />
-    <input type="submit" value="Submit" />
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <!-- If there is a value input my the user populate the converstion list -->
 @if (ViewBag.temperature != "" && ViewBag.temperature != null)
