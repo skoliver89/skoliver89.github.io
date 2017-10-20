@@ -77,9 +77,18 @@ namespace MyFirstMVCProject.Controllers
         }
 
         //GET ~/HOME/Page2
+        [HttpGet]
         public ActionResult Page2()
         {
 
+            return View();
+        }
+
+        //POST ~/HOME/Page2
+        [HttpPost]
+        public ActionResult Page2(string equation, int? decimalPlaces, bool? work = false)
+        {
+            Debug.WriteLine($"{equation} : {decimalPlaces} : {work}");
             return View();
         }
     }

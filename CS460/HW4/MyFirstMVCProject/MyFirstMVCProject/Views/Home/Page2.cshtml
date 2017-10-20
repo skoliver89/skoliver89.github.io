@@ -1,7 +1,36 @@
 ﻿
 @{
-    ViewBag.Title = "Page2";
+    ViewBag.Title = "Page 2";
 }
 
-<h2>Page2</h2>
-
+<h2>Page 2 - Calculator</h2>
+<p>App Instructions go here!</p>
+<hr />
+<br />
+<form method="post" class="form-horizontal">
+    <div class="form-group"> 
+        <!--Text field for entering the equation-->
+        <label for="equation">Equation</label> 
+        <input type="text" class="form-control" name="equation" />
+        <div class="radio-inline">
+            <label for="pf">Post-Fix</label>
+            <input type="radio" value="post-fix" name="type" id="pf" checked="checked" />
+        </div>
+        <div class="radio-inline">
+            <label for="in">In-Line</label>
+            <input type="radio" value="in-line" name="type" id="in" />
+        </div>
+    </div>
+    <div class="form-group"> 
+        <!--Number field for selecting the number of decimal places in solution-->
+        <label for="decimalPlaces">Number of Decimal Places (Solution)</label>
+        <input type="number" class="form-control" name="decimalPlaces" />
+        <div class="checkbox">
+            <!--checkbox to show steps to solution(?)-->
+            <label for="work">Show Your Work</label>
+            <input type="checkbox" value="true" name="work" />
+        </div>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form>
