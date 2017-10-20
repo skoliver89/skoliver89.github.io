@@ -3,16 +3,20 @@
     ViewBag.Title = "Page 2";
 }
 
-<h2>Page 2 - Calculator</h2>
-<p>App Instructions go here!</p>
-<hr />
-<br />
+
+<div class="page-header">
+    <h2>Page 2 - Postfix/Infix Calculator</h2>
+    <p>Step 1: Input your equation into the text field labeled "Equation"</p>
+    <p>Step 2: Select the formatting of your equation from the radio buttons</p>
+    <p>Step 3: Input a number of decimal places to round to (0-15)</p>
+    <p>Setp 4: Click the "Calculate" button and recieve the answer to your equation</p>
+</div>
 <div class="container">
     <form method="post" class="form-horizontal">
         <div class="form-group">
             <!--Text field for entering the equation-->
             <label for="equation">Equation</label>
-            <input type="text" class="form-control" name="equation" />
+            <input type="text" class="form-control" name="equation" placeholder="Input an equation"/>
             <!--Radio to select the type of calculator to use (PostFix)-->
             <div class="radio-inline">
                 <label for="pf">Postfix</label>
@@ -27,16 +31,39 @@
         <div class="form-group">
             <!--Number field for selecting the number of decimal places in solution-->
             <label for="decimalPlaces">Number of Decimal Places (Solution)</label>
-            <input type="number" class="form-control" name="decimalPlaces" />
+            <input type="number" class="form-control" name="decimalPlaces" min="0" max="15" value="0"/>
             <br />
             <button type="submit" class="btn btn-primary">Calculate</button>
         </div>
     </form>
 </div>
 
-@if(IsPost)
+@if (IsPost)
 {
-    <hr />
-    <br />
-    <p>Solution goes here</p>
+    if(ViewBag.status == "ok")
+    {
+        <div class="alert alert-success">
+            <dl class="list-group">
+                <dt class="list-group-item-heading">
+                    @ViewBag.type Solution:
+                </dt>
+                <dd class="list-group-item">
+                    @ViewBag.message
+                </dd>
+            </dl>
+        </div>
+    }
+    if(ViewBag.status == "error") 
+    {
+        <div class="alert alert-danger">
+            <dl class="list-group">
+                <dt class="list-group-item-heading">
+                    Error:
+                </dt>
+                <dd class="list-group-item">
+                    @ViewBag.message
+                </dd>
+            </dl>
+        </div>
+    }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,7 +11,7 @@ namespace MyFirstMVCProject.Controllers
 {
     public class HomeController : Controller
     {
-        //Action Methods
+        //Action Methods//
 
         // GET ~/Home/Index
         // GET ~/Home/
@@ -85,22 +87,157 @@ namespace MyFirstMVCProject.Controllers
 
         //POST ~/HOME/Page2
         [HttpPost]
-        public ActionResult Page2(string equation, int? decimalPlaces, string type)
+        public ActionResult Page2(FormCollection form)
         {
-            Debug.WriteLine($"{equation} : {decimalPlaces} : {type}");
+            string equation = Request.Form["equation"];
+            string type = Request.Form["type"];
+            int decimalPlaces = Int32.Parse(Request.Form["decimalPlaces"]);
+            string[] output = { "error", "Calculator Type Not Found!"};
+
+            //determine if expression is postfix or infix
+            //this is controled with a pair of radios defaulted to postfix
+            //thus, it is impossible to have any value other that "postfix" or "infix"
+            if (type == "postfix") //evaluate as a postfix expression
+            {
+                output = postfixCalc(equation, decimalPlaces);
+            }
+            if (type == "infix") //evaluate as a infix expression
+            {
+                output = infixCalc(equation, decimalPlaces);
+            }
+            ViewBag.status = output[0];
+            ViewBag.message = output[1];
+            ViewBag.type = type.ToUpperInvariant();
+            Debug.WriteLine($"{equation} : {decimalPlaces} : {type}"); //check the params in Debugger
             return View();
         }
 
-        private double inlineCalc(string equation)
-        {
+        //Because we aren't using Models yet, data processing goes here//
 
-            return 0;
+        //POSTFIX Methods
+        //calcuate and return the solution of a postfix formatted expression
+        //rounded to r places
+        private string[] postfixCalc(string equation, int r)
+        {
+            Regex rgx = new Regex(@"\s+");
+            string[] elements = rgx.Split(equation);
+            Stack<double> stack = new Stack<double>();
+            string[] output = { "ok", $"[{equation}] = " };
+
+            foreach(string element in elements)
+            {
+                if(IsOperator(element))
+                {
+                    try
+                    {
+                        double b = stack.Pop();
+                        double a = stack.Pop();
+                        stack.Push(DoMath(element, a, b));
+                    }
+                    catch(Exception e)
+                    {
+                        output[0] = "error";
+                        if (e.Message == "Stack empty.")
+                        {
+                            output[1] = "Not enough numbers to evaluate the expression.";
+                        }
+                        else
+                        {
+                            output[1] = e.Message;
+                        }
+                        return output;
+                    }
+                }
+                else if(IsNumber(element))
+                {
+                    stack.Push(Double.Parse(element)); //push the number to the stack
+                }
+                else
+                {
+                    output[0] = "error";
+                    output[1] = $"{element} is not a valid number or operator.";
+                    return output;
+                }
+            }
+
+            output[1] += $" {Math.Round(stack.Pop(), r).ToString()}";
+            if(stack.Count != 0)
+            {
+                output[0] = "error";
+                output[1] = "Not enough operands to evaluate the expression";
+            }
+            return output;
         }
 
-        private double postfixCalc(string equation)
+        //INFIX Methods
+        //calculate and return the solution of a infix formatted expression
+        //rounded to r places
+        //inspired by: https://stackoverflow.com/questions/21950093/string-calculator
+        private string[] infixCalc(string equation, int r)
         {
+            string[] output = { "ok", $"{equation} = " };
+            try
+            {
+                //use built in Compute (via System.Data -> DataTable) to evaluate the string equation 
+                //doing this instead of reinventing the wheel to save time.
+                //convert the Compute object to a double so that we can round before returning
+                double eval = Convert.ToDouble(new DataTable().Compute(equation, null));
+                output[1] += Math.Round(eval, r).ToString();
+            }
+            catch(Exception e) //catch errors from the compute
+            {
+                output[0] = "error";
+                output[1] = e.Message;
+            }
+            return output;
+        }
 
-            return 0;
+        //MISC private methods
+        //check it string is a valid number (-inf to +inf)
+        private bool IsNumber(string s)
+        {
+            Regex rgx = new Regex(@"^[-|+]?(?:\d*\.)?\d+$");
+            if (rgx.IsMatch(s))
+            {
+                return true; //is a number
+            }
+            return false; //is not a number
+        }
+        //check if string is a valid operator
+        private bool IsOperator(string s)
+        {
+            Regex rgx = new Regex(@"^[+*/-]$");
+            if (rgx.IsMatch(s)) //test if the element is a math operator (* + - /)
+            {
+                return true; //is an operator
+            }
+            return false; //is not and operator
+        }
+        //math
+        //determine operator and do corresponding calculation
+        private double DoMath(string op, double a, double b)
+        {
+            double answer = 0;
+            switch (op)
+            {
+                case "+":
+                    answer = a + b;
+                    break;
+                case "-":
+                    answer = a - b;
+                    break;
+                case "*":
+                    answer = a * b;
+                    break;
+                case "/":
+                    if (b == 0)
+                    {
+                        throw new DivideByZeroException();
+                    }
+                    answer = a / b;
+                    break;
+            }
+            return answer;
         }
     }
 }

@@ -15,3 +15,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.solution{
+    background-color:forestgreen;
+    justify-content: center;
+}
