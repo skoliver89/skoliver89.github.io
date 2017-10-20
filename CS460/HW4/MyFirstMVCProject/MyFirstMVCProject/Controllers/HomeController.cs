@@ -75,5 +75,12 @@ namespace MyFirstMVCProject.Controllers
 
             return View();
         }
+
+        //GET ~/HOME/Page2
+        public ActionResult Page2()
+        {
+
+            return View();
+        }
     }
 }
