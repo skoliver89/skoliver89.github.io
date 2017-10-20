@@ -80,16 +80,27 @@ namespace MyFirstMVCProject.Controllers
         [HttpGet]
         public ActionResult Page2()
         {
-
             return View();
         }
 
         //POST ~/HOME/Page2
         [HttpPost]
-        public ActionResult Page2(string equation, int? decimalPlaces, bool? work = false)
+        public ActionResult Page2(string equation, int? decimalPlaces, string type)
         {
-            Debug.WriteLine($"{equation} : {decimalPlaces} : {work}");
+            Debug.WriteLine($"{equation} : {decimalPlaces} : {type}");
             return View();
+        }
+
+        private double inlineCalc(string equation)
+        {
+
+            return 0;
+        }
+
+        private double postfixCalc(string equation)
+        {
+
+            return 0;
         }
     }
 }

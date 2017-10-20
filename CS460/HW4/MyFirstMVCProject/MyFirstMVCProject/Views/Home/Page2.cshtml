@@ -7,30 +7,36 @@
 <p>App Instructions go here!</p>
 <hr />
 <br />
-<form method="post" class="form-horizontal">
-    <div class="form-group"> 
-        <!--Text field for entering the equation-->
-        <label for="equation">Equation</label> 
-        <input type="text" class="form-control" name="equation" />
-        <div class="radio-inline">
-            <label for="pf">Post-Fix</label>
-            <input type="radio" value="post-fix" name="type" id="pf" checked="checked" />
+<div class="container">
+    <form method="post" class="form-horizontal">
+        <div class="form-group">
+            <!--Text field for entering the equation-->
+            <label for="equation">Equation</label>
+            <input type="text" class="form-control" name="equation" />
+            <!--Radio to select the type of calculator to use (PostFix)-->
+            <div class="radio-inline">
+                <label for="pf">Postfix</label>
+                <input type="radio" value="postfix" name="type" id="pf" checked="checked" />
+            </div>
+            <!--Radio to select the type of calculator to use (InLine)-->
+            <div class="radio-inline">
+                <label for="in">Infix</label>
+                <input type="radio" value="infix" name="type" id="in" />
+            </div>
         </div>
-        <div class="radio-inline">
-            <label for="in">In-Line</label>
-            <input type="radio" value="in-line" name="type" id="in" />
+        <div class="form-group">
+            <!--Number field for selecting the number of decimal places in solution-->
+            <label for="decimalPlaces">Number of Decimal Places (Solution)</label>
+            <input type="number" class="form-control" name="decimalPlaces" />
+            <br />
+            <button type="submit" class="btn btn-primary">Calculate</button>
         </div>
-    </div>
-    <div class="form-group"> 
-        <!--Number field for selecting the number of decimal places in solution-->
-        <label for="decimalPlaces">Number of Decimal Places (Solution)</label>
-        <input type="number" class="form-control" name="decimalPlaces" />
-        <div class="checkbox">
-            <!--checkbox to show steps to solution(?)-->
-            <label for="work">Show Your Work</label>
-            <input type="checkbox" value="true" name="work" />
-        </div>
-    </div>
- 
-    <button type="submit" class="btn btn-primary">Calculate</button>
-</form>
+    </form>
+</div>
+
+@if(IsPost)
+{
+    <hr />
+    <br />
+    <p>Solution goes here</p>
+}
