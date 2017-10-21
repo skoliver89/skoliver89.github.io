@@ -121,7 +121,7 @@ namespace MyFirstMVCProject.Controllers
 
         //POST ~/Home/Page3
         [HttpPost]
-        public ActionResult Page3(decimal amount, double rate, int term)
+        public ActionResult Page3(decimal amount, decimal rate, int term)
         {
             return View();
         }
