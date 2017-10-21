@@ -121,8 +121,10 @@ namespace MyFirstMVCProject.Controllers
 
         //POST ~/Home/Page3
         [HttpPost]
-        public ActionResult Page3(decimal amount, decimal rate, int term)
+        public ActionResult Page3(double amount, double down, double rate, int term)
         {
+
+            Debug.WriteLine($"{amount} : {down} : {rate} : {term}");
             return View();
         }
 
@@ -252,6 +254,19 @@ namespace MyFirstMVCProject.Controllers
                     break;
             }
             return answer;
+        }
+
+        //Calculate The Loan EMI (Equated Monthly Installment)
+        //Formula found at: https://www.easycalculation.com/mortgage/auto-loan-emi.php
+        //EMI = (P * r * (1 + r)^n)/((1 + r)^n - 1)
+        //P = Loan Amount - Down Payment 
+        //r = Annual Interest Rate / 1200
+        //term (months)
+        private decimal GetEMI(double amount, double down, double rate, int term)
+        {
+
+
+            return 0.0m;
         }
     }
 }
