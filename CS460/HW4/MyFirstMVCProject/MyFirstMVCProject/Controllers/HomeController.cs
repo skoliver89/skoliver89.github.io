@@ -112,6 +112,20 @@ namespace MyFirstMVCProject.Controllers
             return View();
         }
 
+        //GET ~/Home/Page3
+        [HttpGet]
+        public ActionResult Page3()
+        {
+            return View();
+        }
+
+        //POST ~/Home/Page3
+        [HttpPost]
+        public ActionResult Page3(decimal amount, double rate, int term)
+        {
+            return View();
+        }
+
         //Because we aren't using Models yet, data processing goes here//
 
         //POSTFIX Methods
