@@ -365,7 +365,7 @@ I presented the solution, or error, after the page is POSTed to the client in th
 ![Homepage Demo](/Assets/HomeDemo.gif)
 
 ### Page 1 - Query Strings:
-
+![Page 1 Demo](/Assets/Page1Demo.gif)
 
 ### Page 2 - FormCollection Object:
 
