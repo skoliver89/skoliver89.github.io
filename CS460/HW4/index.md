@@ -31,7 +31,7 @@ public ActionResult Index()
     return View();
 }
 ```
-VIEW
+VIEW -> Unordered List
 ```html
 <ul class="list-group">
     <li class="list-group-item">@Html.ActionLink("Page 1", "Page1", "Home")</li>
@@ -46,7 +46,102 @@ The ActionLink HTML Helper params are: Link Text, ActionMethod, ControllerName i
 ##  Step 3: Create the first page <br />
 ##  Uses Query Strings (GET)
 
+For this Page we were instructed to create a form with at least 2 textfields and (using GET)
+retrieve the intput data in the controller. Then do some computation with that data and return
+the solution to the user in a "new page". I elected to create a temperature convertor that takes a value in either F, C, K, or N units and then converts the given value into the other
+three units. The form uses one number input and 4 radio inputs. I elected to use radios instead of a text field for the unit type so that the user could not possibly provide an unsupported unit of measurement.
 
+Here is a code snippet of my html form using the GET method:
+```html
+<div class="container">
+    <form method="get" class="form-horizontal">
+        <div class="form-group">
+            <label for="temperature">Temperature</label>
+            <input type="number" name="temperature" step="0.01" value="" class="form-control" />
+        </div>
+        <div class="form-group">
+            <div class="radio-inline">
+                <label for="F">F</label>
+                <input type="radio" name="units" id="F" value="F" checked="checked" />
+            </div>
+            <!--ETC for the other radios-->
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+```
+Note: I ommited 3 of the 4 radios to save space in this journal, see source for full code.
+
+I collected the data in the collected the data entered with the query string proved by the
+html form after the submit button is clicked. This is done inside of the Page2 Action Method.
+```cs
+public ActionResult Page1()
+{
+    string temperature = Request.QueryString["temperature"];
+    string units = Request.QueryString["units"];
+
+//...
+}
+```
+
+I wanted to be able to add the proved value and units to the user inside the answer section
+of the page so I added them to the ViewBag.
+```cs
+ViewBag.temperature = temperature;
+ViewBag.units = units;
+```
+The ViewBag is used by specifying a key after a period and then storing a value inside of it
+paired with that key on the right of an equals sign.
+
+After collection the data I ran my conversion formulas on the provided value and placed
+them into the ViewBag with unique "keys". For example, this is how I handle a value in F.
+```cs
+public ActionResult Page1()
+{
+// ...
+    if (temperature != null && temperature != "")
+    {
+        switch (units)
+        {
+            case "F":
+                ViewBag.a = ((t - 32.00) * (5.00 / 9.00)).ToString();   //F to C
+                ViewBag.b = ((t + 459.67) * (5.00 / 9.00)).ToString();  //F to K
+                ViewBag.c = ((t - 32.00) * (11.00 / 60.00)).ToString(); //F to N
+                ViewBag.aU = "C"; //send the unit label for Celsius
+                ViewBag.bU = "K"; //send the unit label for Kelvin
+                ViewBag.cU = "N"; //send the unit label for Newtons
+                break;
+                        
+            //...
+        }
+    }
+
+    return View();
+}
+```
+
+For this page I decided to not even allow the answer section of the view to be
+rendered if the user tries to supply a null or empty value. If the user enters
+a value into the field other than a number the browser will simply generate a
+notification to the error for the field.
+Here is a code snippet describing the answer section of the Page1 view:
+```cs
+@if (ViewBag.temperature != "" && ViewBag.temperature != null) //do nothing if empty/null value is found
+{
+    <div class="alert alert-success">
+        <dl>
+            <dt class="list-group-item-heading">Provided Temperature: </dt>
+            <dd class="list-group-item">@ViewBag.temperature@ViewBag.units</dd>
+            <dt class="list-group-item-heading">Converted to @ViewBag.aU:</dt>
+            <dd class="list-group-item">@ViewBag.a@ViewBag.aU</dd>
+            
+            
+        </dl>
+    </div>
+}
+```
 
 ##  Step 4: Create the second page <br /> 
 ##  Uses Form Data (POST) gathered with a FormCollection object
