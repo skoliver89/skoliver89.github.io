@@ -4,12 +4,14 @@
 }
 
 <!-- Page title header -->
-<h2>Home</h2>
+<div class="page-header">
+    <h2>Home</h2>
+</div>
 
 <!-- Create a list (ul) that contains links to
      the other pages using razor HTML helper methods -->
-<ul>
-    <li>@Html.ActionLink("Page 1", "Page1", "Home")</li>
-    <li>@Html.ActionLink("Page 2", "Page2", "Home")</li>
-    <li>@Html.ActionLink("Page 3", "Page3", "Home")</li>
+<ul class="list-group">
+    <li class="list-group-item">@Html.ActionLink("Page 1", "Page1", "Home")</li>
+    <li class="list-group-item">@Html.ActionLink("Page 2", "Page2", "Home")</li>
+    <li class="list-group-item">@Html.ActionLink("Page 3", "Page3", "Home")</li>
 </ul>
