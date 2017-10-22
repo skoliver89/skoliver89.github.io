@@ -369,8 +369,9 @@ I appoligize in advance for any resolution loss.
 ![Page 1 Demo](/Assets/Page1Demo.gif)
 ![Page 1 Demo](/Assets/Page1DemoText.jpg)
 ![Page 1 Demo](/Assets/Page1DemoQS.jpg)
-### Page 2 - FormCollection Object:
 
+### Page 2 - FormCollection Object:
+![Page 2 Demo](/Assets/Page2Demo.gif)
 
 ### Page 3 - Model Binding:
-
+![Page 3 Demo](/Assets/Page3Demo.gif)
