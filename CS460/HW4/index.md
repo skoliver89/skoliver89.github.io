@@ -22,17 +22,17 @@ GitHub repository linked to the button above.
 
 
 ##  Step 3: Create the first page <br />
-### Uses Query Strings (GET)
+##  Uses Query Strings (GET)
 
 
 
 ##  Step 4: Create the second page <br /> 
-### Uses Form Data (POST) gathered with a FormCollection object
+##  Uses Form Data (POST) gathered with a FormCollection object
 
 
 
 ##  Step 5: Create the third page <br />
-### Uses Form Data (POST) gathered using model binding in controller action methods
+##  Uses Form Data (POST) gathered using model binding in controller action methods
 
 
 
@@ -44,8 +44,8 @@ GitHub repository linked to the button above.
 ### Page 1 - Query Strings:
 
 
-### Page 2 - FormCollection Object
+### Page 2 - FormCollection Object:
 
 
-### Page 3 - Model Binding
+### Page 3 - Model Binding:
 
