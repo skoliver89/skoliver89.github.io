@@ -127,7 +127,7 @@ rendered if the user tries to supply a null or empty value. If the user enters
 a value into the field other than a number the browser will simply generate a
 notification to the error for the field.
 Here is a code snippet describing the answer section of the Page1 view:
-```cs
+```html
 @if (ViewBag.temperature != "" && ViewBag.temperature != null) //do nothing if empty/null value is found
 {
     <div class="alert alert-success">
@@ -136,12 +136,13 @@ Here is a code snippet describing the answer section of the Page1 view:
             <dd class="list-group-item">@ViewBag.temperature@ViewBag.units</dd>
             <dt class="list-group-item-heading">Converted to @ViewBag.aU:</dt>
             <dd class="list-group-item">@ViewBag.a@ViewBag.aU</dd>
-            
-            
+            <!-- ... -->
+
         </dl>
     </div>
 }
 ```
+Note, I ommited 3 of the 4 converted values to save space.
 
 ##  Step 4: Create the second page <br /> 
 ##  Uses Form Data (POST) gathered with a FormCollection object
