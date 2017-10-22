@@ -4,50 +4,56 @@
 }
 
 <!-- Page title header -->
-<h2>Page 1 - The F/C/K/N Temperature Converter</h2>
-<br />
-<!-- Form instructions-->
-<p>Input a number for temperature and select a unit of measurement.</p>
-<p>The temperature can have up to two decimal places.</p>
-<hr />
-<br />
+<div class="page-header">
+    <h2>Page 1 - The F/C/K/N Temperature Converter</h2>
+    <!-- Form instructions-->
+    <p>Input a number for temperature and select a unit of measurement.</p>
+    <p>The temperature can have up to two decimal places.</p>
+</div>
 <!-- Create the form to get data to the controler -->
-<form method="get">
-    <div class="form-group">
-        <label for="temperature">Temperature</label>
-        <input type="number" name="temperature" step="0.01" value="" class="form-control" />
-    </div>
-    <div class="radio-inline">
-        <label for="F">F</label>
-        <input type="radio" name="units" id="F" value="F" checked="checked" />
-    </div>
-    <div class="radio-inline">
-        <label for="C">C</label>
-        <input type="radio" name="units" id="C" value="C" />
-    </div>
-    <div class="radio-inline">
-        <label for="K">K</label>
-        <input type="radio" name="units" id="K" value="K" />
-    </div>
-    <div class="radio-inline">
-        <label for="N">N</label>
-        <input type="radio" name="units" id="N" value="N" />
-    </div>
-    <br />
-    <br />
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<!-- If there is a value input my the user populate the converstion list -->
-@if (ViewBag.temperature != "" && ViewBag.temperature != null)
-{
-    <hr />
-    <br />
-    <h4 class="list-group-item-heading">Converted Temperatures</h4>
-    <ul class="list-group">
-        <li class="list-group-item">Provided Temperature: @ViewBag.temperature@ViewBag.units</li>
-        <li class="list-group-item">Converted to @ViewBag.aU: @ViewBag.a@ViewBag.aU</li>
-        <li class="list-group-item">Converted to @ViewBag.bU: @ViewBag.b@ViewBag.bU</li>
-        <li class="list-group-item">Converted to @ViewBag.cU: @ViewBag.c@ViewBag.cU</li>
-    </ul>
-}
+<div class="container">
+    <form method="get" class="form-horizontal">
+        <div class="form-group">
+            <label for="temperature">Temperature</label>
+            <input type="number" name="temperature" step="0.01" value="" class="form-control" />
+        </div>
+        <div class="form-group">
+            <div class="radio-inline">
+                <label for="F">F</label>
+                <input type="radio" name="units" id="F" value="F" checked="checked" />
+            </div>
+            <div class="radio-inline">
+                <label for="C">C</label>
+                <input type="radio" name="units" id="C" value="C" />
+            </div>
+            <div class="radio-inline">
+                <label for="K">K</label>
+                <input type="radio" name="units" id="K" value="K" />
+            </div>
+            <div class="radio-inline">
+                <label for="N">N</label>
+                <input type="radio" name="units" id="N" value="N" />
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
 
+<!-- If there is a value input my the user populate the conversion list -->
+@if (ViewBag.temperature != "" && ViewBag.temperature != null) //do nothing if empty/null value is found
+            {
+    <div class="alert alert-success">
+        <dl>
+            <dt class="list-group-item-heading">Provided Temperature: </dt>
+            <dd class="list-group-item">@ViewBag.temperature@ViewBag.units</dd>
+            <dt class="list-group-item-heading">Converted to @ViewBag.aU:</dt>
+            <dd class="list-group-item">@ViewBag.a@ViewBag.aU</dd>
+            <dt class="list-group-item-heading">Converted to @ViewBag.bU:</dt>
+            <dd class="list-group-item">@ViewBag.b@ViewBag.bU</dd>
+            <dt class="list-group-item-heading">Converted to @ViewBag.cU:</dt>
+            <dd class="list-group-item">@ViewBag.c@ViewBag.cU</dd>
+        </dl>
+    </div>
+}
