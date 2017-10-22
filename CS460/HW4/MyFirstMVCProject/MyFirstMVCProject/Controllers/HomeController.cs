@@ -268,7 +268,7 @@ namespace MyFirstMVCProject.Controllers
         //EMI = (P * r * (1 + r)^n)/((1 + r)^n - 1)
         //P = Loan Amount - Down Payment 
         //r = Annual Interest Rate / 1200
-        //term (months)
+        //n = term (months)
         private string[] GetEMI(double? amount, double? down, double? rate, int? term)
         {
             string[] output = { "ok", "1", "2", "3" };
