@@ -291,7 +291,73 @@ Here is how the solution is presented back to the client if the page is in POST 
 ##  Step 5: Create the third page <br />
 ##  Uses Form Data (POST) gathered using model binding in controller action methods
 
+For this page we took the GET/POST method even further with model binding in the controller.
+That is, we recieved the values of the form data with parameters in the signature of the action method. A loan calculator was suggested for this page so I created one that calculates the EMI of an auto loan. The formula for EMI is: EMI = (P * r * (1 + r)^n)/((1 + r)^n - 1) where P = Loan Amount - Down Payment, r = Annual Interest Rate / 1200, and n = term (months).
 
+The form has four number input fields, each of which has unique input limitation and requirements so that the formula does not return a NaN solution. There is nothing used to create this form that I did not use in previous forms so I will not be providing a code snippet; however, the source code is open to viewers on my github repository.
+
+Here is how I gathered the data with the model binding in the controller.
+```cs
+//GET ~/Home/Page3
+[HttpGet]
+public ActionResult Page3()
+{
+    return View();
+}
+
+//POST ~/Home/Page3
+[HttpPost]
+public ActionResult Page3(double? amount, double? down, double? rate, int? term)
+{
+    //...
+}
+```
+
+
+The private method inside the contol first had to convert the nullable types to the default non-nullable types I performed this inside a try/catch block so that if a parameter was null the error would be caught and handled in a clean way.
+```cs
+try
+    {
+        //calculate the variables needed for the formula
+        //nullable types must be cast out now, no nulls allowed 
+        //if a null value is found go to the catch.
+        double p = (double)amount - (double)down;
+        //Debug.WriteLine($"P = {p}");
+        double r = (double)rate / 1200;
+        //Debug.WriteLine($"r = {r}");
+        double n = (double)term;
+        //Debug.WriteLine($"n = {n}");
+
+        //...
+    }
+    catch //...
+```
+I performed the calculations in this same try/catch block so that computation errors would similarly be cleanly handled. Like for page2 the solutions are inserted into a string array.
+```cs
+double emi = (p * r * Math.Pow((1 + r), n)) / (Math.Pow((1 + r), n) - 1);
+output[1] = $"${emi.ToString("0.00")}";                 //EMI
+output[2] = $"${(emi * n).ToString("0.00")}";           //Total amount in payments
+output[3] = $"${((emi * n) - p).ToString("0.00")}";     //Total Interest payment
+```
+
+For this page I added a little more customization to the error handling.
+```cs
+ catch (InvalidOperationException) //A parameter was left empty by the user
+{
+    output[0] = "error"; //this will indicate to the view that we are kicking back an error message.
+     output[1] = "All number fields must have a value; please check your data and re-enter the parameters.";
+            }
+catch (Exception e) //Wut?
+{
+    output[0] = "error";
+    output[1] = $"Unexpected {e.GetType().Namespace} Exception: {e.Message}";
+}
+```
+The last catch block is a custom handler that I created to keep unexpected exceptions from overwhelming the client with complex error printouts whlie still being informative.
+
+The private method the returns the array containing the status code and message(s) back to the action method. The action method then deals out the array elements to the ViewBag and generates and returns the page's POST view object.
+
+I presented the solution, or error, after the page is POSTed to the client in the same mannor that I did with page2 so I will be providing no further code snippets for that process on this page. This is a measure to save space and precious reader time.
 
 ##  DEMO:
 
