@@ -362,7 +362,7 @@ I presented the solution, or error, after the page is POSTed to the client in th
 ##  DEMO:
 
 ### Home (Launch) Page:
-
+![Homepage Demo](/Assets/HomeDemo.gif)
 
 ### Page 1 - Query Strings:
 
