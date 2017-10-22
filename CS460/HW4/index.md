@@ -127,7 +127,7 @@ rendered if the user tries to supply a null or empty value. If the user enters
 a value into the field other than a number the browser will simply generate a
 notification to the error for the field.
 Here is a code snippet describing the answer section of the Page1 view:
-```cshtml
+```html
 @if (ViewBag.temperature != "" && ViewBag.temperature != null) //do nothing if empty/null value is found
 {
     <div class="alert alert-success">
