@@ -121,10 +121,17 @@ namespace MyFirstMVCProject.Controllers
 
         //POST ~/Home/Page3
         [HttpPost]
-        public ActionResult Page3(double amount, double down, double rate, int term)
+        public ActionResult Page3(double? amount, double? down, double? rate, int? term)
         {
-
             Debug.WriteLine($"{amount} : {down} : {rate} : {term}");
+            string[] output = {"ok","1", "2", "3"};
+            output = GetEMI(amount, down, rate, term);
+
+            ViewBag.status = output[0];
+            ViewBag.message = output[1];
+            ViewBag.message2 = output[2];
+            ViewBag.message3 = output[3];
+
             return View();
         }
 
@@ -262,11 +269,36 @@ namespace MyFirstMVCProject.Controllers
         //P = Loan Amount - Down Payment 
         //r = Annual Interest Rate / 1200
         //term (months)
-        private decimal GetEMI(double amount, double down, double rate, int term)
+        private string[] GetEMI(double? amount, double? down, double? rate, int? term)
         {
+            string[] output = { "ok", "1", "2", "3" };
 
+            try
+            {
+                double p = (double)amount - (double)down;
+                Debug.WriteLine($"P = {p}");
+                double r = (double)rate / 1200;
+                Debug.WriteLine($"r = {r}");
+                double n = (double)term;
+                Debug.WriteLine($"n = {n}");
 
-            return 0.0m;
+                double emi = (p * r * Math.Pow((1 + r), n)) / (Math.Pow((1 + r), n) - 1);
+                output[1] = $"${emi.ToString("0.00")}";                 //EMI
+                output[2] = $"${(emi * n).ToString("0.00")}";           //Total amount in payments
+                output[3] = $"${((emi * n) - p).ToString("0.00")}";     //Total Interest payment
+            }
+            catch (InvalidOperationException)
+            {
+                output[0] = "error";
+                output[1] = "All number fields must have a value; please check your data and re-enter the parameters.";
+            }
+            catch (Exception e)
+            {
+                output[0] = "error";
+                output[1] = $"Unexpected {e.GetType().Namespace} Exception: {e.Message}";
+            }
+
+            return output;
         }
     }
 }
