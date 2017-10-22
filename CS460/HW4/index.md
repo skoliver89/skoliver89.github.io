@@ -360,13 +360,15 @@ The private method the returns the array containing the status code and message(
 I presented the solution, or error, after the page is POSTed to the client in the same mannor that I did with page2 so I will be providing no further code snippets for that process on this page. This is a measure to save space and precious reader time.
 
 ##  DEMO:
+I appoligize in advance for any resolution loss.
 
 ### Home (Launch) Page:
 ![Homepage Demo](/Assets/HomeDemo.gif)
 
 ### Page 1 - Query Strings:
 ![Page 1 Demo](/Assets/Page1Demo.gif)
-
+![Page 1 Demo](/Assets/Page1DemoText.jpg)
+![Page 1 Demo](/Assets/Page1DemoQS.jpg)
 ### Page 2 - FormCollection Object:
 
 
