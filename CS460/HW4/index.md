@@ -15,12 +15,37 @@ GitHub repository linked to the button above.
 
 ## Step 1: Create an empty MVC 5 project with Visual Studio 2017
 
+
+
 ## Step 2: Create the Home (launch) page
+
+
 
 ##  Step 3: Create the first page <br />
 ### Uses Query Strings (GET)
 
+
+
 ##  Step 4: Create the second page <br /> 
 ### Uses Form Data (POST) gathered with a FormCollection object
+
+
+
 ##  Step 5: Create the third page <br />
 ### Uses Form Data (POST) gathered using model binding in controller action methods
+
+
+
+##  DEMO:
+
+### Home (Launch) Page:
+
+
+### Page 1 - Query Strings:
+
+
+### Page 2 - FormCollection Object
+
+
+### Page 3 - Model Binding
+
