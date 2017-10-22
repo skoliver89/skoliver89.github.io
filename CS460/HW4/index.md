@@ -17,8 +17,10 @@ GitHub repository linked to the button above.
 
 ## Step 2: Create the Home (launch) page
 
-## Step 3: Create the first page; uses Query Strings (GET)
+##  Step 3: Create the first page <br />
+### Uses Query Strings (GET)
 
-## step 4: Create the second page; uses Form Data (POST) gathered with a FormCollection object
-
-## step 5: Create the third page; uses Form Data (POST) gathered using model binding in controller action methods
+##  Step 4: Create the second page <br /> 
+### Uses Form Data (POST) gathered with a FormCollection object
+##  Step 5: Create the third page <br />
+### Uses Form Data (POST) gathered using model binding in controller action methods
