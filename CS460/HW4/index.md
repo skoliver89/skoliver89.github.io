@@ -9,9 +9,7 @@ MVC application. This is the first MVC project, therefore databases are not in u
 
 Instructions for this assignment can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW4.html).
 
-The collection of web-apps created for this assignment are not being hosted. The end of
-this journal entry contains visual demonstrations. The source code can be found in the
-GitHub repository linked to the button above.
+For a live demo of the web-app click: [here](http://myfirstmvcproject20171022055904.azurewebsites.net/)
 
 ## Step 1: Create an empty MVC 5 project with Visual Studio 2017
 
@@ -359,7 +357,7 @@ The private method the returns the array containing the status code and message(
 
 I presented the solution, or error, after the page is POSTed to the client in the same mannor that I did with page2 so I will be providing no further code snippets for that process on this page. This is a measure to save space and precious reader time.
 
-##  DEMO:
+##  Guided Animated DEMOs:
 I appoligize in advance for any resolution loss.
 
 ### Home (Launch) Page:
