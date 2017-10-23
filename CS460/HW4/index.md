@@ -9,7 +9,7 @@ MVC application. This is the first MVC project, therefore databases are not in u
 
 Instructions for this assignment can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW4.html).
 
-For a live demo of the web-app click: [here](http://myfirstmvcproject20171022055904.azurewebsites.net/)
+For a live demo of the web-app click: [here](hhttp://stephenkolivercs460hw4.azurewebsites.net/)
 
 ## Step 1: Create an empty MVC 5 project with Visual Studio 2017
 
