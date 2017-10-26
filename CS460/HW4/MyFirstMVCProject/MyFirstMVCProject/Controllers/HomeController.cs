@@ -91,8 +91,23 @@ namespace MyFirstMVCProject.Controllers
         {
             string equation = Request.Form["equation"];
             string type = Request.Form["type"];
-            int decimalPlaces = Int32.Parse(Request.Form["decimalPlaces"]);
             string[] output = { "error", "Calculator Type Not Found!"};
+            int decimalPlaces = 0;
+            try
+            {
+                decimalPlaces = Int32.Parse(Request.Form["decimalPlaces"]);
+
+            }
+            catch(Exception e)
+            {
+                output[0] = "error";
+                output[1] = "The number of decimal places must be a vaild number (0-15).";
+
+                ViewBag.status = output[0];
+                ViewBag.message = output[1];
+
+                return View();
+            }
 
             //determine if expression is postfix or infix
             //this is controled with a pair of radios defaulted to postfix
@@ -161,6 +176,7 @@ namespace MyFirstMVCProject.Controllers
             }
 
             output[1] += $" {Math.Round(stack.Pop(), r).ToString()}";
+            
             if(stack.Count != 0)
             {
                 output[0] = "error";
