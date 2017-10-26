@@ -16,7 +16,11 @@ textarea {
     max-width: 280px;
 }
 
-.solution{
-    background-color:forestgreen;
-    justify-content: center;
+/*limit the width of lists*/
+.list-group-item {
+    max-width: 280px;
+}
+/*limit the width of alerts*/
+.alert {
+    max-width: 300px;
 }

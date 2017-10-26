@@ -127,6 +127,29 @@ namespace MyFirstMVCProject.Controllers
             return View();
         }
 
+        //GET ~/Home/Page3
+        [HttpGet]
+        public ActionResult Page3()
+        {
+            return View();
+        }
+
+        //POST ~/Home/Page3
+        [HttpPost]
+        public ActionResult Page3(double? amount, double? down, double? rate, int? term)
+        {
+            Debug.WriteLine($"{amount} : {down} : {rate} : {term}");
+            string[] output = {"ok","1", "2", "3"};
+            output = GetEMI(amount, down, rate, term);
+
+            ViewBag.status = output[0]; //did it error out? (ok, error)
+            ViewBag.message = output[1]; //EMI or Error Message
+            ViewBag.message2 = output[2]; //Total amount to pay
+            ViewBag.message3 = output[3]; //Total interest
+
+            return View(); //generate the view!
+        }
+
         //Because we aren't using Models yet, data processing goes here//
 
         //POSTFIX Methods
@@ -254,6 +277,47 @@ namespace MyFirstMVCProject.Controllers
                     break;
             }
             return answer;
+        }
+
+        //Calculate The Loan EMI (Equated Monthly Installment)
+        //Formula found at: https://www.easycalculation.com/mortgage/auto-loan-emi.php
+        //EMI = (P * r * (1 + r)^n)/((1 + r)^n - 1)
+        //P = Loan Amount - Down Payment 
+        //r = Annual Interest Rate / 1200
+        //n = term (months)
+        private string[] GetEMI(double? amount, double? down, double? rate, int? term)
+        {
+            string[] output = { "ok", "1", "2", "3" };
+
+            try
+            {
+                //calculate the variables needed for the formula
+                //nullable types must be cast out now, no nulls allowed 
+                //if a null value is found go to the catch.
+                double p = (double)amount - (double)down;
+                //Debug.WriteLine($"P = {p}");
+                double r = (double)rate / 1200;
+                //Debug.WriteLine($"r = {r}");
+                double n = (double)term;
+                //Debug.WriteLine($"n = {n}");
+
+                double emi = (p * r * Math.Pow((1 + r), n)) / (Math.Pow((1 + r), n) - 1);
+                output[1] = $"${emi.ToString("0.00")}";                 //EMI
+                output[2] = $"${(emi * n).ToString("0.00")}";           //Total amount in payments
+                output[3] = $"${((emi * n) - p).ToString("0.00")}";     //Total Interest payment
+            }
+            catch (InvalidOperationException) //A parameter was left empty by the user
+            {
+                output[0] = "error"; //this will indicate to the view that we are kicking back an error message.
+                output[1] = "All number fields must have a value; please check your data and re-enter the parameters.";
+            }
+            catch (Exception e) //Wut?
+            {
+                output[0] = "error";
+                output[1] = $"Unexpected {e.GetType().Namespace} Exception: {e.Message}";
+            }
+
+            return output;
         }
     }
 }

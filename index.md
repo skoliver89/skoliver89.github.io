@@ -14,6 +14,7 @@ To view the full course content please visit the CS46X course site as provided b
 
 ### Software Engineering I (CS 460): Homework
 
-1. [Homework 1](CS460/HW1/index.md): HTML, CSS, Git and Bootstrap
-2. [Homework 2](CS460/HW2/index.md): HTML, Javascript, and jQuery
-3. [Homework 3](CS460/HW3/index.md): C# console, translate app
+1. [Homework 1](CS460/HW1/): HTML, CSS, Git and Bootstrap
+2. [Homework 2](CS460/HW2/): HTML, Javascript, and jQuery
+3. [Homework 3](CS460/HW3/): C# console, translate app
+4. [Homework 4](CS460/HW4/): MVC app 1, no dB

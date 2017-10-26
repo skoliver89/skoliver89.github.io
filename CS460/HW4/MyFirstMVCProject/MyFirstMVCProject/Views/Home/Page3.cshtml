@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Page 3";
+}
+
+<!--Page Header to explain what you are seeing on the page-->
+<div class="page-header">
+    <h2>Page3 - Auto Loan EMI Calculator</h2>
+    <p>
+        "An equated monthly installment (EMI) is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. 
+        Equated monthly installments are used to pay off both interest and principal each month so that over a specified number of years, the 
+        loan is paid off in full. With most common types of loans, such as real estate mortgages, the borrower makes fixed periodic payments
+        to the lender over the course of several years with the goal of retiring the loan." -<a href="http://www.investopedia.com/terms/e/equated_monthly_installment.asp">Investopedia</a>
+    </p>
+    <a href="https://www.easycalculation.com/mortgage/auto-loan-emi.php">Outside Calculator to check my work</a>
+</div>
+
+<!--The form GET version of the page will only see this-->
+@* 
+    For the form values I added some constrains to stop the EMI formula from returning NaN values.
+    All of the parameters must be numbers. This is handled by the input being set to type number.
+    Loan Amount, Annual Interest Rate, and Loan Period cannot be 0; they have to be at lease 0.01, 0.01, and 1 respectively.
+    Handling this at the GET version of the form means that users can not POST invalid parameter values.
+*@
+<div class="container">
+    <form method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="amount">Loan Amount ($)</label>
+            <input type="number" class="form-control" name="amount" value="1.00" min="0.01" step="0.01" />
+            <br />
+            <label for="down">Down Payment ($)</label>
+            <input type="number" class="form-control" name="down" value="0.00" min="0" step="0.01" />
+            <br />
+            <label for="rate">Annual Interest Rate (%)</label>
+            <input type="number" class="form-control" name="rate" value="0.01" min="0.01"  step="0.01" />
+            <br />
+            <label for="term">Loan period (Months)</label>
+            <input type="number" class="form-control" name="term" value="1" min="1" step="1" />
+            <br />
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </div>
+    </form>
+</div>
+
+@* Once we are able to POST then the POST version of the page is loaded and the following is displayed *@
+@if (IsPost) //check to see if the page method is POST
+{
+    if (ViewBag.status == "ok") //If no errors are found...
+    {
+        <br />
+        <div class="alert alert-success"> <!--Pretty green box for successful run-->
+            <dl class="list-group">
+                <dt class="list-group-item-heading">
+                    Monthly Payment:
+                </dt>
+                <dd class="list-group-item">
+                    @ViewBag.message
+                </dd>
+                <dt class="list-group-item-heading">
+                    Total Amount to Pay:
+                </dt>
+                <dd class="list-group-item">
+                    @ViewBag.message2
+                </dd>
+                <dt class="list-group-item-heading">
+                    Total Interest Payment:
+                </dt>
+                <dd class="list-group-item">
+                    @ViewBag.message3
+                </dd>
+            </dl>
+        </div>
+    }
+    if (ViewBag.status == "error") //If there is an error during calculations
+    {
+        <div class="alert alert-danger"> <!--Scary red box for error messages-->
+            <dl class="list-group">
+                <dt class="list-group-item-heading">
+                    Error:
+                </dt>
+                <dd class="list-group-item">
+                    @ViewBag.message
+                </dd>
+            </dl>
+        </div>
+    }
+}
