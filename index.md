@@ -18,3 +18,4 @@ To view the full course content please visit the CS46X course site as provided b
 2. [Homework 2](CS460/HW2/): HTML, Javascript, and jQuery
 3. [Homework 3](CS460/HW3/): C# console, translate app
 4. [Homework 4](CS460/HW4/): MVC app 1, no dB
+5. [Homework 5](CS460/HW5/): MVC app 2, simple dB (WIP)
