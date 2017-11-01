@@ -10,15 +10,18 @@ Instructions for this assignment can be found [here](http://www.wou.edu/~morses/
 
 Live demo link: here
 
-## Step 1: Create an empty MVC project & a simple home landing page
+## Step 1: Create an empty MVC project & <br />
+## A simple home landing page
 
 
 
-## Step 2: Create the data model (DB Up and Down scripts) 
+## Step 2: Create the data model <br />
+## (DB Up and Down scripts) 
 
 
 
-## Step 3: Create the model classes & DB context class
+## Step 3: Create the model classes & <br />
+## DB context class
 
 
 
@@ -26,9 +29,11 @@ Live demo link: here
 
 
 
-## Step 5: Change of address requests page (PRG Controler & Strongly Typed View)
+## Step 5: Change of address requests page <br />
+## (PRG Controler & Strongly Typed View)
 
 
 
-## Step 6: Change of address form page (PRG Controler & Strongly Typed View)
+## Step 6: Change of address form page <br />
+## (PRG Controler & Strongly Typed View)
 
