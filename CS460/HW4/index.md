@@ -373,3 +373,6 @@ I appoligize in advance for any resolution loss.
 
 ### Page 3 - Model Binding:
 ![Page 3 Demo](/Assets/Page3Demo.gif)
+
+
+[back to portfolio](https://skoliver89.github.io)
