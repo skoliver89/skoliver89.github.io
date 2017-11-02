@@ -2,22 +2,17 @@
 @{
     ViewBag.Title = "Home";
 }
-<div class="page-header">
-    <h2>Home</h2>
-</div>
 
 <div class="container">
-    <div class="row">
-
+    <div class="row text-center">
+            <img class="img-responsive" src="~/Assets/oregon-dmv.jpg" alt="Oregon DMV" 
+                 height="300" width="500" id="homeLogo"/>
     </div>
-
-    <div class="row">
-        <div class="col">
-
+    <div class="row text-center">
+        <div class="btn-group">
+            @Html.ActionLink("Current Requests", "Current", "Home", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("New Request", "New", "Home", null, new { @class = "btn btn-default" })
         </div>
-        <div class="col">
-
         </div>
     </div>
-
 </div>
