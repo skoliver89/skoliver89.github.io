@@ -21,10 +21,26 @@ textarea {
     margin: 0 auto;
 }
 
+table {
+    border: 1px solid;
+    border-color: lightgray;
+}
+
 thead {
     background-color: darkblue;
+    
 }
 
 thead th {
     color: aliceblue;
+    border: 1px inset;
+}
+
+#formatHeader {
+    font-size: x-small;
+    background-color: grey;
+}
+
+#formatHeader th {
+    color: lightgrey;
 }
