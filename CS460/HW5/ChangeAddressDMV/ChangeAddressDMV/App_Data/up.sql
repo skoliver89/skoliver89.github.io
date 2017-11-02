@@ -1,4 +1,4 @@
--- Requests Table
+-- Create Requests Table
 CREATE TABLE dbo.Requests
 (
 	RequestID			INT IDENTITY (1,1) NOT NULL,
