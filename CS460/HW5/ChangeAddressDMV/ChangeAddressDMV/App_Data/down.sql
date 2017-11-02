@@ -1,2 +1,2 @@
 -- DROP Requests Table
-DROP TABLE IF EXISTS Requests;
+DROP TABLE dbo.Requests;
