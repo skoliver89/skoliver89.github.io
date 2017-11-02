@@ -7,9 +7,9 @@ using System.Web;
 
 namespace ChangeAddressDMV.DAL
 {
-    public class RequestContext : DbContext
+    public class hw5dbContext : DbContext
     {
-        public RequestContext() : base("name=HW5DBContext")
+        public hw5dbContext() : base("name=HW5DBContext")
         { }
 
         public virtual DbSet<Request> Requests { get; set; }

@@ -11,7 +11,7 @@ namespace ChangeAddressDMV.Controllers
     public class RequestsController : Controller
     {
         //db variable
-        private RequestContext db = new RequestContext();
+        private hw5dbContext db = new hw5dbContext();
 
         // GET: Requests
         // Listing all current requests in the index

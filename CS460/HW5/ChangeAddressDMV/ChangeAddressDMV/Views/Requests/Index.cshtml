@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ChangeAddressDMV.Models.Request>
+
+@{
+    ViewBag.Title = "Current Requests";
+}
+
+<div class="page-header">
+    <h2>Current Requests</h2>
+</div>
+
+<table class="table-responsive">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.RequestID)</th>
+            <th>@Html.DisplayNameFor(model => model.IDNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.FullName)</th>
+            <th>@Html.DisplayNameFor(model => model.DOB)</th>
+            <th>@Html.DisplayNameFor(model => model.NewResAddr)</th>
+            <th>@Html.DisplayNameFor(model => model.NewResCityStateZip)</th>
+            <th>@Html.DisplayNameFor(model => model.NewResCounty)</th>
+            <th>@Html.DisplayNameFor(model => model.NewMailAddr)</th>
+            <th>@Html.DisplayNameFor(model => model.NewMailCityStateZip)</th>
+            <th>@Html.DisplayNameFor(model => model.NewMailCounty)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
