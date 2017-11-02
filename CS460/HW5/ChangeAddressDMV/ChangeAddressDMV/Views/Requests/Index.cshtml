@@ -8,10 +8,10 @@
     <h2>Current Requests</h2>
 </div>
 
-<table class="table-responsive">
+<table class="table table-hover table-responsive">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.RequestID)</th>
+            <th id="index">@Html.DisplayNameFor(model => model.RequestID)</th>
             <th>@Html.DisplayNameFor(model => model.IDNumber)</th>
             <th>@Html.DisplayNameFor(model => model.FullName)</th>
             <th>@Html.DisplayNameFor(model => model.DOB)</th>
@@ -24,6 +24,19 @@
         </tr>
     </thead>
     <tbody>
-
+        @foreach (var item in Model) {
+            <tr>
+                <td>@Html.DisplayFor(ModelItem => item.RequestID)</td>
+                <td>@Html.DisplayFor(ModelItem => item.IDNumber)</td>
+                <td>@Html.DisplayFor(ModelItem => item.FullName)</td>
+                <td>@Html.DisplayFor(ModelItem => item.DOB)</td>
+                <td>@Html.DisplayFor(ModelItem => item.NewResAddr)</td>
+                <td>@Html.DisplayFor(ModelItem => item.NewResCityStateZip)</td>
+                <td>@Html.DisplayFor(ModelItem => item.NewResCounty)</td>
+                <td>@Html.DisplayFor(ModelItem => item.NewMailAddr)</td>
+                <td>@Html.DisplayFor(ModelItem => item.NewMailCityStateZip)</td>
+                <td>@Html.DisplayFor(ModelItem => item.NewMailCounty)</td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -9,6 +9,7 @@ namespace ChangeAddressDMV.Models
     public class Request
     {
         [Required]
+        [Display(Name ="Request #")]
         public int RequestID { get; set; }
 
         [Required]
@@ -17,12 +18,12 @@ namespace ChangeAddressDMV.Models
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "DATE OF BIRTH (YYYY-MM-DD)")]
+        [Display(Name = "DATE OF BIRTH")]
         public DateTime DOB { get; set; }
 
         [Required]
         [StringLength(128)]
-        [Display(Name ="FULL LEGAL NAME (Print last, frist, middle)")]
+        [Display(Name ="FULL LEGAL NAME")]
         public string FullName { get; set; }
 
         [Required]

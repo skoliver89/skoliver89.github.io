@@ -20,3 +20,15 @@ textarea {
 #homeLogo.img-responsive {
     margin: 0 auto;
 }
+
+thead {
+    background-color: darkblue;
+}
+
+thead th {
+    color: aliceblue;
+}
+
+#index { 
+    min-width: 50px;  
+}
