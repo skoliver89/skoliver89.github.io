@@ -28,7 +28,7 @@ namespace ChangeAddressDMV.Models
 
         [Required]
         [StringLength(128)]
-        [Display(Name ="NEW RESIDENCE ADDRESS")]
+        [Display(Name ="NEW ADDRESS")]
         public string NewResAddr { get; set; }
 
         [Required]
@@ -43,7 +43,7 @@ namespace ChangeAddressDMV.Models
 
         [Required]
         [StringLength(128)]
-        [Display(Name = "NEW MAILING ADDRESS")]
+        [Display(Name = "NEW ADDRESS")]
         public string NewMailAddr { get; set; }
 
         [Required]

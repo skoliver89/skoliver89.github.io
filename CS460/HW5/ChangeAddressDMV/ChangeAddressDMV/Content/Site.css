@@ -34,6 +34,7 @@ thead {
 thead th {
     color: aliceblue;
     border: 1px inset;
+    min-width: 80px;
 }
 
 #formatHeader {
