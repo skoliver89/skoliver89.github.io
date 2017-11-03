@@ -9,14 +9,6 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
 #homeLogo.img-responsive {
     margin: 0 auto;
 }
@@ -36,7 +28,6 @@ thead th {
     border: 1px inset;
     min-width: 80px;
 }
-
 #formatHeader {
     font-size: x-small;
     background-color: grey;
@@ -44,4 +35,17 @@ thead th {
 
 #formatHeader th {
     color: lightgrey;
+}
+
+form #long {
+    min-width: 76%;
+}
+
+form #medium {
+    min-width: 45%;
+}
+
+form #small {
+    min-width: 30%;
+    color: red;
 }
