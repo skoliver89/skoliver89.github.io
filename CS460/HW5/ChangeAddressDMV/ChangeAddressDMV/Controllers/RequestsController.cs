@@ -19,5 +19,11 @@ namespace ChangeAddressDMV.Controllers
         {
             return View(db.Requests.ToList());
         }
+
+        // GET: New (Request)
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }
