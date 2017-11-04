@@ -48,3 +48,7 @@ form #medium {
 form #small {
     min-width: 30%;
 }
+
+label {
+    min-width: 100%;
+}

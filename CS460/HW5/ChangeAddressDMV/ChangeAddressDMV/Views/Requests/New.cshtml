@@ -7,95 +7,100 @@
     <h2> New Request</h2>
 </div>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken() 
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-inline">
-        <p><b>NOTE:</b> ALL information is REQUIRED to change your address.</p>
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group" id="medium">
-            @Html.LabelFor(model => model.IDNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="form-inline">
+            <p><b>NOTE:</b> ALL information is REQUIRED to change your address.</p>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" id="medium">
+                @Html.LabelFor(model => model.IDNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.IDNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.IDNumber, "", new { @class = "text-danger" })
+
             </div>
-        </div>
-        <div class="form-group" id="small">
-            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="form-group" id="small">
+                @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+
             </div>
-        </div> 
-        <br />  
-        <div class="form-group" id="long">
-            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <br />
+            <div class="form-group" id="long">
+                @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+
             </div>
-        </div>
-        <br />
-        <br />
-        <p><b>NEW RESIDENCE ADDRESS</b> (No Post Office Box Number or mail forwarding address)</p>
-        <div class="form-group" id="long">
-            @Html.LabelFor(model => model.NewResAddr, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            
+            <div class="form-group"> 
+                <br />
+                <p><b>NEW RESIDENCE ADDRESS</b> (No Post Office Box Number or mail forwarding address)</p>
+            </div>
+            <div class="form-group" id="long">
+                @Html.LabelFor(model => model.NewResAddr, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.NewResAddr, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NewResAddr, "", new { @class = "text-danger" })
+
             </div>
-        </div>
-        <br />
-        <div class="form-group" id="medium">
-            @Html.LabelFor(model => model.NewResCityStateZip, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <br />
+            <div class="form-group" id="medium">
+                @Html.LabelFor(model => model.NewResCityStateZip, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.NewResCityStateZip, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NewResCityStateZip, "", new { @class = "text-danger" })
+
             </div>
-        </div>
-        <div class="form-group" id="small">
-            @Html.LabelFor(model => model.NewResCounty, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="form-group" id="small">
+                @Html.LabelFor(model => model.NewResCounty, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.NewResCounty, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NewResCounty, "", new { @class = "text-danger" })
+
             </div>
-        </div>
-        <br />
-        <br />
-        <p><b>NEW MAILING ADDRESS</b> (If different from residence address above; Post Office Box Number or mail 
-        forwarding address goes here.)</p>
-        <div class="form-group" id="long">
-            @Html.LabelFor(model => model.NewMailAddr, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+
+            <div class="form-group">
+                <p>
+                    <br />
+                    <b>NEW MAILING ADDRESS</b> (If different from residence address above; Post Office Box Number or mail
+                    forwarding address goes here.)
+                </p>
+            </div>
+            <div class="form-group" id="long">
+                @Html.LabelFor(model => model.NewMailAddr, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.NewMailAddr, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NewMailAddr, "", new { @class = "text-danger" })
+
             </div>
-        </div>
-        <br />
-        <div class="form-group" id="medium">
-            @Html.LabelFor(model => model.NewMailCityStateZip, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <br />
+            <div class="form-group" id="medium">
+                @Html.LabelFor(model => model.NewMailCityStateZip, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.NewMailCityStateZip, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NewMailCityStateZip, "", new { @class = "text-danger" })
+
             </div>
-        </div>
-        <div class="form-group"  id="small">
-            @Html.LabelFor(model => model.NewMailCounty, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="form-group" id="small">
+                @Html.LabelFor(model => model.NewMailCounty, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.NewMailCounty, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NewMailCounty, "", new { @class = "text-danger" })
+
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <br />
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
             </div>
         </div>
-        <br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <br />
-                <input type="submit" value="Submit" class="btn btn-primary" />
-            </div>
-        </div>
-    </div>
-}
-
-
-
+    }
+</div>
