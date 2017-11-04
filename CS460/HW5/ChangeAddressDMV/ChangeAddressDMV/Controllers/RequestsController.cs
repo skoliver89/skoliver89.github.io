@@ -20,10 +20,27 @@ namespace ChangeAddressDMV.Controllers
             return View(db.Requests.ToList());
         }
 
-        // GET: New (Request)
+        // GET: Requests/New (Create)
+        [HttpGet]
         public ActionResult New()
         {
             return View();
         }
+
+        // POST: Requests/New (Create)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult New([Bind(Include = "RequestID, IDNumber, DOB, FullName, NewResAddr, " +
+            "NewResCityStateZip, NewResCounty, NewMailAddr, NewMailCityStateZip, NewMailCounty")] Request request)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Requests.Add(request);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(request);
+        }
     }
+
 }
