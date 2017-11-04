@@ -41,17 +41,14 @@ namespace ChangeAddressDMV.Models
         [Display(Name = "COUNTY")]
         public string NewResCounty { get; set; }
 
-        [Required]
         [StringLength(128)]
         [Display(Name = "NEW ADDRESS")]
         public string NewMailAddr { get; set; }
 
-        [Required]
         [StringLength(128)]
         [Display(Name = "CITY, STATE, ZIP CODE")]
         public string NewMailCityStateZip { get; set; }
 
-        [Required]
         [StringLength(128)]
         [Display(Name = "COUNTY")]
         public string NewMailCounty { get; set; }
