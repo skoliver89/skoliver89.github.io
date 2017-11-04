@@ -11,6 +11,8 @@ CREATE TABLE dbo.Requests
 	NewMailAddr			NVARCHAR(128)		NULL,
 	NewMailCityStateZip	NVARCHAR(128)		NULL,
 	NewMailCounty		NVARCHAR(128)		NULL
+
+	CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED (RequestID ASC)
 );
 
 INSERT INTO dbo.Requests (IDNumber, DOB, FullName, NewResAddr, NewResCityStateZip, 
