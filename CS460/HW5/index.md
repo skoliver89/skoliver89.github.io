@@ -116,9 +116,9 @@ namespace ChangeAddressDMV.Models
 
 To connect to the db I had to add a connection string with the appropriate credentials for the project to properly connect to the remote sql server/db.
 ```Web.config
- <connectionStrings>
+  <connectionStrings>
     <!-- add connection strings here -->
-    <add name="hw5dbContext" connectionString="Data Source=oliver-cs460-server.database.windows.net;Initial Catalog=hw5db;Integrated Security=False;User ID=soliver14;Password=OChigh89*!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" providerName="System.Data.sqlClient"/>
+    <add name="hw5dbContext" connectionString="Data Source=oliver-cs460-server.database.windows.net;Initial Catalog=hw5db;Integrated Security=False;User ID=*****;Password=*****;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" providerName="System.Data.sqlClient"/>
   </connectionStrings>
 ```
 
