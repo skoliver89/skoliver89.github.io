@@ -9,7 +9,7 @@ Specifically, students will: be able to write a MVC web application that uses a 
 
 Instructions for this assignment can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW5.html).
 
-Live demo link: [here](http://stephenoliverhw5.azurewebsites.net/)
+Live demo link: [here](http://stephenolivercs460hw5.azurewebsites.net/)
 
 ## Step 1: Create an empty MVC project &
 ## A simple home landing page
