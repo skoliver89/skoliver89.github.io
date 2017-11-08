@@ -118,7 +118,7 @@ To connect to the db I had to add a connection string with the appropriate crede
 ```Web.config
   <connectionStrings>
     <!-- add connection strings here -->
-    <add name="hw5dbContext" connectionString="Data Source=oliver-cs460-server.database.windows.net;Initial Catalog=hw5db;Integrated Security=False;User ID=*****;Password=*****;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" providerName="System.Data.sqlClient"/>
+    <add name="hw5dbContext" connectionString="Data Source=oliver-cs460.database.windows.net;Initial Catalog=hw5db;Integrated Security=False;User ID=********;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" providerName="System.Data.sqlClient"/>
   </connectionStrings>
 ```
 
