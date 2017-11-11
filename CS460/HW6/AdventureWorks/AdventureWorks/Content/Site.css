@@ -1,12 +1,17 @@
-﻿body {
+﻿html {
+    height: 100%;
+}
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    min-height: 55%;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -16,3 +21,19 @@ textarea {
     max-width: 280px;
 }
 
+/* Give the Jumbotron some style!*/
+.jumbotron {
+    text-align: center;
+    background-image: url(/Assets/HomeImage.jpg);
+    min-height: 300px;
+}
+.jumbotron h1 {
+    color: aliceblue !important;
+}
+.jumbotron p {
+    color: aliceblue;
+}
+
+#toplink {
+    text-align: center;
+}
