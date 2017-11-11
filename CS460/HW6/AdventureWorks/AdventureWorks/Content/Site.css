@@ -37,3 +37,7 @@ textarea {
 #toplink {
     text-align: center;
 }
+
+ul {
+    max-width: 280px;
+}
