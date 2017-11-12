@@ -132,10 +132,15 @@ namespace AdventureWorks.Controllers
             return RedirectToAction("Clothing");
         }
 
-        // GET: Catalog/Product?id=<id>
+        // GET: Catalog/Product?id=<product id>
         //Display the details of a product
         public ActionResult Product()
         {
+            if (Request.QueryString["id"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+
             int id = Convert.ToInt32(Request.QueryString["id"]);
 
             var product = db.Products.Where(p => p.ProductID == id).FirstOrDefault();
@@ -151,5 +156,50 @@ namespace AdventureWorks.Controllers
 
             return View(product);
         }
+
+        //GET : /Catalog/ProductReview?id=<product id>
+        public ActionResult ProductReview()
+        {
+            string id = Request.QueryString["id"];
+            if(id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.ProdID = id;
+            ViewBag.prodName = db.Products.Where(p => p.ProductID.ToString() == id).FirstOrDefault().Name;
+
+            return View();
+        }
+        //POST : /Catalog/ProductReview?id=<product id>
+        //Enter the new review into the DB
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProductReview([Bind(Include = "ProductReviewID, ProductID, ReviewerName, " +
+            "ReviewDate, EmailAddress, Rating, Comments, CommentsModifiedDate, Product ")] ProductReview review)
+        {
+            string id = Request.QueryString["id"];
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            if (ModelState.IsValid)
+            {
+                //Set the values for the fields to be auto generated from the product/temporal stuff
+                review.ProductID = Convert.ToInt32(id);
+                review.ReviewDate = DateTime.Now;
+                review.ModifiedDate = review.ReviewDate;
+                review.Product = db.Products.Where(p => p.ProductID.ToString() == id).FirstOrDefault();
+
+                //Add the new review to the DB and save
+                db.ProductReviews.Add(review);
+                db.SaveChanges();
+                //after save redirect back to the product that was just reviewed
+                return Redirect("/Catalog/Product?id="+id);
+            }
+
+            return View(review);
+        }
+
     }
 }

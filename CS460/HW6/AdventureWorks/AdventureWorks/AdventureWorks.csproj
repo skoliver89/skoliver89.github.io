@@ -130,6 +130,7 @@
     </Compile>
     <Compile Include="Models\AdventureWorks2014Context.cs" />
     <Compile Include="Models\BillOfMaterial.cs" />
+    <Compile Include="Models\ProductReviewMetaData.cs" />
     <Compile Include="Models\Culture.cs" />
     <Compile Include="Models\Illustration.cs" />
     <Compile Include="Models\Location.cs" />
@@ -171,6 +172,7 @@
     <Content Include="Views\Catalog\Components.cshtml" />
     <Content Include="Views\Catalog\Clothing.cshtml" />
     <Content Include="Views\Catalog\Product.cshtml" />
+    <Content Include="Views\Catalog\ProductReview.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -57,6 +57,13 @@
     </div>
     <div class="row text-center">
         <h3>Product Reviews</h3>
+        <input id="review" type="button" class="btn btn-default" value="Write A Review" 
+               onclick="return review_onclick()" />
+        <script language="javascript" type="text/javascript">
+            function review_onclick() {
+                window.location.href = "/Catalog/ProductReview?id="+@Model.ProductID;
+            }
+        </script>
         @foreach(var review in Model.ProductReviews)
         {
             <hr />
