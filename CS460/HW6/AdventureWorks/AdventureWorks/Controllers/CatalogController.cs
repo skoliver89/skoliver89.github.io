@@ -157,7 +157,7 @@ namespace AdventureWorks.Controllers
             //Get the product image
             byte[] image = product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
             //Give the product image to the View
-            ViewBag.Base64String = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
+            ViewBag. = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
 
             return View(product);
         }
