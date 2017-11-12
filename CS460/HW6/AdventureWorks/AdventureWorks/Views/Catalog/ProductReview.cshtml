@@ -6,7 +6,8 @@
     <div class="row">
         <div class="col-sm-6">
             <h2>@ViewBag.ProdName</h2>
-            <img class="img-responsive" src="~/Assets/default.jpeg" alt="No Image Found" />
+            @*<img class="img-responsive" src="~/Assets/default.jpeg" alt="No Image Found" />*@
+            <img class="img-responsive" src="@ViewBag.image" alt="No Image Found" />
         </div>
         <div class="col-sm-6">
             @using (Html.BeginForm())

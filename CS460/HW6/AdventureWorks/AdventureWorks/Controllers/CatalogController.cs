@@ -157,7 +157,7 @@ namespace AdventureWorks.Controllers
             //Get the product image
             byte[] image = product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
             //Give the product image to the View
-            ViewBag. = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
+            ViewBag.image = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
 
             return View(product);
         }
@@ -170,8 +170,13 @@ namespace AdventureWorks.Controllers
             {
                 return RedirectToAction("Index");
             }
+            var product = db.Products.Where(p => p.ProductID.ToString() == id).FirstOrDefault();
             ViewBag.ProdID = id;
-            ViewBag.prodName = db.Products.Where(p => p.ProductID.ToString() == id).FirstOrDefault().Name;
+            ViewBag.prodName = product.Name;
+            //Get the product image
+            byte[] image = product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
+            //Give the product image to the View
+            ViewBag.image = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
 
             return View();
         }
