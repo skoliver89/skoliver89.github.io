@@ -1,0 +1,68 @@
+﻿@model AdventureWorks.Models.Product
+
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.ProductModel.Name);
+}
+<div class="container">
+    <div class="row">
+        <div class="page-header">
+            <h2>@Html.DisplayFor(model => model.ProductModel.Name)</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">SubCategory</h4>
+                    @Html.DisplayFor(model => model.ProductSubcategory.Name)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.ProductNumber)</h4>
+                    @Html.DisplayFor(model => model.ProductNumber)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Color)</h4>
+                    @Html.DisplayFor(model => model.Color)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.ListPrice)</h4>
+                    $@Html.DisplayFor(model => model.ListPrice)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Size)</h4>
+                    @Html.DisplayFor(model => model.Size) @Html.DisplayFor(model => model.SizeUnitMeasureCode)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Weight)</h4>
+                    @Html.DisplayFor(model => model.Weight) @Html.DisplayFor(model => model.WeightUnitMeasureCode)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.ProductLine)</h4>
+                    @Html.DisplayFor(model => model.ProductLine)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Class)</h4>
+                    @Html.DisplayFor(model => model.Class)
+                </li>
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Style)</h4>
+                    @Html.DisplayFor(model => model.Style)
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <img class="img-responsive" src="~/Assets/default.jpeg" alt="Broken Img Src"/>
+            <p class="list-group-item">@ViewBag.desc</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <h3>Product Reviews</h3>
+        @foreach(var review in Model.ProductReviews)
+        {
+            <hr />
+            <p><b>Rating:</b> @review.Rating</p>
+            <p><b>Reviewer:</b> @review.ReviewerName <b>Date:</b> @review.ReviewDate</p>
+            <p>@review.Comments</p>
+        }
+    </div>
+</div>

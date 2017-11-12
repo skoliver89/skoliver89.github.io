@@ -38,7 +38,7 @@ textarea {
     text-align: center;
 }*/
 
-/* Control the dimensions of the lists since they are 100% by default */
-ul {
-    max-width: 280px;
+/* limit lists to a max-width of 80% rather than default 100% */
+ul, dl, ol {
+    max-width: 80%;
 }
