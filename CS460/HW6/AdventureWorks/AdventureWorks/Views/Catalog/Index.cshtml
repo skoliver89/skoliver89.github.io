@@ -1,12 +1,79 @@
-﻿@model IEnumerable<AdventureWorks.Models.ProductCategory>
+﻿@model IEnumerable<AdventureWorks.Models.ProductSubcategory>
 @{
     ViewBag.Title = "Catalog";
 }
 <div class="page-header">
     <h2>Shop All Catagories</h2>
 </div>
+
 <div class="container">
-
-
-
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">@Html.ActionLink("Accessories", "Accessories", "Catalog")</div>
+                <dl class="list-group panel-collapse">
+                    @foreach (var sub in Model)
+                    {
+                        if (sub.ProductCategory.Name == "Accessories")
+                        {
+                            @*pass some parameters to the controller to know the subcategory selected*@
+                            <dd class="list-group-item">@sub.Name</dd>
+                        }
+                    }
+                </dl>
+            </div>
+        </div>
+        
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">@Html.ActionLink("Bikes", "Bikes", "Catalog")</div>
+                <dl class="list-group panel-collapse">
+                    @foreach (var sub in Model)
+                    {
+                        if (sub.ProductCategory.Name == "Bikes")
+                        {
+                            @*pass some parameters to the controller to know the subcategory selected*@
+                            <dd class="list-group-item">@sub.Name</dd>
+                        }
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">@Html.ActionLink("Components", "Components", "Catalog")</div>
+                <dl class="list-group panel-collapse">
+                    @foreach (var sub in Model)
+                    {
+                        if (sub.ProductCategory.Name == "Components")
+                        {
+                            @*pass some parameters to the controller to know the subcategory selected*@
+                            <dd class="list-group-item">@sub.Name</dd>
+                        }
+                    }
+                </dl>
+            </div>
+        </div>
+        
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">@Html.ActionLink("Clothing", "Clothing", "Catalog")</div>
+                <dl class="list-group panel-collapse">
+                    @foreach (var sub in Model)
+                    {
+                        if (sub.ProductCategory.Name == "Clothing")
+                        {
+                            @*pass some parameters to the controller to know the subcategory selected*@
+                            <dd class="list-group-item">@sub.Name</dd>
+                        }
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
 </div>
+
+

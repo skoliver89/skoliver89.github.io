@@ -156,6 +156,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Catalog\Index.cshtml" />
+    <Content Include="Views\Catalog\Accessories.cshtml" />
+    <Content Include="Views\Catalog\Bikes.cshtml" />
+    <Content Include="Views\Catalog\Components.cshtml" />
+    <Content Include="Views\Catalog\Clothing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,6 +170,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Image\" />
+    <Folder Include="Views\Menu\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

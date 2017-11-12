@@ -34,10 +34,11 @@ textarea {
     color: aliceblue;
 }
 
-#toplink {
+/* #toplink {
     text-align: center;
-}
+}*/
 
+/* Control the dimensions of the lists since they are 100% by default */
 ul {
     max-width: 280px;
 }
