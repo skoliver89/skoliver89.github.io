@@ -154,6 +154,11 @@ namespace AdventureWorks.Controllers
             }
             ViewBag.desc = desc;
 
+            //Get the product image
+            byte[] image = product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
+            //Give the product image to the View
+            ViewBag.Base64String = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
+
             return View(product);
         }
 
@@ -199,12 +204,6 @@ namespace AdventureWorks.Controllers
             }
 
             return View(review);
-        }
-
-        private List<AdventureWorks.Models.ProductPhoto> GetProductPhotos ()
-        {
-
-            return db.ProductPhotoes.ToList();
         }
 
     }
