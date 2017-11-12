@@ -201,5 +201,11 @@ namespace AdventureWorks.Controllers
             return View(review);
         }
 
+        private List<AdventureWorks.Models.ProductPhoto> GetProductPhotos ()
+        {
+
+            return db.ProductPhotoes.ToList();
+        }
+
     }
 }
