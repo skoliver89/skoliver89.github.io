@@ -34,6 +34,11 @@ textarea {
     color: aliceblue;
 }
 
-#toplink {
+/* #toplink {
     text-align: center;
+}*/
+
+/* limit lists to a max-width of 80% rather than default 100% */
+ul, dl, ol {
+    max-width: 80%;
 }

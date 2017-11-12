@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Adventure Works</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -24,9 +24,21 @@
                     @* Navbar links go here.
                         The ViewContext lets us grab data from the RouteData to determine if the page is active.
                     *@
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                        @Html.ActionLink("Home", "Index", "Home")
-                    </li>
+                    <li >@Html.ActionLink("Home", "Index", "Home")</li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Catalog
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Accessories", "Accessories", "Catalog")</li>
+                                <li>@Html.ActionLink("Bikes", "Bikes", "Catalog")</li>
+                                <li>@Html.ActionLink("Components", "Components", "Catalog")</li>
+                                <li>@Html.ActionLink("Clothing", "Clothing", "Catalog")</li>
+                                
+                            </ul>
+                        </li>
                 </ul>
             </div>
         </div>
@@ -40,7 +52,7 @@
     </div>
     <div class="container">
         <footer>
-            <p id="toplink">[<a href="#top">Back to top</a>]</p>
+            @*<p id="toplink">[<a href="#top">Back to top</a>]</p>*@
             <hr />
             <p>&copy; @DateTime.Now.Year - Adventure Works</p>
             
