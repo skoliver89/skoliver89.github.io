@@ -195,6 +195,14 @@ namespace AdventureWorks.Controllers
                 return RedirectToAction("Index");
             }
 
+            var product = db.Products.Where(p => p.ProductID.ToString() == id).FirstOrDefault();
+            //Get the product image
+            byte[] image = product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
+            //Give the product image to the View
+            ViewBag.image = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
+            ViewBag.ProdID = id;
+            ViewBag.prodName = product.Name;
+
             if (ModelState.IsValid)
             {
                 //Set the values for the fields to be auto generated from the product/temporal stuff
