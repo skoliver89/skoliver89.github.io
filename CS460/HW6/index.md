@@ -177,8 +177,93 @@ div class="container">
 With this the basic configuration of the category views are completed.
 
 ## Step 4: Feature 2: Allow customers to create product reviews
+To add the feature of users creating views, I decided to have this handled by yet another action method. However, this page utilizes both QueryStrings and the Get-Request-Post methods. The QueryString parameter for product id lets the review page know which product is being reviewed so the user doesn't have to know this information and the review is attached to the correct product. The GRP method handles saving the new review to the database.
 
+First, I crafted the button to let the user navigate to the appropriate create product review page.
+```html
+<div class="row text-center">
+    <h3>Product Reviews</h3>
+    <input id="review" type="button" class="btn btn-default" value="Write A Review" 
+            onclick="return review_onclick()" />
+    <script language="javascript" type="text/javascript">
+        function review_onclick() {
+            window.location.href = "/Catalog/ProductReview?id="+@Model.ProductID;
+            }
+    </script>
+<!-- . . . -->
+```
+I decided to house the JavaScript for the button's redirect method inside of the html source since it is so small.
 
+I also added a section under the "Write A Review" button to display all the currently stored reviews.
+```html
+<!-- . . . -->
+    @foreach(var review in Model.ProductReviews)
+    {
+        <hr />
+        <p><b>Rating:</b> @review.Rating</p>
+        <p><b>Reviewer:</b> @review.ReviewerName <b>Date:</b> @review.ReviewDate</p>
+        <p>@review.Comments</p>
+    }
+</div>
+```
+
+When the button is clicked the "ProductReview" GET action method in the Catalog controller takes over. Again, if a user tries to directly navigate to the ProductReview page with no id parameter they are rerouted to the "Bad-User" Catalog page (Index). The GET action method handles serving the initial review page to the user. I do not pass a model to the page from this method, instead electing to make use of the viewbag some small data elements to the view and let my Razor code create the edit-form for the ProductReviews table entry. This is the same method I used to create new DMV requests in the previous assignment. 
+
+Here is how I pass the small tid-bits needed from the product model to the view (which will later handle the ProductReview model).
+```cs
+var product = db.Products.Where(p => p.ProductID.ToString() == id).FirstOrDefault();
+            ViewBag.ProdID = id;
+            ViewBag.prodName = product.Name;
+```
+
+My Razor EditorFor Form:
+```html
+<div class="col-sm-6">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <h3>New Review</h3>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ReviewerName, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.ReviewerName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ReviewerName, "", new { @class = "text-danger" })
+                    </div>
+                    <!-- . . . -->
+                      <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </div>
+            }
+```
+
+Once the user press the Submit button the POST action method switches in. If the user entered in valid data then the following code is executed.
+```cs
+if (ModelState.IsValid)
+{
+    //Set the values for the fields to be auto generated from the product/temporal stuff
+    review.ProductID = Convert.ToInt32(id);
+    review.ReviewDate = DateTime.Now;
+    review.ModifiedDate = review.ReviewDate;
+    review.Product = db.Products.Where(p => p.ProductID.ToString() == id).FirstOrDefault();
+
+    //Add the new review to the DB and save
+    db.ProductReviews.Add(review);
+    db.SaveChanges();
+    //after save redirect back to the product that was just reviewed
+    return Redirect("/Catalog/Product?id="+id);
+}
+```
+As should be obvious, after a valid entry is made the review is saved to the database and the user is redirected back the the product details page belonging to the product that they just reviewed.
+
+If the user enters invalid data nothing is saved to the database and the user is promted to fix errors. The state of the form input fields are maintianed by passing the review model that the user is creating back to the view.
+```cs
+return View(review);
+```
+With this final line the functionality for the review creation is completed.
+
+<br />
 <br />
 ## :::BONUS STEPS:::
 <br />
