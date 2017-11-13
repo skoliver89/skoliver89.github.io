@@ -22,7 +22,7 @@ layout: default
 * Use only fluent LINQ syntax (dot notation) and not query syntax (the sql-like version)
 
 ## Demonstration Video 
-I Could not get the project to publish correctly in the time I allotted myself for this project. Thus, the following video provides a guided tour/demonstration of the finished project. Note, This app was made in a matter of days, expect protype level features and visual quality.
+I Could not get the project to publish correctly in the time I allotted myself for this project. Thus, the following video provides a guided tour/demonstration of the finished project. Note, This app was made in a matter of days, expect protype level features and visual quality.<br />
 [Video Goes Here]
 
 ## Step 1: Recover the existing database, Adventure Works 2014
