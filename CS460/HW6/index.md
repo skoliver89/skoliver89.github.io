@@ -269,8 +269,84 @@ With this final line the functionality for the review creation is completed.
 <br />
 
 ## Bonus Step 1: Add product pictures from the database
+I found that after the basics where taken care of I still had time to try to add the product images from the database to the catalog and create review pages.
 
+The following C# code allowed me to push the stored image bytes to the view as a Base64String.
+```cs
+ //Get the product image
+byte[] image = product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
+//Give the product image to the View
+ViewBag.image = "data:image/png;base64," + Convert.ToBase64String(image, 0, image.Length);
+```
+
+To render the image in the view the follow html line is required.
+```html
+<img class="img-responsive" src="@ViewBag.image" alt="Broken Img Src" />
+```
+Note that the Razor code is inside for double-quotes; I found this to be a requirement for the image to be rendered.
 
 ## Bonus Step 2: Make the launch page do something cool
+I hate empty launch pages, or those that only have a list of links, so I elected to add the most recent five reviews in panels to this page. 
+
+I had to alter the Launch Page's action method to select and pass the correct review models.
+```cs 
+//Get the five most recent reviews to display on launch page
+var reviews = db.ProductReviews.OrderByDescending(o => o.ReviewDate).Take(5);
+
+return View(reviews);
+```
+
+I then added the following code to the Index view.
+```html
+@foreach (var review in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">@review.ReviewerName - @review.Product.Name - Rating: @review.Rating</div>
+        <div class="panel-body">
+            <div class="col-sm-6">
+                @*Get the image for the review*@
+                 @{ 
+                    byte[] img = review.Product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
+                    string prodID = review.Product.ProductProductPhotoes.FirstOrDefault().ProductID.ToString();
+                    string image = "data:image/png;base64," + Convert.ToBase64String(img,0,img.Length);
+                }
+                @*Display the Image*@
+                <img src="@image" alt="@prodID" />
+            </div>
+            <div class="col-sm-6">
+                <p>@review.Comments</p>
+            </div>
+        </div>
+        <div class="panel-footer">@review.ReviewDate</div>
+    </div>
+}
+```
+I wanted the Reviews listed in the launch page to contain product images as well so I created a Razor code block inside of the Razor foreach loop to find and store the image for each review in a variable. I then used this variable after the interal code block to render the image in the same way as for the other pages.
 
 ## Bonus Step 3: Parital class chain/Utilize Metadata class to change the review comment text-field into a text-area.
+I noticed that Entity Framework set up the comments input to be a text-field. Due to the large nature of some comments I decided that this was not acceptable; however, making changes to auto-generated models is taboo so I had to find another way.<br />
+
+First, I created a new C# class in the models folder called "ProductReviewMetaData.cs". Then I added an empty partial class identical to the partial class in the ProductReview model to link this new file to the generated one. I added an attribut to this partial call to identify it as metadata for the next partial class called "ProductReviewMetadata" where I rewrote the Comments property this time including an attribute to change the input field to a text-area. Now, if the models are regenerated the Comments field will be a text-area (i.e. it will have the added attribute(s)).
+
+Here is a code snippet of the process described above.
+```cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace AdventureWorks.Models
+{
+    public partial class ProductReviewMetaData
+    {
+        [DataType(DataType.MultilineText)]
+        public string Comments { get; set; }
+
+    }
+
+
+    [MetadataType(typeof(ProductReviewMetaData))]
+    public partial class ProductReview { }
+}
+```
