@@ -27,15 +27,21 @@ I Could not get the project to publish correctly in the time I allotted myself f
 alt="Image Broken" width="240" height="180" border="5" /></a>
 
 ## Step 1: Recover the existing database, Adventure Works 2014
+First, I went and got the AdventureWorks2014.bak file from the link indicated by the HW directions. The next step was to launch Microsoft SQL Server Management Studio 2017 and connect to my local MSSQL DB. There, I entered the name of the local server and left the authentication as the default setting handled by my Windows sign-in. Once the data was connected to the management studio I rick-clicked on the databases folder in the server and selected restore database. Next I had to selct the .bak file, it is used as a "disk" so I had to select the appropriate input field, browse for the file and hit run. The AdventureWorks2014 DB is now restored from the .bak file to my local SQL server for use by my application.
 
 ## Step 2: Utilize Entity Framework to auto-generate data models, database context, and connection string
 
+
 ## Step 3: Feature 1: Allow customers to browse products sold buy Adventure Works
+
 
 ## Step 4: Feature 2: Allow customers to create product reviews
 
+
 ## BONUS STEPS
 
+
 ## Bonus Step 1: Add product pictures from the database
+
 
 ## Bonus Step 2: Make the launch page do something cool
