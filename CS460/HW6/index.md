@@ -23,7 +23,7 @@ layout: default
 
 ## Demonstration Video 
 I Could not get the project to publish correctly in the time I allotted myself for this project. Thus, the following video provides a guided tour/demonstration of the finished project. Note, This app was made in a matter of days, expect protype level features and visual quality.<br />
-<a href="https://www.youtube.com/watch?v=P_OyhV2Y49Q" target="_blank"><img src="/AdventureWorks/AdventureWorks/Assets/Journal_VideoImage.jpg" 
+<a href="https://www.youtube.com/watch?v=P_OyhV2Y49Q" target="_blank"><img src="Journal_VideoImage.jpg" 
 alt="Image Broken" width="240" height="180" border="10" /></a>
 
 ## Step 1: Recover the existing database, Adventure Works 2014
