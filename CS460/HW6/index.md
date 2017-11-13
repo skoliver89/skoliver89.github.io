@@ -30,7 +30,7 @@ alt="Image Broken" width="240" height="180" border="5" /></a>
 First, I went and got the AdventureWorks2014.bak file from the link indicated by the HW directions. The next step was to launch Microsoft SQL Server Management Studio 2017 and connect to my local MSSQL DB. There, I entered the name of the local server and left the authentication as the default setting handled by my Windows sign-in. Once the data was connected to the management studio I rick-clicked on the databases folder in the server and selected restore database. Next I had to selct the .bak file, it is used as a "disk" so I had to select the appropriate input field, browse for the file and hit run. The AdventureWorks2014 DB is now restored from the .bak file to my local SQL server for use by my application.
 
 ## Step 2: Utilize Entity Framework to auto-generate data models, database context, and connection string
-
+I discovered that the installation of Entity Framework is project depended since I remade my project once. It is important to remember that for each project you should go make sure that the tool is installed for that project. I got the EF tool from the NuGet tool manager. After the installation completed, I right-clicked the models folder. Next, I selected "Add" and then "New Item"; a new window now pops-up to select the new item to create. In the new window, select Data, ADO.NET Entity Data Model and name the EDM; This is the name that the context class will have too so I named it like so: [dbname]Context. Click Okay and then select Code First From Database to work from an exiting DB using the code first approach. Make sure "save connection as ..." is checked and select MS SQL Server. Enter the server-name, select the database to use and click Test Connection. If the connection test is successful select the tables that the project will use and, finally, click the finish button. The project will now have the required models, context, and data string to start creating the application. NOTE: Do NOT make changes directly to the auto-generated files; if the database changes/is refreshed these files will be overwritten!
 
 ## Step 3: Feature 1: Allow customers to browse products sold buy Adventure Works
 
@@ -45,3 +45,5 @@ First, I went and got the AdventureWorks2014.bak file from the link indicated by
 
 
 ## Bonus Step 2: Make the launch page do something cool
+
+## Bonus Step 3: Parital class chain/Utilize Metadata class to change the review comment text-field into a text-area.
