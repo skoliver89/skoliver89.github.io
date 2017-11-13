@@ -12,7 +12,7 @@ layout: default
 4. Learn to use C# language features: partial classes
 5. Use more Razor language features to build feature-laden views
 
-##Overall Requirements:
+## Overall Requirements:
 
 * You must use “Code First with an Existing Database” workflow
 * Don't add and commit your database file (ignore it please; it's 205 MB)
@@ -22,7 +22,7 @@ layout: default
 * Use only fluent LINQ syntax (dot notation) and not query syntax (the sql-like version)
 
 ## Demonstration Video 
-I Could not get the project to publish correctly in the time I alotted myself for this project. Thus, the follow video provides a guided tour/demonstration of the finished project. Note, This app was made in a matter of days, expect protype level features and visual quality.
+I Could not get the project to publish correctly in the time I allotted myself for this project. Thus, the following video provides a guided tour/demonstration of the finished project. Note, This app was made in a matter of days, expect protype level features and visual quality.
 [Video Goes Here]
 
 ## Step 1: Recover the existing database, Adventure Works 2014
