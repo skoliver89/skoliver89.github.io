@@ -150,7 +150,9 @@ namespace AdventureWorks.Controllers
             string desc = "Not Availiable";
             if (pmi != null) //if there is a Product Model ID load in the description
             {
-                desc = db.ProductModelProductDescriptionCultures.Where(p => p.ProductModelID == pmi).FirstOrDefault().ProductDescription.Description;
+                desc = db.ProductModelProductDescriptionCultures.Where(p => p.ProductModelID == pmi)
+                                                                .FirstOrDefault().ProductDescription
+                                                                .Description;
             }
             ViewBag.desc = desc;
 

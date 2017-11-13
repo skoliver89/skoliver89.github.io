@@ -1,8 +1,33 @@
-﻿
+﻿@model IEnumerable<AdventureWorks.Models.ProductReview>
 @{
     ViewBag.Title = "Home";
 }
 <div class="container" id="homepage">
-    <h1> PUT SOME INTERESTING STUFF HERE! </h1>
-</div>
+    <div class="page-header">
+        <h2 class="text-center">Our Most Recient Reviews</h2>
+    </div>
 
+    @foreach (var review in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">@review.ReviewerName - @review.Product.Name - Rating: @review.Rating</div>
+            <div class="panel-body">
+                <div class="col-sm-6">
+                    @*Get the image for the review*@
+                    @{ 
+                        byte[] img = review.Product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto;
+                        string prodID = review.Product.ProductProductPhotoes.FirstOrDefault().ProductID.ToString();
+                        string image = "data:image/png;base64," + Convert.ToBase64String(img,0,img.Length);
+                    }
+                    @*Display the Image*@
+                    <img src="@image" alt="@prodID" />
+                </div>
+                <div class="col-sm-6">
+                    <p>@review.Comments</p>
+                </div>
+            </div>
+            <div class="panel-footer">@review.ReviewDate</div>
+        </div>
+    }
+
+</div>
