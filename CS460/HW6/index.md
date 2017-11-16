@@ -21,6 +21,8 @@ layout: default
 * You should prefer strongly-typed views over untyped viewbag-only views
 * Use only fluent LINQ syntax (dot notation) and not query syntax (the sql-like version)
 
+Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW6.html)
+
 ## Demonstration Video 
 I Could not get the project to publish correctly in the time I allotted myself for this project. Thus, the following video provides a guided tour/demonstration of the finished project. Note, This app was made in a matter of days, expect protype level features and visual quality.<br />
 <a href="https://www.youtube.com/watch?v=P_OyhV2Y49Q" target="_blank"><img src="Journal_VideoImage.jpg" 
