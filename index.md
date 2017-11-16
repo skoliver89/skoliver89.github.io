@@ -20,3 +20,4 @@ To view the full course content please visit the CS46X course site as provided b
 4. [Homework 4](CS460/HW4/): MVC app 1, no dB
 5. [Homework 5](CS460/HW5/): MVC app 2, simple dB
 6. [Homework 6](CS460/HW6/): MVC app 3, pre-existing relational dB
+7. [Homework 7](CS460/HW7/): MVC app 4, AJAX single page app (WIP)
