@@ -1,7 +1,33 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home";
 }
 
-<h2>Index</h2>
 
+<div class="container">
+    <form class="form-inline">
+        <label for="search">Search For GIFs</label>
+        <br />
+        <div class="form-group">
+            <input class="form-control" name="search" type="text" placeholder="Search Giphy..." />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" id="search-btn">Search</button>
+        </div>
+    </form>
+</div>
+<div class="container" id="results">
+
+    @* 
+       n number of results with m+n offset, where n is the number of 
+       results and m initializes as zero 
+    *@
+    @* Pagination a bottom of n results *@
+
+</div>
+
+@section PageScripts
+{ 
+    <script type="text/javascript" src="~/Scripts/giphy.js"></script>
+}
