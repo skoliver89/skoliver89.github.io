@@ -20,12 +20,16 @@ namespace GiphySearch.Controllers
             //Giphy API params
             string key = System.Web.Configuration.WebConfigurationManager.AppSettings["GiphyAPIKey"];
             string q = Request.QueryString["q"];
-            int limit = 9;
-            int offset = (int)page * 9 - limit;
+            string rating = Request.QueryString["rating"];
+            string lang = Request.QueryString["lang"];
+
+            //Pagination Params - the page variable is from the url route's {page} variable
+            int limit = 9; //number of images per page, let's not change this for now
+            int offset = (int)page * 9 - limit; //get the offset for the current page
 
             //Giphy API Reqquest
             string url = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=" + q + "&limit=" + limit +
-                "&offset=" + offset;
+                "&offset=" + offset + "&rating=" + rating + "&lang=" + lang;
 
             //Get the JSON from Giphy
             //inspired by: https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-request-data-using-the-webrequest-class
