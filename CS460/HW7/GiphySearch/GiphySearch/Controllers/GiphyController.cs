@@ -15,7 +15,7 @@ namespace GiphySearch.Controllers
             return View("~/Views/Home/Index.cshtml");
         }
 
-        public JsonResult Search(int? page = 2)
+        public JsonResult Search(int? page = 1)
         {
             //Giphy API params
             string key = System.Web.Configuration.WebConfigurationManager.AppSettings["GiphyAPIKey"];
