@@ -48,23 +48,31 @@ function search() {
 function displayResults(data) {
     $("#results").css("display", "grid");
     //console.log(data);
-    //console.log(data.pagination.total_count);
+    console.log(data.pagination.total_count);
     //console.log(data.pagination.count);
     //console.log(data.pagination.offset);
     //console.log((data.pagination.count + data.pagination.offset));
     //console.log(data.data[0].images.fixed_width.url);
     var animate = $("input[name=animated]:checked").val();
     console.log("Animate? " + animate);
-    for (i = 0; i < 9; i++)
+    if (data.pagination.total_count > 0)
     {
-        var id = "#gif-" + (i + 1);
-        if (data.data[i]) {
-            if (animate == "yes") {
-                $(id).attr('src', data.data[i].images.fixed_width.url);
+        for (i = 0; i < 9; i++) {
+            var id = "#gif-" + (i + 1);
+            if (data.data[i]) {
+                if (animate == "yes") {
+                    $(id).attr('src', data.data[i].images.fixed_width.url);
+                }
+                else if (animate == "no") {
+                    $(id).attr('src', data.data[i].images.fixed_width_still.url);
+                }
             }
-            else if (animate == "no") {
-                $(id).attr('src', data.data[i].images.fixed_width_still.url);
-            }
+        }
+    }
+    else {
+        for (i = 0; i < 9; i++) {
+            var id = "#gif-" + (i + 1);
+            $(id).attr('src', "https://media2.giphy.com/media/YyKPbc5OOTSQE/200w.gif");
         }
     }
     //console.log("page: " + page);
