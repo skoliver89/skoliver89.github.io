@@ -1,33 +1,66 @@
 ﻿
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Search";
 }
 
 
 <div class="container">
     <form class="form-inline">
-        <label for="search">Search For GIFs</label>
+        <label for="query">Search For GIFs</label>
         <br />
         <div class="form-group">
-            <input class="form-control" name="search" type="text" placeholder="Search Giphy..." />
+            <input class="form-control" id="query" name="query" type="text" placeholder="Search Giphy..." />
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit" id="search-btn">Search</button>
+            <input class="btn btn-primary" type="button" id="search" name="search" value="Search" />
         </div>
     </form>
 </div>
-<div class="container" id="results">
 
-    @* 
-       n number of results with m+n offset, where n is the number of 
-       results and m initializes as zero 
-    *@
-    @* Pagination a bottom of n results *@
+@* Display area for results, Hidden until the button is pressed *@
+<div id="results" style="display: none">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 gif-col">
+                <img id="gif-1" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-2" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-3" src="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 gif-col">
+                <img id="gif-4" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-5" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-6" src="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 gif-col">
+                <img id="gif-7" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-8" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-9" src="" />
+            </div>
+        </div>
 
+        @* Pagination a bottom of n results *@
+
+    </div>
 </div>
 
 @section PageScripts
-{ 
+{
     <script type="text/javascript" src="~/Scripts/giphy.js"></script>
 }

@@ -1,4 +1,5 @@
 ﻿body {
+    background-color: #101010 !important;
     padding-bottom: 20px;
 }
 
@@ -15,10 +16,26 @@ textarea {
     max-width: 280px;
 }
 
+label {
+    color: #808080;
+}
+
+footer {
+    color: #808080;
+}
+
 .jumbotron {
     background-color: black !important;
 }
 
-.jumbotron h1 {
-    color: rebeccapurple !important;
+    .jumbotron h1 {
+        color: rebeccapurple !important;
+    }
+
+.gif-col {
+    padding-top: 20px;
+
+}
+.form-group {
+    width: 280px;
 }
