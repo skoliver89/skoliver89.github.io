@@ -15,8 +15,8 @@ namespace GiphySearch
 
             routes.MapRoute(
                 name: "Search",
-                url: "gif/searcher",
-                defaults: new { controller = "Giphy", action = "Search"}
+                url: "gif/searcher/{page}",
+                defaults: new { controller = "Giphy", action = "Search", page = UrlParameter.Optional}
             );
 
             routes.MapRoute(

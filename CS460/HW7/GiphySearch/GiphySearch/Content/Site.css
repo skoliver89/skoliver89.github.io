@@ -28,7 +28,7 @@ footer {
     background-color: black !important;
 }
 
-    .jumbotron h1 {
+.jumbotron h1 {
         color: rebeccapurple !important;
     }
 
@@ -37,5 +37,5 @@ footer {
 
 }
 .form-group {
-    width: 280px;
+    width: 280px !important;
 }
