@@ -42,3 +42,14 @@ Advanced Features:<br />
 ![AF-WireFrame](Assets/morefeatures.png) <br />
 
 [back to portfolio](https://skoliver89.github.io)
+
+## Step 1: Put API Key in secret file
+
+
+## Step 2: Build Basic Features
+
+
+## Step 3: Build Advanced Features
+
+
+## Step 4: Attach DB for Activity Log
