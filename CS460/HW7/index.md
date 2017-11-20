@@ -35,10 +35,10 @@ alt="Image Broken" width="240" height="180" border="5" /></a>
 
 ## WireFrames
 Basic Features:
-![BF-WireFrame](before_search.png)
+![BF-WireFrame](/Assets/before_search.png)
 Basic Features After Search:
-![BF-WireFrame 2](after_search.png)
+![BF-WireFrame 2](/Assets/after_search.png)
 Advanced Features:
-![AF-WireFrame](morefeatures.png)
+![AF-WireFrame](/Assets/morefeatures.png)
 
 [back to portfolio](https://skoliver89.github.io)
