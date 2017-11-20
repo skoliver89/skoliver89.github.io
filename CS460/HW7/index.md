@@ -4,14 +4,14 @@ layout: default
 ---
 ## CS460 Homework 7 - Journal
 
-## Primary Objectives:
+## Primary Objectives
 
 1. Be able to write a MVC web application that employs AJAX to build responsive views
 2. Learn how to use an existing API to acquire data, serverside
 3. Demonstrate the use of JSON and AJAX
 4. Demonstrate custom routing URLs
 
-## Overall Requirements:
+## Overall Requirements
 
 * This application should have only one page (main view)
 * All functionality is created with Javascript and AJAX calls to action methods that don't return views (ok, you'll have to have one view for the main page itself)
@@ -25,5 +25,20 @@ layout: default
 * Use a database for logging of requests
 
 Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW7.html)
+
+## Demonstrations
+Link to Live Demo: [here](http://stephenolivercs460hw7.azurewebsites.net/)
+
+Guided video Demo:
+<a href="" target="_blank"><img src="" 
+alt="Image Broken" width="240" height="180" border="5" /></a>
+
+## WireFrames
+Basic Features:
+![BF-WireFrame](before_search.png)
+Basic Features After Search:
+![BF-WireFrame 2](after_search.png)
+Advanced Features:
+![AF-WireFrame](morefeatures.png)
 
 [back to portfolio](https://skoliver89.github.io)
