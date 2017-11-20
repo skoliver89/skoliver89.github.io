@@ -34,11 +34,11 @@ Guided video Demo:
 alt="Image Broken" width="240" height="180" border="5" /></a>
 
 ## WireFrames
-Basic Features:
+Basic Features:<br />
 ![BF-WireFrame](Assets/before_search.png) <br />
-Basic Features After Search:
+Basic Features After Search:<br />
 ![BF-WireFrame 2](Assets/after_search.png) <br />
-Advanced Features:
+Advanced Features:<br />
 ![AF-WireFrame](Assets/morefeatures.png) <br />
 
 [back to portfolio](https://skoliver89.github.io)
