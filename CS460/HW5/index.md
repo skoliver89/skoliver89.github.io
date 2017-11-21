@@ -12,8 +12,7 @@ Instructions for this assignment can be found [here](http://www.wou.edu/~morses/
 Live demo link: [here](http://stephenolivercs460hw5.azurewebsites.net/)
 
 ## Demonstration Video 
-<a href="https://youtu.be/NIBuvX1QWkE" target="_blank"><img src="HW5_Demo_thumb.png" 
-alt="Image Broken" width="240" height="180" border="5" /></a>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NIBuvX1QWkE" frameborder="0" allowfullscreen></iframe>
 
 ## Step 1: Create an empty MVC project &
 ## A simple home landing page
