@@ -28,28 +28,122 @@ Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46
 
 ## Demonstrations
 Link to Live Demo: [here](http://stephenolivercs460hw7.azurewebsites.net/)
-
+<br />
 Guided video Demo:
-<a href="" target="_blank"><img src="" 
-alt="Image Broken" width="240" height="180" border="5" /></a>
+
 
 ## WireFrames
-Basic Features:<br />
-![BF-WireFrame](Assets/before_search.png) <br />
-Basic Features After Search:<br />
-![BF-WireFrame 2](Assets/after_search.png) <br />
-Advanced Features:<br />
-![AF-WireFrame](Assets/morefeatures.png) <br />
+Basic Features:
+<br />
+![BF-WireFrame](Assets/before_search.png)
+ <br />
+Basic Features After Search:
+<br />
+![BF-WireFrame 2](Assets/after_search.png) 
+<br />
+Advanced Features:
+<br />
+![AF-WireFrame](Assets/morefeatures.png)
+<br />
 
-[back to portfolio](https://skoliver89.github.io)
+## Step 1: Put API Key in secret file and use it secretly
+First I when to the Giphy Developer site and signed up my app for an API Key. This key is unique to the app and must be kept secret from the source code in my repo and users of my app. To acocmplish the former I created a new folder outside of my local GIT repository to hold files containing secret information like my API key. I created a new config file inside of this folder and created an appSettings section which itself contained the key value pair required for my application to access the API key while keeping it out of my source code and remote/local repositories.
 
-## Step 1: Put API Key in secret file
+Web.config file:
+```config
+<appSettings file="../../../../Shadow/appSettingsSecrets.config">
+</appSettings>
+```
 
+appSettingsSecrects.config file:
+```config
+<appSettings>
+<add key="GiphyAPIKey" value="shhh...it's a secret!">
+</appSettings>
+```
+
+To access the API key on the server side I implemented the following line inside of a controller.
+```cs
+string key = System.Web.Configuration.WebConfigurationManager.AppSettings["GiphyAPIKey"]; //retrieve the key from a secret place
+```
+
+However, that was only step one; now that I can use the API key outside of my repo I have to make a request to the Giphy server without letting the key leave my server. This is another requirement to keep the key from my cients/users. To accomplish this I first crafted a request URI from the user's input and then utilized the System.Net namespace to make a request to Giphy.
+```cs
+string q = Request.QueryString["q"]; //the user's search string
+string rating = Request.QueryString["rating"]; //desired max msrp rating
+string lang = Request.QueryString["lang"]; //language selected, for localization purposes
+
+//Pagination Params - the page variable is from the url route's {page} variable
+int limit = 9; //number of images per page, let's not change this for now
+int offset = (int)page * 9 - limit; //get the offset for the current page
+
+//Giphy API Reqquest
+string url = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=" + q + "&limit=" + limit + "&offset=" + offset + "&rating=" + rating + "&lang=" + lang;
+
+//Get the JSON from Giphy
+//inspired by: https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-request-data-using-the-webrequest-class
+WebRequest request = WebRequest.Create(url); //send the request
+
+WebResponse response = request.GetResponse(); //get the response
+Stream dataStream = response.GetResponseStream(); //start the data stream
+string reader = new StreamReader(dataStream).ReadToEnd(); //read in as a string
+```
+I was able to successfully get the JSON object back from the giphy server; however, I could only get it as a string, but I required a JSON Object. To parse a JSON object from the JSON string I deserialized the string using a built in Mircosoft .NET serializer.
+```cs
+ //Parse the string into a JSON Object
+//inspired by: https://stackoverflow.com/questions/20437279/getting-json-data-from-a-response-stream-and-reading-it-as-a-string
+var serializer = new System.Web.Script.Serialization.JavaScriptSerializer(); //prepare the serializer to parse
+var data = serializer.DeserializeObject(reader); //parse the string into a JSON object with the serializer's Deserialize method
+```
+Since the method I used to get the request opened some connections outside of my applcation I made sure to close them once I was finished parsing the data.
+```cs
+//clean up
+dataStream.Close(); //close the stream
+response.Close(); //close the response
+```
+
+The controller/Method handling my reuqest to the Giphy Sever then returned the JSON object like so:
+```cs
+return Json(data, JsonRequestBehavior.AllowGet); //return the JSON object, allow GET requests
+```
+
+To intiate the API request to the Giphy Server from my JavaScript rendered inside of the html page I utilized an AJAX call back to the appropriate controller using a custom route.
+
+Here is my custom route:
+```cs
+routes.MapRoute(
+    name: "Search",
+    url: "gif/searcher/{page}",
+    defaults: new { controller = "Giphy", action = "Search", page = UrlParameter.Optional}
+);
+```
+
+Here is my AJAX call from JavaScript:
+```cs
+function search() {
+    var q = $("#query").val();
+    var rating = $("#rating").val();
+    var lang = $("#lang").val();
+    var source = "gif/searcher/" + page + "?q=" + q + "&rating=" + rating + "&lang=" + lang;
+    console.log(source);
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: source,
+        success: displayResults,
+        error: errorOnAjax 
+    });
+}
+```
+NOTE: the page variable is a global variable for this script and is used for pagination; more on this in the Advanced Features step.
 
 ## Step 2: Build Basic Features
 
 
-## Step 3: Build Advanced Features
+## Step 3: Build Advanced Features and Styling
 
 
 ## Step 4: Attach DB for Activity Log
+
+
+[back to portfolio](https://skoliver89.github.io)
