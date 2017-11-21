@@ -119,7 +119,7 @@ routes.MapRoute(
 ```
 
 Here is my AJAX call from JavaScript:
-```cs
+```javascript
 function search() {
     var q = $("#query").val();
     var rating = $("#rating").val();
@@ -138,7 +138,51 @@ function search() {
 NOTE: the page variable is a global variable for this script and is used for pagination; more on this in the Advanced Features step.
 
 ## Step 2: Build Basic Features
+For basic functionality of my Giphy GIF search app I need to enable users to enter a string which describes the GIFS that they want to see, a button that a user can click to initiate the search request, and an area on the page to populate with the results; however, this only covers the requirements for the UI elements. I must also include logic in my Javascript to listen for the button to be clicked, initiate the call to the contorller mentioned above to perform the request, and the display the results. These requirements must be completed without reloading the page. Finally, I noticed that the text-field would initiate a POST request if the enter key was pressed while the curser was present within it. To combat this default event I added another listener to intercept the enter key, prevent the default behavior, and lauch my own search funtion above. The UI was the easy part; the user input UI elements are a simple text field and a button of type button each with IDs so that my Javascript can listen for a button/Enter Key press and gather the string. In order to populate the page with GIFs without reloading the page I wrote in a hidden section of html that contains placeholder div and image elements (the images have IDs like: "Gif-1, Gif-2, etc). Once the results are gathered the image sources are change by ID and the section is unhidden. Now, A 3x3 of 9 GIFs is displayed from the API request. 
 
+JavaScript Listeners:
+```javascript
+$("#query").keypress(function (event) {
+    //if the key is enter (13)
+    if (event.keyCode == 13) {
+        //run the search function
+        search();
+        //prevent generating a querystring
+        event.preventDefault(); 
+    }
+});
+
+$("#search").click(newSearch); //when the search button is click run a new search
+```
+
+HTML Request section snippet:
+```html
+<div id="results" style="display: none">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 gif-col">
+                <img id="gif-1" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-2" src="" />
+            </div>
+            <div class="col-sm-4 gif-col">
+                <img id="gif-3" src="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 gif-col">
+                <img id="gif-4" src="" />
+<!-- . . . -->
+```
+
+JavaScript to display results:
+```javascript
+function displayResults(data) {
+    $("#results").css("display", "grid");
+    $(id).attr('src', data.data[i].images.fixed_width.url);
+}
+```
 
 ## Step 3: Build Advanced Features and Styling
 
