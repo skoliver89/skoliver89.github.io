@@ -5,7 +5,7 @@ $("#query").keypress(function (event) {
     //if the key is enter (13)
     if (event.keyCode == 13) {
         //run the search function
-        search();
+        newSearch();
         //prevent generating a querystring
         event.preventDefault(); 
     }
