@@ -188,6 +188,49 @@ function displayResults(data) {
 
 
 ## Step 4: Attach DB for Activity Log
+To keep track of user traffic we are required to store a log inside of a database (not previously existing) which contains the request querry, request time, user IP address, and user Agent Type. The user data is gathered through the Request class inside of the controller. To get the request time I simple saved the current time to a variable as the request took place. The request query is taken from the user input. I then create a new model instance for the entry and populate it. Lastly, I added and saved the log to the database table.
 
+Create the table:
+```sql
+CREATE TABLE dbo.RequestLogs
+(
+	RequestID			INT IDENTITY (1,1)	NOT NULL,
+	RequestTime			DATETIME	NOT NULL,
+	RequestClientIP		VARCHAR(50),
+	RequestClientAgent	VARCHAR(128),
+	RequestQuery		VARCHAR(128),
+	RequestLang			VARCHAR(10),
+	RequestRating		VARCHAR(10)
+
+	CONSTRAINT [PK_dbo.RequestLogs] PRIMARY KEY CLUSTERED (RequestID ASC)
+);
+```
+
+Gather extra required data:
+```cs
+DateTime timestamp = DateTime.Now; //Timestamp for user request
+string userAgent = Request.UserAgent; //User Agent Type
+string userIP = Request.UserHostAddress; //User IP ADDR
+```
+
+Create and populate the request log object (model)
+```cs
+//Create new log entry
+var log = db.RequestLogs.Create();
+//Add data to the new entry fields
+log.RequestTime = timestamp;
+log.RequestClientIP = userIP;
+log.RequestClientAgent = userAgent;
+log.RequestQuery = q;
+log.RequestRating = rating;
+log.RequestLang = lang;
+```
+
+Save the log entry:
+```cs
+//add the new log to the DB Table and save
+db.RequestLogs.Add(log);
+db.SaveChanges();
+```
 
 [back to portfolio](https://skoliver89.github.io)
