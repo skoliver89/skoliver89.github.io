@@ -185,7 +185,106 @@ function displayResults(data) {
 ```
 
 ## Step 3: Build Advanced Features and Styling
+Now that the basic funtions work, I need to add some more advanced functions for the user to make use of. I decided to let the user select the language and rating for the search. Also, since some people either do not like to see many animated GIFs or just don't have the bandwidth I decided to take a page from the instructions and let the user select whether the GIFs listed in the results grid are animated or still. Finally, I decided to implement a pagination function so that users can page through a large number of results. However, since each "page" requires a new query to the Giphy server each movement through the pages by a user has a seperate log entry.
 
+Selecting the language and rating are handled by a html select lists each with unique IDs so that the javascript function to perform the search can grab the data from the user.
+The HTML side:
+```html
+<div class="form-group">
+    <label for="rating">Rating</label>
+    <select class="form-control" id="rating">
+        <option value="g">G</option>
+        <option value="pg">PG</option>
+        <option value="pg-13">PG-13</option>
+    </select>
+</div>
+```
+The JS side:
+```javascript
+ var rating = $("#rating").val();
+```
+
+The user selects whether the images are animated or still with radio buttons.
+HTML:
+```html
+<div class="form-group">
+    <label class="radio-inline">
+        <input type="radio" name="animated" value="yes" checked="checked">Animated
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="animated" value="no">Still
+    </label>
+</div>
+```
+JS:
+```javascript
+var animate = $("input[name=animated]:checked").val();
+```
+
+The pagination took some work, but the data that I need to create this functionality for my app was contatined in the Giphy returned JSON object under "pagination". Basically, I set up the custom route to take in a page number at the end of the route to let the controller know what page to get from Giphy (i.e. what offset to send with the api request). I then set a global variable in the JS file to hold the current page and functions to listen for button presses on the paging buttons and then increment or decrement the page variable appropriately. Once the page number is changed the JS search function is rerun to gather the JSON object for the desired page. Hoever, some changes where made to the search and display functions to accomodate the new features.
+
+Construction of the new URI:
+```js
+var q = $("#query").val();
+var rating = $("#rating").val();
+var lang = $("#lang").val();
+var` source = "gif/searcher/" + page + "?q=" + q + "&rating=" + rating + "&lang=" + lang;
+```
+
+Animated or not Javascript; New Display Function:
+```js
+if (data.data[i]) {
+    if (animate == "yes") {
+        $(id).attr('src', data.data[i].images.fixed_width.url);
+    }
+    else if (animate == "no") {
+        $(id).attr('src', data.data[i].images.fixed_width_still.url);
+    }
+}
+```
+
+Pagination HTML:
+```html
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <ul class="pager">
+            <li><button class="btn btn-default" type="button" id="prev"> < </button></li>
+            <li><button class="btn btn-default" type="button" id="next"> > </button></li>    
+        </ul>
+    </div>
+    <div class="col-sm-4">
+    </div>
+</div>
+```
+Pagination JS:
+```js
+var page = 1;
+
+$("#next").click(nextPage); //page the results up
+$("#prev").click(prevPage); //page the results down
+
+function nextPage() {
+    page += 1;
+    search();
+}
+
+function prevPage() {
+    page -= 1;
+    search();
+}
+```
+
+To fix an issue with new searches not starting on page 1 after the user pages on an old search I changed stop directly launching the search function and, instead, ran a newSearch function which will reset the page variable back to 1 prior to running the search function.
+```js
+function newSearch() {
+    page = 1;
+    search();
+}
+```
+
+On last feature I add is that if the user send an empty query or runs a search with no results a default image will populate the grid indicating that the results are empty, rather than simply doing nothing. This was accomplished by checking that the Total_Count key in the pagination object of the return JSON object is not zero.
 
 ## Step 4: Attach DB for Activity Log
 To keep track of user traffic we are required to store a log inside of a database (not previously existing) which contains the request querry, request time, user IP address, and user Agent Type. The user data is gathered through the Request class inside of the controller. To get the request time I simple saved the current time to a variable as the request took place. The request query is taken from the user input. I then create a new model instance for the entry and populate it. Lastly, I added and saved the log to the database table.
