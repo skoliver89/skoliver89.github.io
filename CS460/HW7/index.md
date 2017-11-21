@@ -30,7 +30,9 @@ Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46
 Link to Live Demo: [here](http://stephenolivercs460hw7.azurewebsites.net/)
 <br />
 Guided video Demo:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_6Oisg4Rk_o" frameborder="0" gesture="media" allowfullscreen></iframe>
 
+Note: There still exists a bug where if the last page has less than 9 gifs it will change the img sources for the images the last page has and keep the old images from the last page that don't get changed on the tail. Keep in mind that this is a Homework/prototype to demonstate ability and functionality with API keys and AJAX, not a consumer level product.
 
 ## WireFrames
 Basic Features:
