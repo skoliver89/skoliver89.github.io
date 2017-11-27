@@ -7,12 +7,12 @@ namespace ArtVault.Models
 
     /// <summary>
     ///Custom Attribute to limit a DateTime/Date Field
-    ///Between Now() and Now() - 110 years
+    ///Between Now() and the earliest possible year
     /// </summary>
     public class NoFutureDates : RangeAttribute
     {
         public NoFutureDates() : base(typeof(DateTime),
-            DateTime.Now.AddYears(-110).ToShortDateString(),
+            DateTime.MinValue.ToShortDateString(),
             DateTime.Now.ToShortDateString())
         { }
     }

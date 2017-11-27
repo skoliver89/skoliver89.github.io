@@ -9,8 +9,7 @@ namespace ArtVault.Models
     public partial class ArtistMetadata
     {
         [DataType(DataType.Date)]
-        [NoFutureDates(ErrorMessage = (nameof(BirthDate) + " must be no greater" +
-            " than today and no less than 110 years before today"))]
+        [NoFutureDates(ErrorMessage = ("Future dates are not allowed."))]
         [Required]
         public DateTime BirthDate { get; set; }
 

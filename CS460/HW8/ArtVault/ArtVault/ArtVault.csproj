@@ -150,6 +150,7 @@
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Home\Classifications.cshtml" />
     <Content Include="Views\Home\CreateArtist.cshtml" />
+    <Content Include="Views\Home\ArtistDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
