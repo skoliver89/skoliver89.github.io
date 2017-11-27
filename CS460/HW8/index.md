@@ -98,7 +98,8 @@ INSERT INTO dbo.Classifications(ArtWork, Genre) VALUES
 GO
 ```
 2. DOWN Script: 
-For this project's down.sql I had to drop the tables is a specific order since some tables have forgein keys from other tables. The following ordier was required:
+For this project's down.sql I had to drop the tables is a specific order since some tables have forgein keys from other tables. The following ordier was required.
+
 ```sql
 DROP TABLE IF EXISTS dbo.Classifications;
 DROP TABLE IF EXISTS dbo.ArtWorks;
