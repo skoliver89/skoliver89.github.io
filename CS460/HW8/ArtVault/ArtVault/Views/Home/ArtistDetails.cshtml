@@ -1,0 +1,32 @@
+﻿
+@model ArtVault.Models.Artist
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.BirthDate)</h4>
+        @Html.DisplayFor(model => model.BirthDate)
+    </li>
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.BirthCity)</h4>
+        @Html.DisplayFor(model => model.BirthCity)
+    </li>
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Works</h4>
+        @foreach (var work in Model.ArtWorks)
+        {
+            <p>@work.Title</p>
+        }
+        @if(Model.ArtWorks.Count() < 1){ <p>N/A</p>}
+    </li>
+</ul>
+<div class="btn-group">
+    @Html.ActionLink("Edit", "EditArtist", new { id = Model.Name }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back", "Artists", null, new { @class="btn btn-default"})
+    @Html.ActionLink("Delete", "DeleteArtist", new { id = Model.Name }, new { @class = "btn btn-danger" })
+</div>

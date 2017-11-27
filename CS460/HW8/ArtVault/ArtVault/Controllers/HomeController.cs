@@ -1,8 +1,7 @@
 ﻿using ArtVault.Models;
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ArtVault.Controllers
@@ -55,11 +54,19 @@ namespace ArtVault.Controllers
         {
            if (ModelState.IsValid)
             {
-                
                 db.Artists.Add(artist);
                 db.SaveChanges();
                 return RedirectToAction("Artists");
             }
+            return View(artist);
+        }
+
+        //GET ~/Home/ArtistDetails/{Artist Name}
+        public ActionResult ArtistDetails(string id)
+        {
+            //Debug.WriteLine("ArtistName = " + id);
+            ArtVault.Models.Artist artist = db.Artists.Where(a => a.Name == id).ToList().FirstOrDefault();
+           //Debug.WriteLine("artist.Name = " + artist.Name);
             return View(artist);
         }
     }
