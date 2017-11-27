@@ -198,7 +198,71 @@ The Artists View
 NOTE: I chose to include the Artists code snippets to keep this journal readable and because I will later refer to this View in another step.
 
 ## Step 3: Add attribute checking
+I decided to do my input checks with model attributes. I had to create a custom range attribute for my check to be sure that users do not enter a future date for BirthDate. Also, I used a metadata partial class to add attributes to my model properties since I used Entity Framework to generate the models and context class.
 
+Custom Attribute (NoFutureDates.cs):
+```cs
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace ArtVault.Models
+{
+    //Inspired by: https://stackoverflow.com/questions/17321948/is-there-a-rangeattribute-for-datetime
+
+    /// <summary>
+    ///Custom Attribute to limit a DateTime/Date Field
+    ///Between Now() and the earliest possible year
+    /// </summary>
+    public class NoFutureDates : RangeAttribute
+    {
+        public NoFutureDates() : base(typeof(DateTime),
+            DateTime.MinValue.ToShortDateString(),
+            DateTime.Now.ToShortDateString())
+        { }
+    }
+}
+```
+
+Check that users do not input a string longer than 50 for Artist Name. This was handled beautifully by EF.
+```cs
+[Key]
+[StringLength(50)]
+public string Name { get; set; }
+```
+
+MetaData file (ArtistMetadata.cs):
+```cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace ArtVault.Models
+{
+    public partial class ArtistMetadata
+    {
+        [DataType(DataType.Date)]
+        //Fix for editfor population: https://stackoverflow.com/questions/33247295/show-only-the-date-in-html-editorfor-helper
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [NoFutureDates(ErrorMessage = ("Future dates are not allowed."))]
+        [Required]
+        public DateTime BirthDate { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [RegularExpression(@"(([A-z]+[' -]?[A-z]*)[ ]?([A-z]+[' -]?[A-z]*)?, )+([A-z]+)|(Unknown)",
+            ErrorMessage ="Expected format :" +
+            " 'City, Country' or 'City, State, CountryCode' or 'Unknown")]
+        public string BirthCity { get; set; }
+    }
+
+    [MetadataType(typeof(ArtistMetadata))]
+    public partial class Artist { }
+
+}
+```
 
 ## Step 4: Implement a CRUD fore Artists
 1. Index/List Page:
