@@ -23,8 +23,6 @@ layout: default
 Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW8.html)
 
 ## Demonstrations
-Link to Live Demo: 
-<br />
 Guided video Demo:
 
 ## ER Diagram
