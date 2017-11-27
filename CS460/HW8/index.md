@@ -25,13 +25,23 @@ Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46
 ## Demonstrations
 Guided video Demo:
 <!-- youtube embed goes here -->
+<br />
 NOTE: The live version of this project will be available in HW9.
 
 ## ER Diagram
 ![ER Diagram](ERD.png)
 
 ## Step 1: UP/Down Script
-
+1. UP Script:
+    
+2. DOWN Script:
+For this project's down.sql I had to drop the tables is a specific order since some tables have forgein keys from other tables. The following ordier was required:
+```sql
+DROP TABLE IF EXISTS dbo.Classifications;
+DROP TABLE IF EXISTS dbo.ArtWorks;
+DROP TABLE IF EXISTS dbo.Genres;
+DROP TABLE IF EXISTS dbo.Artists;
+```
 
 ## Step 2: Artists/ArtWorks/Classifications Menu
 
