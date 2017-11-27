@@ -265,9 +265,10 @@ namespace ArtVault.Models
 ```
 
 ## Step 4: Implement a CRUD fore Artists
-1. Index/List Page: 
+* Index/List Page: <br />
 This page is the Artists Page from the menu in step 2.
-2. Create page:
+<br />
+* Create page:<br />
 I added a create button to the top of the Artists page which directs the user to the CreateArtist action methods and view.
 
 Razor to create the 'Create New' Button on the Artists Page:
@@ -311,8 +312,8 @@ Create Button group:
             </div>
         </div>
 ``` 
-
-3. Details page:
+<br />
+* Details page:<br />
 For the Details page I utilized the id parameter in the default route to specify the artist's name (i.e. the PK for the Artists table). The action method is a standard(ish) GET method and the View is the scaffolded List View that I prettied up with some bootstrap and replaced the links with razor buttons.
 
 Controller Action Method:
@@ -362,9 +363,8 @@ View:
     @Html.ActionLink("Delete", "DeleteArtist", new { id = Model.Name }, new { @class = "btn btn-danger" })
 </div>
 ```
-
-
-4. Edit page:
+<br />
+* Edit page:<br />
 The edit page uses some basic action methods I found in the Documentation and repurposed for my uses. Also, to save time I again used the scaffolded edit view with some minor changes similar to the previous views. I will ommit the view for this page since the changes are either obvious or stated similarly elsewhere.
 
 Controller action methods
@@ -398,8 +398,8 @@ Initially, there was a bug that prevented the BirthDate field from populating. I
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 As seen in Step 3: Add attrigute checking.
-
-5. Delete page:
+<br />
+* Delete page:<br />
 I agian found the action methods that I needed for this page in the documentation and repurposed it for my uses. The view, however, is completely hand written. I decided to create a page-header that indicated that the user was trying to delete an artist and then list the artist's details followed by a button group to cancel or delete. This page is a confirmation page so that the user cannot accidentally delete an artist.
 
 Controller action methods:
@@ -423,12 +423,95 @@ public ActionResult DeleteArtistConfirmed(string id)
 }
 ```
 Like for the Details and Edit pages, I used the default route's id parameter to indication the artist that the user wants to delete.
+<br />
+NOTE: The majority of these pages use the scaffolded views from VS2017 but with improvements handwritten by myself to save time.<br />
 
-NOTE: The majority of these pages use the scaffolded views from VS2017 but with improvements handwritten by myself to save time.
-
-NOTE 2: I elected to not do custom redirects if the user foolishly tries to route to Details, edit, or delete pages to save on time. If the user uses the UI provided no errors should occur.
+NOTE 2: I elected to not do custom redirects if the user foolishly tries to route to Details, edit, or delete pages to save on time. If the user uses the UI provided no errors should occur.<br />
 
 ## Step 5: List items of a Genre on mainpage using AJAX
+First I added a spot at the bottom of the shared layout to load page scripts.
+```html
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("PageScripts", false)
+```
 
+Next, I added a link to the script file in my Index.cshtml file for the Home Controller Index View.
+```html
+@section PageScripts
+{
+    <script type="text/javascript" src="~/Scripts/home.js"></script>
+}
+```
+
+I added some buttons to the Home/Index page, generated with a Razor foreach loop, with a trigger to my first JS function.
+```html
+<div class="btn-group">
+    @foreach(var genre in Model)
+    {
+        <input class="btn btn-default" type="button"value=@genre.Name onclick="genreClicked('@genre.Name')" />
+    }
+</div>
+<br />
+```
+I used a funtion trigger so that I could pass the genre name to the funciton in my home.js file.
+
+Once a button is clicked the genreClicked function is triggered and uses AJAX for request a JSON object from an the GenreDetails action method. If the AJAX call to my action method return successful with would trigger the displayResults funtion. Else, it will call a function that just prints to the browser log that an error occured; this function exists for light debugging and is of little to no use to the user.
+```js
+function genreClicked(genre)
+{
+    //console.log(genre);
+    var source = "/Home/GenreDetails/" + genre;
+    //console.log(source);
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: source,
+        success: displayResults,
+        error: errorOnAjax
+    });
+}
+```
+
+I hid a results section in my Index View.
+```html
+<div id="results" style="display: none">
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Art Work</th>
+                <th>Artist</th>
+            </tr>
+        </thead>
+        <tbody id="resultsBody">
+            @*JS generated stuff from AJAX/JSON goes here*@
+        </tbody>
+    </table>
+</div>
+<br />
+```
+
+If the displayResults function is called it will populate the table with the data from the JSON object using a jQuery each loop and then unhide the results section in the Index View.
+```js
+function displayResults(data)
+{
+    //console.log("AJAX Success!");
+    //console.log(data);
+
+    //iterate through the json obj with jQuery
+    //inspired by: https://stackoverflow.com/questions/1078118/how-do-i-iterate-over-a-json-structure
+    var item = document.getElementById("resultsBody");
+    jQuery.each(data, function (i, val) {
+        //console.log(val["Title"]);
+        //console.log(val["Artist"]);
+        if (i == 0) {
+            item.innerHTML = '<tr><td>' + val["Title"] + '</td><td>' + val["Artist"] +'</td></tr>';
+        }
+        else {
+            item.innerHTML += '<tr><td>' + val["Title"] + '</td><td>' + val["Artist"] + '</td></tr>';
+        }
+    });
+    $("#results").css("display", "block");
+```
 
 [back to portfolio](https://skoliver89.github.io)
