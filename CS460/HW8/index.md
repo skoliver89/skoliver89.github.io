@@ -108,7 +108,94 @@ DROP TABLE IF EXISTS dbo.Artists;
 ```
 
 ## Step 2: Artists/ArtWorks/Classifications Menu
+There was nothing new done here that I have not previously done in other assignments. I simply created a link in the Navbar list for each of the menu requirements. I then created coresponding controller action methods and views to display the required information.
 
+NavBar in the shared layout:
+```html
+<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Art Vault", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Artists", "Artists","Home")</li>
+                    <li>@Html.ActionLink("Art Works", "ArtWorks", "Home")</li>
+                    <li>@Html.ActionLink("Classifications", "Classifications", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+```
+
+Artists in the HomeController:
+```cs
+//GET ~/Home/Artists
+public ActionResult Artists()
+{
+    List<Artist> artists = db.Artists.ToList();
+    return View(artists);
+}
+```
+
+The Artists View
+```cs
+@model IEnumerable<ArtVault.Models.Artist>
+
+@{
+    ViewBag.Title = "Artists";
+}
+
+<h2>Artists</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateArtist", null, new { @class = "btn btn-success" })
+</p>
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthCity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthCity)
+        </td>
+
+        <td>
+            <div class="btn-group">
+                @Html.ActionLink("Edit", "EditArtist", new { id = item.Name }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "ArtistDetails", new { id = item.Name }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "DeleteArtist", new { id = item.Name }, new { @class = "btn btn-danger" })
+            </div>
+        </td>
+    </tr>
+}
+
+</table>
+```
+
+NOTE: I chose to include the Artists code snippets to keep this journal readable and because I will later refer to this View in another step.
 
 ## Step 3: Add attribute checking
 
