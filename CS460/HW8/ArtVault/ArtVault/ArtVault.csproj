@@ -131,8 +131,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\ArtistMetadata.cs" />
     <Compile Include="Models\ArtVaultContext.cs" />
     <Compile Include="Models\ArtWork.cs" />
+    <Compile Include="Models\NoFutureDates.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,6 +149,7 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Home\Classifications.cshtml" />
+    <Content Include="Views\Home\CreateArtist.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
