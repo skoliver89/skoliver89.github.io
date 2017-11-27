@@ -24,7 +24,7 @@ Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46
 
 ## Demonstrations
 Guided video Demo:
-<!-- youtube embed goes here -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nOkvQNWwnUY" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br />
 NOTE: The live version of this project will be available in HW9.
 
