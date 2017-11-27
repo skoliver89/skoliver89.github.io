@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ArtVault.Models.ArtWork>
+
+@{
+    ViewBag.Title = "ArtWorks";
+}
+
+<h2>ArtWorks</h2>
+
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.Artist)</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Title)</td>
+        <td>@Html.DisplayFor(modelItem => item.Artist)</td>
+    </tr>
+}
+
+</table>

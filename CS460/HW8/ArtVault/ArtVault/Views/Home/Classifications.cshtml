@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ArtVault.Models.Genre>
+
+@{
+    ViewBag.Title = "Classifications";
+}
+
+<h2>Classifications</h2>
+
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.ArtWorks)</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+        <td>
+            <ul class="list-group">
+                @foreach (var work in item.ArtWorks)
+                {
+                    <li class="list-group-item">@work.Title</li>
+                }
+            </ul>
+        </td>
+    </tr>
+}
+
+</table>
