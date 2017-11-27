@@ -97,6 +97,8 @@ INSERT INTO dbo.Classifications(ArtWork, Genre) VALUES
 -- ..
 GO
 ```
+WARNING: There is a bug that makes the routing used in this application dislike Initials with both periods and spaces in Artist Names. For a quick fix I changed M. C. Escher to M C Escher, removing the periods. I highly recommend not adding periods to Names at this time.
+
 2. DOWN Script: 
 For this project's down.sql I had to drop the tables is a specific order since some tables have forgein keys from other tables. The following ordier was required.
 
