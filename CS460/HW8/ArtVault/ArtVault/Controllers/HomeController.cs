@@ -17,13 +17,14 @@ namespace ArtVault.Controllers
         // GET: ~/Home/Index
         public ActionResult Index()
         {
-            return View();
+            List<Genre> genres = db.Genres.ToList();
+            return View(genres);
         }
 
         //GET ~/Home/Artists
         public ActionResult Artists()
         {
-            List<ArtVault.Models.Artist> artists = db.Artists.ToList();
+            List<Artist> artists = db.Artists.ToList();
             return View(artists);
         }
 
@@ -66,20 +67,20 @@ namespace ArtVault.Controllers
         public ActionResult ArtistDetails(string id)
         {
             //Debug.WriteLine("ArtistName = " + id);
-            ArtVault.Models.Artist artist = db.Artists.Where(a => a.Name == id).ToList().FirstOrDefault();
-           //Debug.WriteLine("artist.Name = " + artist.Name);
+            Artist artist = db.Artists.Find(id);
+            //Debug.WriteLine("artist.Name = " + artist.Name);
             return View(artist);
         }
 
-        //GET ~/Home/EditArtist
+        //GET ~/Home/EditArtist/{artist name}
         [HttpGet]
         public ActionResult EditArtist(string id)
         {
-            ArtVault.Models.Artist artist = db.Artists.Where(a => a.Name == id).ToList().FirstOrDefault();
+            Artist artist = db.Artists.Find(id);
             return View(artist);
         }
 
-        //POST ~/Home/EditArtist
+        //POST ~/Home/EditArtist/{artist name}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditArtist([Bind(Include = "Name, BirthDate, BirthCity")] Artist artist)
@@ -92,5 +93,25 @@ namespace ArtVault.Controllers
             }
             return View(artist);
         }
+
+        //GET ~/Home/DeleteArtist/{artist name}
+        [HttpGet]
+        public ActionResult DeleteArtist(string id)
+        {
+            Artist artist = db.Artists.Find(id);
+            return View(artist);
+        }
+
+        //POST ~/Home/DeleteArtist/{artist name}
+        [HttpPost, ActionName("DeleteArtist")]
+        public ActionResult DeleteArtistConfirmed(string id)
+        {
+            Artist artist = db.Artists.Find(id);
+            db.Artists.Remove(artist);
+            db.SaveChanges();
+            return RedirectToAction("Artists");
+        }
+
+
     }
 }

@@ -152,6 +152,7 @@
     <Content Include="Views\Home\CreateArtist.cshtml" />
     <Content Include="Views\Home\ArtistDetails.cshtml" />
     <Content Include="Views\Home\EditArtist.cshtml" />
+    <Content Include="Views\Home\DeleteArtist.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

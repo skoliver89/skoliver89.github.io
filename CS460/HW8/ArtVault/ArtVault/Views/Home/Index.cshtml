@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<ArtVault.Models.Genre>
 @{
     ViewBag.Title = "Home";
 }
@@ -8,3 +8,9 @@
     <p>Welcome to the Art Vault. Please no flash phtography.</p>
 </div>
 
+<div class="btn-group">
+    @foreach(var genre in Model)
+    {
+        <input class="btn btn-default" type="button" name=@genre.Name value=@genre.Name id=@genre.Name  />
+    }
+</div>
