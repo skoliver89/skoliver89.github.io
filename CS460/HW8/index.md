@@ -34,6 +34,7 @@ NOTE: The live version of this project will be available in HW9.
 ## Step 1: UP/Down Script
 1. UP Script:
 The up.sql for this project was slightly more complex than the previous scripts that I wrote; the addition of the foreign key and forcing uniqueness on a field played a large part in this added complexity.
+
 ```sql
 --Create the tables
 CREATE TABLE dbo.Artists
