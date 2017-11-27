@@ -40,5 +40,27 @@ namespace ArtVault.Controllers
             var classifications = db.Genres.ToList();
             return View(classifications);
         }
+
+        //GET ~/Home/CreateArtist
+        [HttpGet]
+        public ActionResult CreateArtist()
+        {
+            return View();
+        }
+
+        //POST ~/Home/CreateArtist
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateArtist([Bind(Include = "Name, BirthDate, BirthCity")] Artist artist)
+        {
+           if (ModelState.IsValid)
+            {
+                
+                db.Artists.Add(artist);
+                db.SaveChanges();
+                return RedirectToAction("Artists");
+            }
+            return View(artist);
+        }
     }
 }
