@@ -33,8 +33,69 @@ NOTE: The live version of this project will be available in HW9.
 
 ## Step 1: UP/Down Script
 1. UP Script:
-    
-2. DOWN Script:
+The up.sql for this project was slightly more complex than the previous scripts that I wrote; the addition of the foreign key and forcing uniqueness on a field played a large part in this added complexity.
+```sql
+--Create the tables
+CREATE TABLE dbo.Artists
+(
+	Name		VARCHAR(50)		NOT NULL,
+	BirthDate	DATE			NOT NULL,
+	BirthCity	VARCHAR(100)	NOT NULL
+
+	CONSTRAINT [UC_dbo.Artists] UNIQUE (Name),
+	CONSTRAINT [PK_dbo.Artists] PRIMARY KEY (Name)
+);
+
+CREATE TABLE dbo.ArtWorks
+(
+	Title	VARCHAR(100)	NOT NULL,
+	Artist	VARCHAR(50)		NULL
+	
+	CONSTRAINT [UC_dbo.ArtWorks] UNIQUE (Title),
+	CONSTRAINT [PK_dbo.ArtWorks] PRIMARY KEY (Title),
+	CONSTRAINT [FK_db0.ArtWorks] FOREIGN KEY (Artist)
+		REFERENCES dbo.Artists(Name)
+			ON UPDATE NO ACTION
+			ON DELETE NO ACTION
+);
+
+CREATE TABLE dbo.Genres
+(
+	Name	VARCHAR(50)	NOT NULL
+
+	CONSTRAINT [UC_dbo.Genres] UNIQUE (Name),
+	CONSTRAINT [PK_dbo.Genres] PRIMARY KEY (Name)
+);
+
+CREATE TABLE dbo.Classifications
+(
+	ArtWork	VARCHAR(100)	NOT NULL,
+	Genre	VARCHAR(50)		NOT NULL
+
+	CONSTRAINT [PK_dbo.Classifications] PRIMARY KEY (Artwork, Genre),
+	CONSTRAINT [FK1_dbo.Classifications] FOREIGN KEY (Artwork)
+		REFERENCES dbo.Artworks(Title)
+			ON UPDATE NO ACTION
+			ON DELETE CASCADE,
+	CONSTRAINT [FK2_dbo.Classifications] FOREIGN KEY (Genre)
+		REFERENCES dbo.Genres(Name)
+			ON UPDATE NO ACTION
+			ON DELETE CASCADE
+);
+```
+I had to insert values in the proper order so that foreign keys existed in the required tables prior to an insert.
+```sql
+INSERT INTO dbo.Artists (Name, BirthDate, BirthCity) VALUES
+-- ...
+INSERT INTO dbo.ArtWorks (Title, Artist) VALUES
+-- ...
+INSERT INTO dbo.Genres(Name) VALUES
+-- ...
+INSERT INTO dbo.Classifications(ArtWork, Genre) VALUES
+-- ..
+GO
+```
+2. DOWN Script: 
 For this project's down.sql I had to drop the tables is a specific order since some tables have forgein keys from other tables. The following ordier was required:
 ```sql
 DROP TABLE IF EXISTS dbo.Classifications;
