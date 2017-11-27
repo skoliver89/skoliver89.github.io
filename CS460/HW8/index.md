@@ -85,6 +85,7 @@ CREATE TABLE dbo.Classifications
 );
 ```
 I had to insert values in the proper order so that foreign keys existed in the required tables prior to an insert.
+
 ```sql
 INSERT INTO dbo.Artists (Name, BirthDate, BirthCity) VALUES
 -- ...
