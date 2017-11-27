@@ -16,7 +16,7 @@ CREATE TABLE dbo.ArtWorks
 	
 	CONSTRAINT [UC_dbo.ArtWorks] UNIQUE (Title),
 	CONSTRAINT [PK_dbo.ArtWorks] PRIMARY KEY (Title),
-	CONSTRAINT [FK_db0.ArtWorks] FOREIGN KEY (Artist)
+	CONSTRAINT [FK_dbo.ArtWorks] FOREIGN KEY (Artist)
 		REFERENCES dbo.Artists(Name)
 			ON UPDATE NO ACTION
 			ON DELETE NO ACTION
@@ -49,14 +49,14 @@ CREATE TABLE dbo.Classifications
 
 --Populate the tables with some data
 INSERT INTO dbo.Artists (Name, BirthDate, BirthCity) VALUES
-('M.C. Escher', '1898-06-17', 'Leeuwarden, Netherlands'),
+('M C Escher', '1898-06-17', 'Leeuwarden, Netherlands'),
 ('Leonardo Da Vinci', '1519-05-02', 'Vinci, Italy'),
 ('Hatip Mehmed Efendi', '1680-11-18', 'Unknown'),
 ('Salvador Dali', '1904-05-11', 'Figueres, Spain');
 
 INSERT INTO dbo.ArtWorks (Title, Artist) VALUES
-('Circle Limit III', 'M.C. Escher'),
-('Twon Tree', 'M.C. Escher'),
+('Circle Limit III', 'M C Escher'),
+('Twon Tree', 'M C Escher'),
 ('Mona Lisa', 'Leonardo Da Vinci'),
 ('The Vitruvian Man', 'Leonardo Da Vinci'),
 ('Ebru', 'Hatip Mehmed Efendi'),
