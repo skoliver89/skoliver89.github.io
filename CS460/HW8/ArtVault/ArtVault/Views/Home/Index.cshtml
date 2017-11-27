@@ -11,6 +11,25 @@
 <div class="btn-group">
     @foreach(var genre in Model)
     {
-        <input class="btn btn-default" type="button" name=@genre.Name value=@genre.Name id=@genre.Name  />
+        <input class="btn btn-default" type="button"value=@genre.Name onclick="genreClicked('@genre.Name')" />
     }
 </div>
+<br />
+<div id="results" style="display: none">
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Art Work</th>
+                <th>Artist</th>
+            </tr>
+        </thead>
+        <tbody id="resultsBody">
+            @*JS generated stuff from AJAX/JSON goes here*@
+        </tbody>
+    </table>
+</div>
+<br />
+@section PageScripts
+{
+    <script type="text/javascript" src="~/Scripts/home.js"></script>
+}

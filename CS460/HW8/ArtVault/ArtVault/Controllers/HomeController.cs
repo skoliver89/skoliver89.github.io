@@ -112,6 +112,17 @@ namespace ArtVault.Controllers
             return RedirectToAction("Artists");
         }
 
-
+        public JsonResult GenreDetails(string id)
+        {
+            //Gather Needed Data
+            var works = db.Genres.Where(g => g.Name == id)
+                                 .Select(s => s.ArtWorks)
+                                 .FirstOrDefault()
+                                 .Select(s => new { s.Title, s.Artist })
+                                 .OrderBy(o => o.Title)
+                                 .ToList();
+            //return the data as a Json object
+            return Json(works, JsonRequestBehavior.AllowGet);
+        }
     }
 }
