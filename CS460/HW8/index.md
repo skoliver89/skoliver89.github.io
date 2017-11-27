@@ -24,9 +24,11 @@ Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46
 
 ## Demonstrations
 Guided video Demo:
+<!-- youtube embed goes here -->
+NOTE: The live version of this project will be available in HW9.
 
 ## ER Diagram
-
+![ER Diagram](ERD.png)
 
 ## Step 1: UP/Down Script
 
