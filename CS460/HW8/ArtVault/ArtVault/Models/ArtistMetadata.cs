@@ -18,9 +18,9 @@ namespace ArtVault.Models
         [Required]
         public string Name { get; set; }
 
-        [RegularExpression(@"(([A-z]+[' -]?[A-z]*)[ ]?([A-z]+[' -]?[A-z]*)?, )+([A-z]+)",
+        [RegularExpression(@"(([A-z]+[' -]?[A-z]*)[ ]?([A-z]+[' -]?[A-z]*)?, )+([A-z]+)|(Unknown)",
             ErrorMessage ="Expected format :" +
-            " 'City, Country' or 'City, State, CountryCode'")]
+            " 'City, Country' or 'City, State, CountryCode' or 'Unknown")]
         public string BirthCity { get; set; }
     }
 

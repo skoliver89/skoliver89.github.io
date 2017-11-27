@@ -1,5 +1,6 @@
 ﻿using ArtVault.Models;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
@@ -67,6 +68,28 @@ namespace ArtVault.Controllers
             //Debug.WriteLine("ArtistName = " + id);
             ArtVault.Models.Artist artist = db.Artists.Where(a => a.Name == id).ToList().FirstOrDefault();
            //Debug.WriteLine("artist.Name = " + artist.Name);
+            return View(artist);
+        }
+
+        //GET ~/Home/EditArtist
+        [HttpGet]
+        public ActionResult EditArtist(string id)
+        {
+            ArtVault.Models.Artist artist = db.Artists.Where(a => a.Name == id).ToList().FirstOrDefault();
+            return View(artist);
+        }
+
+        //POST ~/Home/EditArtist
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditArtist([Bind(Include = "Name, BirthDate, BirthCity")] Artist artist)
+        {
+            if(ModelState.IsValid)
+            {
+                db.Entry(artist).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Artists");
+            }
             return View(artist);
         }
     }
