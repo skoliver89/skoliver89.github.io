@@ -7,7 +7,7 @@
 <h2>Artists</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateArtist")
+    @Html.ActionLink("Create New", "CreateArtist", null, new { @class = "btn btn-success" })
 </p>
 <table class="table table-hover table-responsive">
     <tr>
@@ -36,9 +36,11 @@
         </td>
 
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Name }) |
-            @Html.ActionLink("Details", "ArtistDetails", new { id=item.Name }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Name })
+            <div class="btn-group">
+                @Html.ActionLink("Edit", "EditArtist", new { id = item.Name }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "ArtistDetails", new { id = item.Name }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "DeleteArtist", new { id = item.Name }, new { @class = "btn btn-danger" })
+            </div>
         </td>
     </tr>
 }
