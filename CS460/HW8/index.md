@@ -265,17 +265,168 @@ namespace ArtVault.Models
 ```
 
 ## Step 4: Implement a CRUD fore Artists
-1. Index/List Page:
-
+1. Index/List Page: 
+This page is the Artists Page from the menu in step 2.
 2. Create page:
+I added a create button to the top of the Artists page which directs the user to the CreateArtist action methods and view.
+
+Razor to create the 'Create New' Button on the Artists Page:
+```html
+@Html.ActionLink("Create New", "CreateArtist", null, new { @class = "btn btn-success" })
+```
+
+The Create controller action methods:
+```cs
+ //GET ~/Home/CreateArtist
+        [HttpGet]
+        public ActionResult CreateArtist()
+        {
+            return View();
+        }
+
+        //POST ~/Home/CreateArtist
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateArtist([Bind(Include = "Name, BirthDate, BirthCity")] Artist artist)
+        {
+           if (ModelState.IsValid)
+            {
+                db.Artists.Add(artist);
+                db.SaveChanges();
+                return RedirectToAction("Artists");
+            }
+            return View(artist);
+        }
+```
+NOTE: Similar controllers are used in the Hw5 project as well.
+
+The view for this page is basically just the scaffolded Create View using the Artists model; however, I had to add some fields since the scaffold felt it unnecessary to include them. I also changed the defaul links to a button group.
+
+Create Button group:
+```cs
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 btn-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                @Html.ActionLink("Cancel", "Artists", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+``` 
 
 3. Details page:
+For the Details page I utilized the id parameter in the default route to specify the artist's name (i.e. the PK for the Artists table). The action method is a standard(ish) GET method and the View is the scaffolded List View that I prettied up with some bootstrap and replaced the links with razor buttons.
+
+Controller Action Method:
+```cs
+//GET ~/Home/ArtistDetails/{Artist Name}
+public ActionResult ArtistDetails(string id)
+{
+    //Debug.WriteLine("ArtistName = " + id);
+    Artist artist = db.Artists.Find(id);
+    //Debug.WriteLine("artist.Name = " + artist.Name);
+    return View(artist);
+}
+```
+
+View:
+```cs
+
+@model ArtVault.Models.Artist
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.BirthDate)</h4>
+        @Html.DisplayFor(model => model.BirthDate)
+    </li>
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.BirthCity)</h4>
+        @Html.DisplayFor(model => model.BirthCity)
+    </li>
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Works</h4>
+        @foreach (var work in Model.ArtWorks)
+        {
+            <p>@work.Title</p>
+        }
+        @if(Model.ArtWorks.Count() < 1){ <p>N/A</p>}
+    </li>
+</ul>
+<div class="btn-group">
+    @Html.ActionLink("Edit", "EditArtist", new { id = Model.Name }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back", "Artists", null, new { @class="btn btn-default"})
+    @Html.ActionLink("Delete", "DeleteArtist", new { id = Model.Name }, new { @class = "btn btn-danger" })
+</div>
+```
+
 
 4. Edit page:
+The edit page uses some basic action methods I found in the Documentation and repurposed for my uses. Also, to save time I again used the scaffolded edit view with some minor changes similar to the previous views. I will ommit the view for this page since the changes are either obvious or stated similarly elsewhere.
 
-5. Update page:
+Controller action methods
+```cs
+/GET ~/Home/EditArtist/{artist name}
+        [HttpGet]
+        public ActionResult EditArtist(string id)
+        {
+            Artist artist = db.Artists.Find(id);
+            return View(artist);
+        }
 
-6. Delete page:
+        //POST ~/Home/EditArtist/{artist name}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditArtist([Bind(Include = "Name, BirthDate, BirthCity")] Artist artist)
+        {
+            if(ModelState.IsValid)
+            {
+                db.Entry(artist).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Artists");
+            }
+            return View(artist);
+        }
+```
+
+Initially, there was a bug that prevented the BirthDate field from populating. I had to add an attribute to the BirthDate property in the artist model to correct the formatting of the data retrieved from the database so that it would display.
+```cs
+ //Fix for editfor population: https://stackoverflow.com/questions/33247295/show-only-the-date-in-html-editorfor-helper
+[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+```
+As seen in Step 3: Add attrigute checking.
+
+5. Delete page:
+I agian found the action methods that I needed for this page in the documentation and repurposed it for my uses. The view, however, is completely hand written. I decided to create a page-header that indicated that the user was trying to delete an artist and then list the artist's details followed by a button group to cancel or delete. This page is a confirmation page so that the user cannot accidentally delete an artist.
+
+Controller action methods:
+```cs
+ //GET ~/Home/DeleteArtist/{artist name}
+[HttpGet]
+public ActionResult DeleteArtist(string id)
+{
+    Artist artist = db.Artists.Find(id);
+    return View(artist);
+}
+
+//POST ~/Home/DeleteArtist/{artist name}
+[HttpPost, ActionName("DeleteArtist")]
+public ActionResult DeleteArtistConfirmed(string id)
+{
+    Artist artist = db.Artists.Find(id);
+    db.Artists.Remove(artist);
+    db.SaveChanges();
+    return RedirectToAction("Artists");
+}
+```
+Like for the Details and Edit pages, I used the default route's id parameter to indication the artist that the user wants to delete.
+
+NOTE: The majority of these pages use the scaffolded views from VS2017 but with improvements handwritten by myself to save time.
+
+NOTE 2: I elected to not do custom redirects if the user foolishly tries to route to Details, edit, or delete pages to save on time. If the user uses the UI provided no errors should occur.
 
 ## Step 5: List items of a Genre on mainpage using AJAX
 
