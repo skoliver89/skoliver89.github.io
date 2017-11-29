@@ -18,7 +18,7 @@ layout: default
 Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW9.html)
 
 ## Link To Live Site
-[Art Vault (HW8/9) Azure Link]()
+[Art Vault (HW8/9) Azure Link](http://stephenolivercs460hw9.azurewebsites.net/)
 
 ## Step 1 - Create Azure SQL Server Database
 1. Log into Azure Portal and click on "SQL databases."
@@ -42,8 +42,43 @@ Azure DB ERD:
 ![ERD](ERD.png)
 
 
-## Step 3 - Create Azure App Resources/Service
-1. 
+## Step 3 - Create Azure App Service
+1. Log in to Azure Portal (if not already)
+2. Click "App Services"
+3. Click "Add" in the upper-left corner
+4. Click "Web App" (or whatever type of app is required)
+5. Click "Create"
+6. Fill out the creation Form
+7. Click "Create" (This may take a moment)
+
+![Create App Service](createAppService.png)
 
 ## Step 4 - Publish App
 
+1. Open the Project Solution in Visual Studio 2017
+2. Right click the project inside of the solution explorer and select "Publish..."
+3. Select "Microsoft Azure App Service"
+4. Select the "Select Existing" Radio Button
+5. Click "Publish"
+6. Select the Account, Subscription Plan, and Resouce Group to search for the App Service we created.
+7. Select the App Service from the bottom selection menu
+8. Click "OK"
+
+## Step 5 - add the Remote DB Connection String to the App Service
+1. Log in to Azure Portal (if not already)
+3. Click "SQL databases"
+4. Click on the project's Azure SQL DB
+5. Click "Connection strings"
+6. Copy the connection string to the clip-board
+7. Click "App Services"
+8. Click on the projects App Service
+9. Click "Application Settings" under "SETTINGS" in the menu on the left
+10. Scroll down to the "Connection strings" section
+11. Enter the name for the connection string into the "Name" field (i.e. "ArtVaultContext")
+12. Paste the Connection String from the DB into the "Value" Field
+13. Click "Save" (This may take a moment)
+
+![Get Conn String](getConnString.png)
+![Add Conn String](insertConnString.png)
+Congrats, You are finished:
+![Deployed](Deployed.png)
