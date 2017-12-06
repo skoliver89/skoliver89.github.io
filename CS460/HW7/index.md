@@ -291,6 +291,7 @@ On last feature I add is that if the user send an empty query or runs a search w
 ## Step 4: Attach DB for Activity Log
 To keep track of user traffic we are required to store a log inside of a database (not previously existing) which contains the request querry, request time, user IP address, and user Agent Type. The user data is gathered through the Request class inside of the controller. To get the request time I simple saved the current time to a variable as the request took place. The request query is taken from the user input. I then create a new model instance for the entry and populate it. Lastly, I added and saved the log to the database table.
 
+
 Create the table:
 ```sql
 CREATE TABLE dbo.RequestLogs
