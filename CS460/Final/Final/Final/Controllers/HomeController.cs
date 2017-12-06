@@ -115,7 +115,7 @@ namespace Final.Controllers
 
         public JsonResult Bids(int id)
         {
-            var bids = db.Bids.Where(bid => bid.Item == id).ToList();
+            var bids = db.Bids.Where(bid => bid.Item == id);
             return Json(bids, JsonRequestBehavior.AllowGet);
         }
     }
