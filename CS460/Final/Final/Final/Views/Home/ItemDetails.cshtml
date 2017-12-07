@@ -36,10 +36,20 @@
 
     </dl>
 </div>
+<hr />
 <p>
     @Html.ActionLink("Edit", "EditItem", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Items")
 </p>
+<hr />
+<h2>ItemBids</h2>
+<div>
+    <h4>Item</h4>
+    <hr />
+    <ul class="list-group" id="bids">
+    </ul>
+</div>
+
 
 @section PageScripts
 {

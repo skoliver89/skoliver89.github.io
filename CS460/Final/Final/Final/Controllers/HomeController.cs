@@ -65,7 +65,7 @@ namespace Final.Controllers
         //TODO FIX UPDATE DB ERROR
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditItem([Bind(Include = "Name, Description, Seller")] Item item, int id)
+        public ActionResult EditItem([Bind(Include = "ID, Name, Description, Seller")] Item item)
         {
             if(ModelState.IsValid)
             {
@@ -115,7 +115,11 @@ namespace Final.Controllers
 
         public JsonResult Bids(int id)
         {
-            var bids = db.Bids.Where(bid => bid.Item == id);
+            var bids = db.Bids.Where(bid => bid.Item == id)
+                              .Select(s => new { s.Buyer1.Name, s.Price, s.Timestamp })
+                              .OrderByDescending(o => o.Price)
+                              .Take(5) //artificially limit to top 5 bids to save page space.
+                              .ToList();
             return Json(bids, JsonRequestBehavior.AllowGet);
         }
     }
