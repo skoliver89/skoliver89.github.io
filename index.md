@@ -23,3 +23,8 @@ To view the full course content please visit the CS46X course site as provided b
 7. [Homework 7](CS460/HW7/): MVC app 4, AJAX single page app
 8. [Homework 8](CS460/HW8/): MVC app 5, diy multi-table/relational dB
 9. [Homework 9](CS460/HW9/): MVC app 6, Cloud deployment
+
+### Software Engineering II (CS 461): Group Project
+
+1. [Team Bitbucket](https://bitbucket.org/devonsmith/senior-project)
+2. [My Fork](https://bitbucket.org/skoliver89/senior-project)
