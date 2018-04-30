@@ -4,13 +4,67 @@ layout: default
 ---
 ## Welcome to My Portfolio
 
-This GitHub pages domain is where I will be keeping my portfolio of assignments and projects for the CS46X series of classes at Western
-Oregon University. I will also be providing a detailed journal which will illustrate, in detail, the processes I take and code I write while completing the aforementioned works.
+This GitHub pages domain is where I will be keeping my portfolio of assignments and projects for the CS classes at Western Oregon University. I will also be providing a detailed journal which will illustrate, in detail, the processes I take and code I write while completing the assignments for the CS 46X series (Senior Capstone).
+For a detailed view of the graduation requirements for CS Students at Western Oregon University, please click the following link: [WOU CS Program Requirements](https://www.wou.edu/cs/degrees-programs/babs-computer-science/)
 
 ### About Me
 
 I am a Senior in Western Oregon University's Computer Science Program. It is a requirement to graduate to take the CS46X series of classes, also known as Software Engineering I/II/III. During these courses I will be learning about development methodologies as well as HTML/CSS/BootStrap, Javascript/jQuerry, C#, ASP.NET MVC5, and more. I will also be participating in a group to develop a web-based application and an individual project on either Andriod or iOS.
 To view the full course content please visit the CS46X course site as provided by Dr. Scot Morse [here](http://www.wou.edu/~morses/classes/cs46x/index.html).
+
+### Data Structures I (CS 260)
+
+1. [Lab 1](https://github.com/skoliver89/CS260-Lab1): Sorting, Searching & Empirical Analysis
+2. [Lab 2](https://github.com/skoliver89/CS260-Lab2): Double Linked Lists
+3. [Lab 3](https://github.com/skoliver89/CS260-Lab3): Binary Search Trees
+
+### Computer Organization (CS 271): ASM = ARM Sim (Assembly) & DL = Digital Logic
+
+1. [ASM Lab 1](https://github.com/skoliver89/CS271-ASM_Lab1)
+2. [DL Lab 1](https://github.com/skoliver89/CS271-DL_Lab1)
+3. [ASM Lab 2](https://github.com/skoliver89/CS271-ASM_Lab2)
+4. [DL Lab 2](https://github.com/skoliver89/CS271-DL_Lab2)
+5. [ASM Lab 3](https://github.com/skoliver89/CS271-ASM_Lab3)
+6. [DL Lab 3](https://github.com/skoliver89/CS271_DL_Lab3)
+7. [ASM Lab 4](https://github.com/skoliver89/CS271-ASM_Lab4)
+8. [DL Lab 4](https://github.com/skoliver89/CS271-DL_Lab4)
+9. [ASM Labs 5,6, and 7](https://github.com/skoliver89/CS271-ASM_Lab5-6-7)
+10. [DL Labs 5, 6, and 7](https://github.com/skoliver89/CS271-DL_Lab5-6-7)
+11. [ASM Labs 8 & 9](https://github.com/skoliver89/CS271-ASM_Lab8-9)
+12. [DL Labs 8 & 9](https://github.com/skoliver89/CS271-DL_Lab8-9)
+
+### Programming Languages (CS 360)
+
+1. [Lab 1](https://github.com/skoliver89/CS360-Lab1): POV Ray & parse tree
+2. [Lab 2](https://github.com/skoliver89/CS360-Lab2): POV-Ray + Python Movie
+3. [Lab 3](https://github.com/skoliver89/CS360-Lab3): MP3 Header Decode (attempt) ANSI-C
+4. [Lab 4](https://github.com/skoliver89/CS360-Lab4): Haskell!
+
+### Algorithms (CS 361)
+
+1. [Lab 1](https://github.com/skoliver89/CS361-Lab1): MergeSort and QuickSort
+2. [Lab 2](https://github.com/skoliver89/CS361-Lab2): MCM DP and Memoization
+3. [Lab 3](https://github.com/skoliver89/CS361-Lab3): RadixSort, BinSort, and DFA/NFA Simulator
+4. [Exercises](https://github.com/skoliver89/CS361-Exercises)
+
+### Information Assurance and Security (CS 363)
+
+1. TODO: ADD CODE TO REMOTE REPO(s).
+
+### Information Management (CS 364)
+1. [Lab 1](https://github.com/skoliver89/CS364-Lab1): Uses Cod2 DB
+2. [Lab 2](https://github.com/skoliver89/CS364-Lab2): Uses Cod2 DB
+3. [Lab 3](https://github.com/skoliver89/CS364-Lab3): Uses classicmodels DB
+4. [Lab 4](https://github.com/skoliver89/CS364-Lab4): Create a new DB from the ground up
+5. [Lab 5](https://github.com/skoliver89/CS364-Lab5): MySQL stored procedure - Uses classicmodels DB
+6. [Lab 6](https://github.com/skoliver89/CS364-Lab6): MySQL Lab containing the "winners" of the difficult query challenge
+7. [Contest](https://github.com/skoliver89/CS364-Contest): Difficult MySQL Query Contest
+8. [MYSQL DB Dumps](https://github.com/skoliver89/CS364-MYSQL_DB_Dumps): Dump files for databases used in the CS364 Class for Spring 2017
+
+### Operating Systems and Networking (CS 365)
+
+1. [Lab 1](https://github.com/skoliver89/CS365-Lab1): Using Fork() using C and linux
+2. [Lab 2](https://github.com/skoliver89/CS365-Lab2): System Calls and pipes using C and linux
 
 ### Software Engineering I (CS 460): Homework
 
