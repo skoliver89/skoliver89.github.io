@@ -50,7 +50,10 @@ Outside of school I am a US Air Force verteran of six years and am currently ser
 
 ### Information Assurance and Security (CS 363)
 
-1. TODO: ADD CODE TO REMOTE REPO(s).
+1. [Lab 1](https://github.com/skoliver89/CS-363-Lab-1): Questioner and Guesser - C
+2. [Lab 2](https://github.com/skoliver89/CS-363-Lab-2): Buffer OverFlow - x86 Assembly & C
+3. [Lab 3](https://github.com/skoliver89/CS-363-Lab-3): Password Cracking - John the Ripper
+4. [Lab 4](https://github.com/skoliver89/CS-363-Lab-4): Port Scanning - Various
 
 ### Information Management (CS 364)
 1. [Lab 1](https://github.com/skoliver89/CS364-Lab1): Uses Cod2 DB
