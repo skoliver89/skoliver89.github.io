@@ -4,8 +4,8 @@ layout: default
 ---
 ## Welcome to My Portfolio
 
-This GitHub pages domain is where I will be keeping my portfolio of assignments and projects for the CS classes at Western Oregon University. I will also be providing a detailed journal which will illustrate, in detail, the processes I take and code I write while completing the assignments for the CS 46X series (Senior Capstone).
-For a detailed view of the graduation requirements for CS Students at Western Oregon University, please click the following link: [WOU CS Program Requirements](https://www.wou.edu/cs/degrees-programs/babs-computer-science/)
+This GitHub pages domain is where I will be keeping my portfolio of assignments and projects for the CS classes at Western Oregon University. I will also be providing a detailed journal which will illustrate, in detail, the processes I take and code I write while completing the assignments for the CS 46X series (Senior Capstone). <br />
+For a detailed view of the graduation requirements for CS Students at Western Oregon University, please click the following link: [WOU CS Program Requirements](https://www.wou.edu/cs/degrees-programs/babs-computer-science/) <br />
 To view the full CS 46X course content please visit the CS46X course site as provided by Dr. Scot Morse [here](http://www.wou.edu/~morses/classes/cs46x/index.html).
 
 ### About Me
