@@ -12,12 +12,14 @@ To view the full CS 46X course content please visit the CS46X course site as pro
 
 I graduated from Western Oregon University's Computer Science Program Summa Cum Lade on 16 June 2018. During my course work I have learned about agile development methodologies, HTML/CSS/BootStrap, Javascript/jQuerry, C#, ASP.NET MVC5, Java, some C, and more. I participated in a group to develop a web-based AI application, Remi, and an individual project on Andriod; The 'listen' app is a native Android social media application which will connect to Spotify for users to share and discover music with friends.
 Outside of school I am a US Air Force verteran of six years and am currently serving with the Oregon Air National Guard. I like to cook for but only if the food isn't just for myself. My hobbies include: gaming, hiking, camping, skiing, and drooling over new parts for my PC.
-<br /><br />
+<br />
+<br />
 
 # ~~~ Personal Prjoects ~~~
 
 ## Hacker Rank
 1. Find my hacker rank work [here](https://www.hackerrank.com/soliver89)
+<br />
 <br />
 
 # ~~~ Western Oregon University Assignments and Projects ~~~
