@@ -7,12 +7,12 @@ layout: default
 This GitHub pages domain is where I will be keeping my portfolio of assignments, university projects for the CS classes at Western Oregon University, and personal projects. I will also be providing a detailed journal which will illustrate, in detail, the processes I take and code I write while completing the assignments for the CS 460 series (Senior Capstone). <br />
 For a detailed view of the graduation requirements for CS Students at Western Oregon University, please click the following link: [WOU CS Program Requirements](https://www.wou.edu/cs/degrees-programs/babs-computer-science/) <br />
 To view the full CS 46X course content please visit the CS46X course site as provided by Dr. Scot Morse [here](http://www.wou.edu/~morses/classes/cs46x/index.html).
-<br />
 
 ## About Me
 
 I graduated from Western Oregon University's Computer Science Program Summa Cum Lade on 16 June 2018. During my course work I have learned about agile development methodologies, HTML/CSS/BootStrap, Javascript/jQuerry, C#, ASP.NET MVC5, Java, some C, and more. I participated in a group to develop a web-based AI application, Remi, and an individual project on Andriod; The 'listen' app is a native Android social media application which will connect to Spotify for users to share and discover music with friends.
 Outside of school I am a US Air Force verteran of six years and am currently serving with the Oregon Air National Guard. I like to cook for but only if the food isn't just for myself. My hobbies include: gaming, hiking, camping, skiing, and drooling over new parts for my PC.
+<br /><br />
 
 # ~~~ Personal Prjoects ~~~
 
