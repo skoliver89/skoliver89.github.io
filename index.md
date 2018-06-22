@@ -16,7 +16,8 @@ Outside of school I am a US Air Force verteran of six years and am currently ser
 
 # ~~~ Personal Prjoects ~~~
 
-#### TBD
+## Hacker Rank
+1. Find my hacker rank work [here](https://www.hackerrank.com/soliver89)
 <br />
 
 # ~~~ Western Oregon University Assignments and Projects ~~~
