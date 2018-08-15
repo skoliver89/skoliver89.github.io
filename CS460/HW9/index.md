@@ -17,9 +17,6 @@ layout: default
 
 Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW9.html)
 
-## Link To Live Site
-[Art Vault (HW8/9) Azure Link](http://stephenolivercs460hw9.azurewebsites.net/)
-
 ## Step 1 - Create Azure SQL Server Database
 1. Log into Azure Portal and click on "SQL databases."
 2. Click "Add" in the top right 
