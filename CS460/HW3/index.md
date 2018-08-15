@@ -20,7 +20,7 @@ Upon inspecting the Java code and documentation I discovered that the Java code 
 Original Name: StackADT.java <br />
 Translated Name: IStack.cs <br />
 
-This fies is the interface for the methods used in the Linked Stack. The full name of the interface is IStackADT\<T\> using the namespace PostFixCalc. This interface defines the Linked Stack's method signatures and contains the xml comments for each of the aforementioned methods. The T attached to the interface name indicates that the Linked Stack uses generic typing.
+This file is the interface for the methods used in the Linked Stack. The full name of the interface is IStackADT\<T\> using the namespace PostFixCalc. This interface defines the Linked Stack's method signatures and contains the xml comments for each of the aforementioned methods. The T attached to the interface name indicates that the Linked Stack uses generic typing.
 Here is a code snippet of what IStack looks like:
 ```c#
 //...
@@ -66,14 +66,12 @@ All that is accomplished in this simple constructor is setting the variables of 
 As previously stated, C# is able to utilize properties. These properties allow for easy "getting" and "setting" of values held in a class. The following code snippet demonstrates how to write a property for the Node's data variable.
 ```c#
 /// <summary>
-/// Constructor for a new Node object
+/// Property for setting and getting (R/W) the data variable value
 /// </summary>
-/// <param name="data">The Payload</param>
-/// <param name="next">Reference to the next node</param>
-public Node(T data, Node<T> next)
+public T Data
 {
-    this.data = data;
-    this.next = next;
+    set { data = value; }
+    get { return data; }
 }
 ```
 This property is a read/write property, as is the property for the next variable. To make a property read-only simply ommit the set line.
