@@ -9,8 +9,6 @@ Specifically, students will: be able to write a MVC web application that uses a 
 
 Instructions for this assignment can be found [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW5.html).
 
-Live demo link: [here](http://stephenolivercs460hw5.azurewebsites.net/)
-
 ## Demonstration Video 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NIBuvX1QWkE" frameborder="0" allowfullscreen></iframe>
 
