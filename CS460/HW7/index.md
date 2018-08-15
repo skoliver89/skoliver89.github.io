@@ -27,8 +27,6 @@ layout: default
 Link to official HW requirements: [here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW7.html)
 
 ## Demonstrations
-Link to Live Demo: [here](http://stephenolivercs460hw7.azurewebsites.net/)
-<br />
 Guided video Demo:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_6Oisg4Rk_o" frameborder="0" gesture="media" allowfullscreen></iframe>
 
