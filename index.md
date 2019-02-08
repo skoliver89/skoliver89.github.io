@@ -28,6 +28,11 @@ Ever get tired of writing and re-writing your resume again and again? The resume
 1. [Bitbucket - My Fork](https://bitbucket.org/skoliver89/resumeapi/)
 2. Deployed Site (TBD)
 
+## Learning React
+I am learning to write ReactJS frontends for work and future personal projects to come.
+
+1. [Github Repo](https://github.com/skoliver89/React_Learning/)
+
 <br />
 <br />
 
