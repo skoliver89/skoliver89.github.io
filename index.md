@@ -21,10 +21,10 @@ Outside of school I am a US Air Force verteran of six years and am currently ser
 Codepen is where I dream up front-end ideas from React components to utilitarian JavaScript functions.
 1. Find my CodePen work [here](https://codepen.io/skoliver89)
 
-## Hacker Rank
+## HackerRank
 HackerRank is where I fiddle around with languages that are new to me and those I already know.
 
-1. Find my hacker rank work [here](https://www.hackerrank.com/soliver89)
+1. Find my HackerRank work [here](https://www.hackerrank.com/soliver89)
 
 ## Resume API - Team: Stephen Oliver & Devon Smith
 Ever get tired of writing and re-writing your resume again and again? The resume API is a way to house your education and professional resume information in full. Using this API you can customize the information which appears to the view quickly and easily. The API currently is planned to use Identiy from ASP.NET MVC 5 for web APIs to keep your information safe. Futher, the live database will make use of the security features provided to MS SQL servers by Microsoft's Azure services. The Resume API is a work in progress right now, but we hope to have it in production and usable soon!
