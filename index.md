@@ -18,7 +18,7 @@ Outside of school I am a US Air Force verteran of six years and am currently ser
 # ~~~ Personal Prjoects ~~~
 
 ## CodePen
-Codepen is where I dream up and test front-end ideas from React components to utilitarian JavaScript functions.
+Codepen is where I dream up front-end ideas from React components to utilitarian JavaScript functions.
 1. Find my CodePen work [here](https://codepen.io/skoliver89)
 
 ## Hacker Rank
