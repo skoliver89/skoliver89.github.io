@@ -10,8 +10,14 @@ To view the full CS 46X course content please visit the CS46X course site as pro
 
 ## About Me
 
+My current position is as a Software Engineer at Sunstone Circuits where I have gained expierience in maintaining and upgrading existing legacy code/systems and creating new customer facing applications and internal tools. The technologies that I have professional experience in are: Visual Basic, C#, JavaScript, HTML, CSS, SQL Server, ASP.NET, .NET Core, Git, SVN, and IIS. I have experience working with numerous CMS front and backends including headless CMS and traditional CMS. Also, I have experience working with an ERP system and thrid party product price management system and integrating these systems together with both customer facing application and internal tools. 
+
+I am a military veteran having served for 6 years in the active duty Air Force and 6 years in the Oregon Air National Guard.
+
+I like to cook for but only if the food isn't just for myself. My hobbies include: gaming, hiking, camping, skiing, and drooling over new parts for my PC.
+
 I graduated from Western Oregon University's Computer Science Program Summa Cum Lade on 16 June 2018. During my course work I have learned about agile development methodologies, HTML/CSS/BootStrap, Javascript/jQuerry, C#, ASP.NET MVC5, Java, some C, and more. I participated in a group to develop a web-based AI application, Remi, and an individual project on Andriod; The 'listen' app is a native Android social media application which will connect to Spotify for users to share and discover music with friends.
-Outside of school I am a US Air Force verteran of six years and am currently serving with the Oregon Air National Guard. I like to cook for but only if the food isn't just for myself. My hobbies include: gaming, hiking, camping, skiing, and drooling over new parts for my PC.
+
 <br />
 <br />
 
@@ -47,7 +53,7 @@ Remi is a conversational AI which you can personalize. She allows the user to na
 
 1. [Team Bitbucket](https://bitbucket.org/devonsmith/senior-project)
 2. [My Fork](https://bitbucket.org/skoliver89/senior-project)
-3. [Remi URL](https://remi-ai.azurewebsites.net/)
+3. ~~[Remi URL](#)~~ No longer live.
 
 
 ## Software Engineering II/III (CS 461/2): Capstone Individual Project - listen
