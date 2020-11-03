@@ -10,7 +10,7 @@ To view the full CS 46X course content please visit the CS46X course site as pro
 
 ## About Me
 
-My current position is as a Software Engineer at Sunstone Circuits where I have gained expierience in maintaining and upgrading existing legacy code/systems and creating new customer facing applications and internal tools. The technologies that I have professional experience in are: Visual Basic, C#, JavaScript, HTML, CSS, SQL Server, ASP.NET, .NET Core, Git, SVN, and IIS. I have experience working with numerous CMS front and backends including headless CMS and traditional CMS. Also, I have experience working with an ERP system and thrid party product price management system and integrating these systems together with both customer facing application and internal tools. 
+My current position is as a Software Engineer at Sunstone Circuits where I have gained expierience in maintaining and upgrading existing legacy code/systems and creating new customer facing applications and internal tools. The technologies that I have professional experience in are: Visual Basic, C#, JavaScript, ReactJS, HTML, CSS, SQL Server, ASP.NET, .NET Core, Git, SVN, and IIS. I have experience working with numerous CMS front and backends including headless CMS and traditional CMS. Also, I have experience working with an ERP system and thrid party product price management system and integrating these systems together with both customer facing application and internal tools. 
 
 I am a military veteran having served for 6 years in the active duty Air Force and 6 years in the Oregon Air National Guard.
 
